@@ -4,6 +4,7 @@ import { getRouteById, routes } from "@/data/routes";
 import Header from "@/components/layout/Header";
 import TrailHero from "@/components/trail/TrailHero";
 import TrailInfo from "@/components/trail/TrailInfo";
+import GearPlanner from "@/components/gear/GearPlanner";
 
 interface RoutePageProps {
   params: Promise<{
@@ -60,12 +61,7 @@ export default async function RoutePage({ params }: RoutePageProps) {
           </div>
 
           <div className="lg:col-span-1">
-            <div className="bg-background-gray rounded-xl p-6">
-              <h3 className="font-bold text-gray-900 mb-4">装备推荐</h3>
-              <p className="text-gray-500 text-sm">
-                选择出发日期后，系统将根据线路条件和天气预报为您生成个性化装备清单。
-              </p>
-            </div>
+            <GearPlanner route={route} selectedStyle={defaultStyle} />
           </div>
         </div>
       </main>
