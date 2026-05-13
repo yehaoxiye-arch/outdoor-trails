@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-chinese: var(--font-noto-sans-sc);
+  /* Primary Color - Forest Green */
+  --color-primary-500: #16A34A;
+  --color-primary-600: #15803D;
+  --color-primary-100: #DCFCE7;
+  /* Outdoor/Adventure Color Palette */
+  --color-earth-900: #1a1208;
+  --color-earth-800: #2d2010;
+  --color-earth-700: #4a3520;
+  --color-earth-600: #6b4f30;
+  --color-earth-500: #8b6914;
+  --color-earth-400: #b8962d;
+  --color-earth-300: #d4b85a;
+  --color-earth-200: #e8d5a0;
+  --color-earth-100: #f5ecd0;
+  --color-earth-50: #faf6e8;
+
+  --color-forest-900: #0a1f0a;
+  --color-forest-800: #1a3a1a;
+  --color-forest-700: #2d5a2d;
+  --color-forest-600: #3d7a3d;
+  --color-forest-500: #4a9a4a;
+  --color-forest-400: #6db86d;
+  --color-forest-300: #8fd08f;
+  --color-forest-200: #b5e0b5;
+  --color-forest-100: #d8f0d8;
+  --color-forest-50: #ecf8ec;
+
+  --color-sky-900: #0a1929;
+  --color-sky-800: #1a3a5c;
+  --color-sky-700: #2d5a8a;
+  --color-sky-600: #3d7ab8;
+  --color-sky-500: #4a9ad6;
+  --color-sky-400: #6db8e8;
+  --color-sky-300: #8fd0f0;
+  --color-sky-200: #b5e0f5;
+  --color-sky-100: #d8f0fa;
+  --color-sky-50: #ecf8fd;
+
+  --color-stone-900: #1c1917;
+  --color-stone-800: #292524;
+  --color-stone-700: #44403c;
+  --color-stone-600: #57534e;
+  --color-stone-500: #78716c;
+  --color-stone-400: #a8a29e;
+  --color-stone-300: #d6d3d1;
+  --color-stone-200: #e7e5e4;
+  --color-stone-100: #f5f5f4;
+  --color-stone-50: #fafaf9;
+
+  /* Design System Colors */
+  --color-background: #FFFFFF;
+  --color-background-gray: #F8FAFC;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6B7280;
+  --color-border: #E5E7EB;
+
+  /* Difficulty Colors */
+  --color-difficulty-easy: #22C55E;
+  --color-difficulty-easy-bg: #F0FDF4;
+  --color-difficulty-medium: #EAB308;
+  --color-difficulty-medium-bg: #FEFCE8;
+  --color-difficulty-hard: #EF4444;
+  --color-difficulty-hard-bg: #FEF2F2;
+  --color-difficulty-expert: #7C3AED;
+  --color-difficulty-expert-bg: #F5F3FF;
+
+  /* Priority Colors */
+  --color-priority-required: #DC2626;
+  --color-priority-required-bg: #FEF2F2;
+  --color-priority-recommended: #A16207;
+  --color-priority-recommended-bg: #FEFCE8;
+  --color-priority-optional: #15803D;
+  --color-priority-optional-bg: #F0FDF4;
+
+  /* Tag Colors (for recommendation reasons) */
+  --color-tag-weather: #3B82F6;
+  --color-tag-weather-bg: #EFF6FF;
+  --color-tag-terrain: #22C55E;
+  --color-tag-terrain-bg: #F0FDF4;
+  --color-tag-route: #F59E0B;
+  --color-tag-route-bg: #FFFBEB;
+  --color-tag-style: #8B5CF6;
+  --color-tag-style-bg: #F5F3FF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #0a0a0a;
+  color: #fff;
+  font-family: var(--font-inter), var(--font-noto-sans-sc), "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+::selection {
+  background: rgba(22, 163, 74, 0.3);
+  color: #fff;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
