@@ -1,52 +1,42 @@
-import { Equipment } from "@/data/equipment";
+import { Product } from "@/types/product";
 
 interface EquipmentListProps {
-  equipment: Equipment[];
+  products: Product[];
 }
 
-export default function EquipmentList({ equipment }: EquipmentListProps) {
-  const essential = equipment.filter((e) => e.essential);
-  const optional = equipment.filter((e) => !e.essential);
+export default function EquipmentList({ products }: EquipmentListProps) {
+  if (products.length === 0) {
+    return (
+      <div className="bg-white rounded-xl p-6 shadow-sm">
+        <h3 className="font-bold mb-4">装备推荐</h3>
+        <p className="text-gray-500 text-sm">
+          选择出发日期后，系统将根据线路条件和天气预报为您生成个性化装备清单。
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-white rounded-xl p-6 shadow-sm">
-      <h3 className="font-bold mb-4">装备建议</h3>
-      {essential.length > 0 && (
-        <div className="mb-4">
-          <h4 className="text-sm font-medium text-gray-500 mb-2">必备装备</h4>
-          <ul className="space-y-2">
-            {essential.map((item) => (
-              <li key={item.id} className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                <div>
-                  <span className="text-gray-900 font-medium">{item.name}</span>
-                  <p className="text-gray-500 text-sm">{item.description}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      {optional.length > 0 && (
-        <div>
-          <h4 className="text-sm font-medium text-gray-500 mb-2">可选装备</h4>
-          <ul className="space-y-2">
-            {optional.map((item) => (
-              <li key={item.id} className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
-                <div>
-                  <span className="text-gray-900">{item.name}</span>
-                  <p className="text-gray-500 text-sm">{item.description}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <h3 className="font-bold mb-4">装备推荐</h3>
+      <div className="space-y-4">
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            <div className="w-12 h-12 bg-gray-100 rounded-lg flex-shrink-0" />
+            <div className="flex-1 min-w-0">
+              <p className="font-medium text-gray-900 truncate">
+                {product.brand} {product.name}
+              </p>
+              <p className="text-sm text-gray-500 truncate">
+                {product.scenarios.join(" · ")}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

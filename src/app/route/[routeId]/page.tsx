@@ -2,8 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 import { getRouteById, routes } from "@/data/routes";
-import { getEquipmentByDifficulty } from "@/data/equipment";
-import EquipmentList from "@/components/EquipmentList";
 import WeatherWidget from "@/components/WeatherWidget";
 
 interface RoutePageProps {
@@ -33,7 +31,6 @@ export async function generateMetadata({ params }: RoutePageProps): Promise<Meta
 export default async function RoutePage({ params }: RoutePageProps) {
   const { routeId } = await params;
   const route = getRouteById(routeId);
-  const equipment = route ? getEquipmentByDifficulty(route.difficulty) : [];
 
   if (!route) {
     return (
@@ -308,8 +305,13 @@ export default async function RoutePage({ params }: RoutePageProps) {
             {/* Weather Widget */}
             <WeatherWidget province={route.province} />
 
-            {/* Equipment Recommendations */}
-            <EquipmentList equipment={equipment} />
+            {/* Equipment Recommendations - Placeholder */}
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="font-bold mb-4">装备推荐</h3>
+              <p className="text-gray-500 text-sm">
+                选择出发日期后，系统将根据线路条件和天气预报为您生成个性化装备清单。
+              </p>
+            </div>
           </div>
         </div>
       </main>
