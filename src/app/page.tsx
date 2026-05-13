@@ -12,7 +12,7 @@ export default function HomePage() {
         <div className="relative z-10 flex flex-col h-full">
           <Header transparent />
 
-          <div className="flex-1 flex flex-col items-center justify-end pb-8">
+          <div className="flex-1 flex flex-col items-center justify-center">
             <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight drop-shadow-lg mb-2">
               径迹
             </h1>
