@@ -16,32 +16,15 @@ const notoSansSC = Noto_Sans_SC({
 });
 
 export const metadata: Metadata = {
-  title: "径迹 - 探索中国最美户外线路",
-  description:
-    "发现中国经典户外徒步路线，获取专业装备推荐和实时天气信息。从西藏冈仁波齐到云南虎跳峡，开启你的户外探险之旅。",
-  keywords: [
-    "户外徒步",
-    "登山",
-    "探险",
-    "中国线路",
-    "装备推荐",
-    "天气查询",
-  ],
-  authors: [{ name: "径迹" }],
-  openGraph: {
-    title: "径迹 - 探索中国最美户外线路",
-    description:
-      "发现中国经典户外徒步路线，获取专业装备推荐和实时天气信息。",
-    type: "website",
-    locale: "zh_CN",
-  },
+  title: "径迹 - 户外徒步装备智能推荐",
+  description: "根据线路条件和天气预报，为户外徒步者提供专业装备推荐",
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#0a0a0a",
+  themeColor: "#16A34A",
 };
 
 export default function RootLayout({
@@ -51,10 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" className={`${inter.variable} ${notoSansSC.variable} h-full`}>
-      <head>
-        <link rel="preconnect" href="https://images.unsplash.com" />
-      </head>
-      <body className="min-h-full font-sans antialiased">{children}</body>
+      <body className="min-h-full font-sans antialiased bg-white text-gray-900">
+        {children}
+      </body>
     </html>
   );
 }
