@@ -30,7 +30,7 @@ export default function HeroCarousel() {
   }, []);
 
   return (
-    <div className="relative w-full aspect-[16/9] overflow-hidden">
+    <div className="absolute inset-0">
       {heroImages.map((image, index) => (
         <div
           key={index}
@@ -48,7 +48,7 @@ export default function HeroCarousel() {
           />
         </div>
       ))}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-black/35" />
     </div>
   );
 }
