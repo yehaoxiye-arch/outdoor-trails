@@ -4,7 +4,7 @@ import Header from "@/components/layout/Header";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background-warm">
       {/* Hero: image background + header + title overlay */}
       <section className="relative h-[45vh]">
         <HeroCarousel />
