@@ -9,17 +9,19 @@ export default function HomePage() {
       <section className="relative h-[45vh]">
         <HeroCarousel />
 
-        <div className="relative z-10 flex flex-col h-full">
+        {/* Header pinned to top of hero */}
+        <div className="absolute top-0 left-0 right-0 z-20">
           <Header transparent />
+        </div>
 
-          <div className="flex-1 flex flex-col items-center justify-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight drop-shadow-lg mb-2">
-              径迹
-            </h1>
-            <p className="text-sm md:text-base text-white/70 font-light tracking-widest drop-shadow-md">
-              智能装备推荐 · 让每一次出发都从容
-            </p>
-          </div>
+        {/* Title centered in hero */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
+          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight drop-shadow-lg mb-2">
+            径迹
+          </h1>
+          <p className="text-sm md:text-base text-white/70 font-light tracking-widest drop-shadow-md">
+            智能装备推荐 · 让每一次出发都从容
+          </p>
         </div>
       </section>
 

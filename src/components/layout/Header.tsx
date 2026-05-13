@@ -8,11 +8,11 @@ interface HeaderProps {
 export default function Header({ showBack = false, transparent = false }: HeaderProps) {
   return (
     <header
-      className={`relative z-20 ${
+      className={
         transparent
           ? "bg-transparent"
           : "fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
-      }`}
+      }
     >
       <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-between">
         {showBack ? (
