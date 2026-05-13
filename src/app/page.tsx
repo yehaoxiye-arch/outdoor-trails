@@ -7,12 +7,12 @@ export default function HomePage() {
     <div className="min-h-screen bg-white">
       <Header />
 
-      <main className="max-w-6xl mx-auto px-6 pt-8 pb-20">
-        {/* Hero Carousel */}
-        <section className="mb-16">
-          <HeroCarousel />
-        </section>
+      {/* Hero Carousel — full width */}
+      <section className="w-full">
+        <HeroCarousel />
+      </section>
 
+      <main className="max-w-6xl mx-auto px-6 pt-16 pb-20">
         {/* Title & Search */}
         <section className="text-center mb-20">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-4">

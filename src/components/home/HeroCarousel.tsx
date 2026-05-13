@@ -30,7 +30,7 @@ export default function HeroCarousel() {
   }, []);
 
   return (
-    <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden">
+    <div className="relative w-full aspect-[16/9] overflow-hidden">
       {heroImages.map((image, index) => (
         <div
           key={index}
