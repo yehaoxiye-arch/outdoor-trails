@@ -5,12 +5,12 @@ import Image from "next/image";
 
 const heroImages = [
   {
-    src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80",
-    alt: "山峰",
+    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80",
+    alt: "山脉全景",
   },
   {
-    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80",
-    alt: "峡谷",
+    src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80",
+    alt: "山峰",
   },
   {
     src: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1920&q=80",
@@ -30,7 +30,7 @@ export default function HeroCarousel() {
   }, []);
 
   return (
-    <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden">
+    <div className="relative w-full h-full overflow-hidden">
       {heroImages.map((image, index) => (
         <div
           key={index}
@@ -42,13 +42,12 @@ export default function HeroCarousel() {
             src={image.src}
             alt={image.alt}
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority={index === 0}
             sizes="100vw"
           />
         </div>
       ))}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
     </div>
   );
 }
