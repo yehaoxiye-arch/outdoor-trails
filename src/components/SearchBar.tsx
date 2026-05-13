@@ -2,7 +2,8 @@
 
 import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { Route, getProvinces } from "@/data/routes";
+import { getProvinces } from "@/data/routes";
+import { Route } from "@/types/route";
 
 interface SearchBarProps {
   routes: Route[];

@@ -3,7 +3,8 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Route, getProvinces } from "@/data/routes";
+import { getProvinces } from "@/data/routes";
+import { Route } from "@/types/route";
 
 interface CarouselProps {
   routes: Route[];
@@ -31,7 +32,7 @@ export default function Carousel({ routes }: CarouselProps) {
         route.name.toLowerCase().includes(query) ||
         route.province.toLowerCase().includes(query) ||
         route.location.toLowerCase().includes(query) ||
-        route.description.toLowerCase().includes(query)
+        route.styles[0]?.description.toLowerCase().includes(query)
     );
 
     return { provinces, routes: matchedRoutes };
@@ -94,8 +95,7 @@ export default function Carousel({ routes }: CarouselProps) {
     <div className="relative h-screen w-full overflow-hidden">
       {/* Background with smooth color transition */}
       <div
-        className="absolute inset-0 transition-colors duration-[2500ms] ease-in-out"
-        style={{ backgroundColor: currentRoute.bgColor }}
+        className="absolute inset-0 transition-colors duration-[2500ms] ease-in-out bg-gray-900"
       />
 
       {/* Images with crossfade */}

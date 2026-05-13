@@ -1,12 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Route } from "@/data/routes";
+import { Route } from "@/types/route";
 
 interface RouteCardProps {
   route: Route;
 }
 
 export default function RouteCard({ route }: RouteCardProps) {
+  const defaultStyle = route.styles[0];
+
   return (
     <Link
       href={`/route/${route.id}`}
@@ -23,14 +25,14 @@ export default function RouteCard({ route }: RouteCardProps) {
         <div className="absolute top-3 left-3">
           <span
             className={`px-3 py-1 rounded-full text-xs font-medium ${
-              route.difficulty === "简单"
+              defaultStyle?.difficulty === "简单"
                 ? "bg-green-100 text-green-800"
-                : route.difficulty === "中等"
+                : defaultStyle?.difficulty === "中等"
                 ? "bg-yellow-100 text-yellow-800"
                 : "bg-red-100 text-red-800"
             }`}
           >
-            {route.difficulty}
+            {defaultStyle?.difficulty}
           </span>
         </div>
       </div>
@@ -46,19 +48,19 @@ export default function RouteCard({ route }: RouteCardProps) {
             <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
             </svg>
-            <span>{route.altitude}</span>
+            <span>{defaultStyle?.altitude}</span>
           </div>
           <div className="flex items-center gap-1">
             <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span>{route.duration}</span>
+            <span>{defaultStyle?.duration}</span>
           </div>
           <div className="flex items-center gap-1">
             <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
             </svg>
-            <span>{route.distance}</span>
+            <span>{defaultStyle?.distance}</span>
           </div>
         </div>
       </div>

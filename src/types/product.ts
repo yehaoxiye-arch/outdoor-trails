@@ -56,12 +56,25 @@ export interface SleepingSpecs {
   packedSize: string; // 压缩尺寸
 }
 
+export interface NavigationSpecs {
+  type: string;
+  weight: number;
+  batteryLife?: string;
+}
+
+export interface SafetySpecs {
+  type: string;
+  weight: number;
+}
+
 export type ProductSpecs =
   | FootwearSpecs
   | ClothingSpecs
   | ProtectionSpecs
   | BackpackSpecs
-  | SleepingSpecs;
+  | SleepingSpecs
+  | NavigationSpecs
+  | SafetySpecs;
 
 export interface Product {
   id: string;
