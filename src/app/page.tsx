@@ -15,7 +15,7 @@ export default function HomePage() {
         </div>
 
         {/* Title centered in hero */}
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-end pb-10">
           <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight drop-shadow-lg mb-2">
             径迹
           </h1>
