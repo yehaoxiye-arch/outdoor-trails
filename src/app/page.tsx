@@ -4,23 +4,28 @@ import Header from "@/components/layout/Header";
 
 export default function HomePage() {
   return (
-    <div className="h-screen bg-white overflow-hidden">
-      <Header />
-
-      {/* Hero Carousel — full width, 25vh */}
-      <section className="w-full h-[25vh]">
+    <div className="min-h-screen bg-white">
+      {/* Hero: image background + header + title overlay */}
+      <section className="relative h-[45vh]">
         <HeroCarousel />
+
+        <div className="relative z-10 flex flex-col h-full">
+          <Header transparent />
+
+          <div className="flex-1 flex flex-col items-center justify-end pb-8">
+            <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight drop-shadow-lg mb-2">
+              径迹
+            </h1>
+            <p className="text-sm md:text-base text-white/70 font-light tracking-widest drop-shadow-md">
+              智能装备推荐 · 让每一次出发都从容
+            </p>
+          </div>
+        </div>
       </section>
 
-      <main className="max-w-5xl mx-auto px-6 pt-10">
-        {/* Title & Search */}
-        <section className="text-center mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-3">
-            径迹
-          </h1>
-          <p className="text-base md:text-lg text-gray-400 font-light tracking-wide mb-8">
-            智能装备推荐 · 让每一次出发都从容
-          </p>
+      <main className="max-w-5xl mx-auto px-6 pt-10 pb-16">
+        {/* Search */}
+        <section className="text-center mb-12">
           <div className="flex justify-center">
             <SearchBar />
           </div>
