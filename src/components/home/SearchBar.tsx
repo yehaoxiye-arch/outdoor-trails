@@ -41,7 +41,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div ref={containerRef} className="relative w-full max-w-[560px] mx-auto">
+    <div ref={containerRef} className="relative w-full max-w-[640px] mx-auto">
       <SearchInput
         placeholder="搜索线路名称、地区..."
         value={query}

@@ -10,7 +10,7 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
       <div className="relative">
         {icon && (
           <svg
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+            className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -27,8 +27,8 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
           ref={ref}
           type="text"
           className={`w-full ${
-            icon ? "pl-12 pr-4" : "px-4"
-          } py-4 text-base text-gray-900 placeholder-gray-500 bg-white rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-500 ${className}`}
+            icon ? "pl-14 pr-5" : "px-5"
+          } py-4 text-lg text-gray-900 placeholder-gray-500 bg-white rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-500 ${className}`}
           {...props}
         />
       </div>

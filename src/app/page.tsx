@@ -25,16 +25,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <main className="max-w-5xl mx-auto px-6 pt-10 pb-16">
+      <main className="max-w-5xl mx-auto px-6 pt-10 pb-12 flex flex-col" style={{ minHeight: "calc(55vh - 48px)" }}>
         {/* Search */}
-        <section className="text-center mb-12">
+        <section className="text-center mb-auto pt-4">
           <div className="flex justify-center">
             <SearchBar />
           </div>
         </section>
 
-        {/* Features */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-3xl mx-auto">
+        {/* Features — pushed to bottom */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-3xl mx-auto pt-12">
           <div className="text-center">
             <div className="w-11 h-11 mx-auto mb-3 rounded-full bg-primary-100 flex items-center justify-center">
               <svg className="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
