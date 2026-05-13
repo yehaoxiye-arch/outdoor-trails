@@ -49,10 +49,11 @@
   --color-tag-style-bg: #F5F3FF;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  * {
+    padding: 0;
+    box-sizing: border-box;
+  }
 }
 
 html, body {
