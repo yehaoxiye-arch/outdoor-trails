@@ -6,7 +6,7 @@ interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   variant?: "difficulty" | "priority";
   value?: string;
   difficulty?: Difficulty;
-  priority?: "required" | "recommended" | "optional";
+  priority?: "critical" | "required" | "recommended" | "optional";
 }
 
 export default function Badge({
@@ -25,12 +25,14 @@ export default function Badge({
   };
 
   const priorityColors = {
+    critical: "bg-red-100 text-red-700",
     required: "bg-priority-required-bg text-priority-required",
     recommended: "bg-priority-recommended-bg text-priority-recommended",
     optional: "bg-priority-optional-bg text-priority-optional",
   };
 
   const priorityLabels = {
+    critical: "关键",
     required: "必备",
     recommended: "推荐",
     optional: "可选",

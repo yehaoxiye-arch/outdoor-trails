@@ -1,4 +1,4 @@
-import { Product, Recommendation, ReasonTag, GearRecommendation, ProductCategory } from "@/types/product";
+import { Product, Recommendation, ReasonTag, GearRecommendation, ProductCategory, FootwearSpecs, ClothingSpecs, BackpackSpecs, SleepingSpecs, TentSpecs, TrekkingPoleSpecs, CookingSpecs, LightingSpecs, HydrationSpecs } from "@/types/product";
 import { DayForecast } from "@/types/weather";
 import { Route, RouteStyleData } from "@/types/route";
 import { products, productCategories } from "@/data/products";
@@ -44,6 +44,146 @@ function hasSnow(forecasts: DayForecast[]): boolean {
 
 function getMaxWindSpeed(forecasts: DayForecast[]): number {
   return Math.max(...forecasts.map((f) => f.windSpeed));
+}
+
+// 按重量升序排序（轻量化优先）
+function sortByWeight(products: Product[]): Product[] {
+  return [...products].sort((a, b) => {
+    const wa = (a.specs as any).weight || 0;
+    const wb = (b.specs as any).weight || 0;
+    return wa - wb;
+  });
+}
+
+// 智能选择产品：根据上下文筛选最合适的
+function selectBestProduct(categoryProducts: Product[], context: RecommendationContext, category: ProductCategory): Product | undefined {
+  if (categoryProducts.length === 0) return undefined;
+
+  const { style, forecasts } = context;
+  const duration = parseDuration(style.duration);
+  const minTemp = getMinTemp(forecasts);
+  const maxTemp = getMaxTemp(forecasts);
+  const maxPrecip = getMaxPrecipitation(forecasts);
+  const altitude = parseAltitude(style.altitude);
+
+  // 根据品类特性筛选
+  switch (category) {
+    case "footwear": {
+      // 按温度范围筛选
+      let suitable = categoryProducts.filter((p) => {
+        const specs = p.specs as FootwearSpecs;
+        return specs.temperatureRange.min <= minTemp && specs.temperatureRange.max >= maxTemp;
+      });
+      // 困难线路优先高帮鞋（护踝支撑）
+      if (style.difficulty === "困难" || style.difficulty === "极难") {
+        const highAnkle = suitable.filter((p) => (p.specs as FootwearSpecs).ankleSupport === "high");
+        if (highAnkle.length > 0) suitable = highAnkle;
+      }
+      // 根据降水概率决定是否优先防水
+      const needWaterproof = maxPrecip > 40;
+      if (needWaterproof) {
+        const waterproof = sortByWeight(suitable.filter((p) => (p.specs as FootwearSpecs).waterproof));
+        return waterproof[0] || sortByWeight(suitable)[0] || sortByWeight(categoryProducts)[0];
+      } else {
+        // 天气良好时优先选择轻量鞋（非防水）
+        const lightweight = sortByWeight(suitable.filter((p) => !(p.specs as FootwearSpecs).waterproof));
+        return lightweight[0] || sortByWeight(suitable)[0] || sortByWeight(categoryProducts)[0];
+      }
+    }
+
+    case "outer-layer":
+    case "mid-layer":
+    case "base-layer": {
+      // 按温度范围筛选，按重量排序
+      const suitable = sortByWeight(categoryProducts.filter((p) => {
+        const specs = p.specs as ClothingSpecs;
+        return specs.temperatureRange.min <= minTemp && specs.temperatureRange.max >= maxTemp;
+      }));
+      return suitable[0] || sortByWeight(categoryProducts)[0];
+    }
+
+    case "backpack": {
+      // 按行程时长选择容量，按容量接近度排序
+      const targetVolume = duration <= 1 ? 20 : duration <= 3 ? 40 : 60;
+      const suitable = categoryProducts.filter((p) => {
+        const specs = p.specs as BackpackSpecs;
+        return Math.abs(specs.volume - targetVolume) < 15;
+      });
+      // 按容量接近度排序，再按重量排序
+      suitable.sort((a, b) => {
+        const da = Math.abs((a.specs as BackpackSpecs).volume - targetVolume);
+        const db = Math.abs((b.specs as BackpackSpecs).volume - targetVolume);
+        if (da !== db) return da - db;
+        return ((a.specs as any).weight || 0) - ((b.specs as any).weight || 0);
+      });
+      return suitable[0] || sortByWeight(categoryProducts)[0];
+    }
+
+    case "tent": {
+      // 按季节性筛选，按重量排序
+      const need4Season = minTemp < 0 || altitude > 3500;
+      const suitable = sortByWeight(categoryProducts.filter((p) => {
+        const specs = p.specs as TentSpecs;
+        return need4Season ? specs.seasonRating === "4-season" : true;
+      }));
+      return suitable[0] || sortByWeight(categoryProducts)[0];
+    }
+
+    case "sleeping": {
+      // 按温标筛选，按重量排序
+      const suitable = sortByWeight(categoryProducts.filter((p) => {
+        const specs = p.specs as SleepingSpecs;
+        return specs.temperatureRating <= minTemp;
+      }));
+      return suitable.length > 0 ? suitable[0] : sortByWeight(categoryProducts)[0];
+    }
+
+    case "trekking-poles": {
+      // 高海拔或困难线路优先选择碳纤维（轻量）
+      const preferCarbon = altitude > 3000 || style.difficulty === "困难";
+      if (preferCarbon) {
+        const carbon = sortByWeight(categoryProducts.filter((p) => (p.specs as TrekkingPoleSpecs).material.includes("碳")));
+        if (carbon.length > 0) return carbon[0];
+      }
+      return sortByWeight(categoryProducts)[0];
+    }
+
+    case "cooking": {
+      // 重装选完整套装，轻装选简易炉头
+      if (style.name === "重装露营") {
+        const system = sortByWeight(categoryProducts.filter((p) => (p.specs as CookingSpecs).type === "system"));
+        return system[0] || sortByWeight(categoryProducts)[0];
+      }
+      const stove = sortByWeight(categoryProducts.filter((p) => (p.specs as CookingSpecs).type === "stove"));
+      return stove[0] || sortByWeight(categoryProducts)[0];
+    }
+
+    case "lighting": {
+      // 越野跑/轻量优先超轻头灯
+      if (style.name === "越野跑") {
+        const ultralight = sortByWeight(categoryProducts.filter((p) => (p.specs as LightingSpecs).weight < 50));
+        return ultralight[0] || sortByWeight(categoryProducts)[0];
+      }
+      return sortByWeight(categoryProducts)[0];
+    }
+
+    case "emergency": {
+      return sortByWeight(categoryProducts)[0];
+    }
+
+    case "hydration": {
+      // 越野跑选软水壶，其余选水袋
+      if (style.name === "越野跑") {
+        const flask = sortByWeight(categoryProducts.filter((p) => (p.specs as HydrationSpecs).type === "bottle"));
+        return flask[0] || sortByWeight(categoryProducts)[0];
+      }
+      const bladder = sortByWeight(categoryProducts.filter((p) => (p.specs as HydrationSpecs).type === "bladder"));
+      return bladder[0] || sortByWeight(categoryProducts)[0];
+    }
+
+    default:
+      return sortByWeight(categoryProducts)[0];
+  }
 }
 
 function generateReasonTags(context: RecommendationContext, rule: any): ReasonTag[] {
@@ -108,62 +248,107 @@ export function generateRecommendations(context: RecommendationContext): GearRec
 
     let matches = true;
 
-    for (const condition of rule.conditions) {
-      let value: any;
+    // 空条件数组 = 无条件匹配（所有户外活动）
+    if (rule.conditions.length > 0) {
+      for (const condition of rule.conditions) {
+        let value: any;
 
-      switch (condition.field) {
-        case "duration":
-          value = style.duration;
-          break;
-        case "distance":
-          value = distance;
-          break;
-        case "altitude":
-          value = altitude;
-          break;
-        case "difficulty":
-          value = style.difficulty;
-          break;
-        case "tempLow":
-          value = minTemp;
-          break;
-        case "tempHigh":
-          value = maxTemp;
-          break;
-        case "precipitation":
-          value = maxPrecip;
-          break;
-        case "style":
-          value = style.name;
-          break;
-        default:
-          value = null;
+        switch (condition.field) {
+          case "duration":
+            value = parseDuration(style.duration);
+            break;
+          case "distance":
+            value = distance;
+            break;
+          case "altitude":
+            value = altitude;
+            break;
+          case "difficulty":
+            value = style.difficulty;
+            break;
+          case "tempLow":
+            value = minTemp;
+            break;
+          case "tempHigh":
+            value = maxTemp;
+            break;
+          case "precipitation":
+            value = maxPrecip;
+            break;
+          case "precipitationType":
+            value = forecasts.some((f) => f.precipitationType === "snow") ? "snow" : forecasts.some((f) => f.precipitationType === "sleet") ? "sleet" : forecasts.some((f) => f.precipitationType === "rain") ? "rain" : "none";
+            break;
+          case "weatherCondition":
+            value = forecasts.map((f) => f.condition).join(",");
+            break;
+          case "style":
+            value = style.name;
+            break;
+          case "hasSnow":
+            value = hasSnow(forecasts);
+            break;
+          case "windSpeed":
+            value = getMaxWindSpeed(forecasts);
+            break;
+          case "terrain":
+            value = route.mountainRange || "";
+            break;
+          default:
+            value = null;
+        }
+
+        switch (condition.operator) {
+          case "gt":
+            if (!(value > condition.value)) matches = false;
+            break;
+          case "lt":
+            if (!(value < condition.value)) matches = false;
+            break;
+          case "eq":
+            if (typeof value === "number" && typeof condition.value === "string") {
+              const parsed = parseFloat(condition.value);
+              if (!isNaN(parsed) && value !== parsed) matches = false;
+              else if (isNaN(parsed) && String(value) !== condition.value) matches = false;
+            } else if (value !== condition.value) {
+              matches = false;
+            }
+            break;
+          case "contains":
+            if (!String(value).includes(condition.value)) matches = false;
+            break;
+        }
+
+        if (!matches) break;
       }
-
-      switch (condition.operator) {
-        case "gt":
-          if (!(value > condition.value)) matches = false;
-          break;
-        case "lt":
-          if (!(value < condition.value)) matches = false;
-          break;
-        case "eq":
-          if (value !== condition.value) matches = false;
-          break;
-        case "contains":
-          if (!String(value).includes(condition.value)) matches = false;
-          break;
-      }
-
-      if (!matches) break;
     }
 
     if (matches) {
       processedCategories.add(rule.category);
 
       const categoryProducts = products.filter((p) => p.category === rule.category);
-      const primaryProduct = categoryProducts[0];
-      const alternativeProducts = categoryProducts.slice(1, 3);
+      const primaryProduct = selectBestProduct(categoryProducts, context, rule.category);
+
+      // 选择替代品：优先不同品牌，按重量排序，取3个
+      const alternatives = categoryProducts
+        .filter((p) => p.id !== primaryProduct?.id)
+        .sort((a, b) => ((a.specs as any).weight || 0) - ((b.specs as any).weight || 0));
+      const alternativeProducts: Product[] = [];
+      const usedBrands = new Set<string>(primaryProduct ? [primaryProduct.brand] : []);
+      // 第一轮：不同品牌
+      for (const p of alternatives) {
+        if (alternativeProducts.length >= 3) break;
+        if (!usedBrands.has(p.brand)) {
+          alternativeProducts.push(p);
+          usedBrands.add(p.brand);
+        }
+      }
+      // 第二轮：不足3个时用同品牌补足
+      for (const p of alternatives) {
+        if (alternativeProducts.length >= 3) break;
+        if (!alternativeProducts.find((a) => a.id === p.id)) {
+          alternativeProducts.push(p);
+        }
+      }
 
       const reasonTags = generateReasonTags(context, rule);
       const reason = fillReasonTemplate(rule.reasonTemplate, context);
@@ -223,22 +408,37 @@ function getNotRecommendedReason(category: ProductCategory, context: Recommendat
     },
     "base-layer": {},
     "mid-layer": {},
-    "outer-layer": {},
-    "rain-gear": {},
+    "outer-layer": {
+      越野跑: "越野跑一般不需要冲锋衣",
+    },
+    "rain-gear": {
+      越野跑: "越野跑一般不需要雨具",
+    },
     "sun-protection": {},
     backpack: {
       越野跑: "越野跑使用水袋背心即可",
+    },
+    tent: {
+      轻装速穿: "轻装速穿通常不需要帐篷",
+      越野跑: "越野跑不需要帐篷",
     },
     sleeping: {
       轻装速穿: "轻装速穿不需要露营装备",
       越野跑: "越野跑不需要露营装备",
     },
+    "trekking-poles": {},
     cooking: {
       轻装速穿: "轻装速穿不需要炊具",
       越野跑: "越野跑不需要炊具",
     },
-    navigation: {},
+    navigation: {
+      越野跑: "越野跑手机导航即可",
+    },
     safety: {},
+    "snow-gear": {},
+    lighting: {},
+    emergency: {},
+    hydration: {},
   };
 
   return reasons[category]?.[style.name] || "当前线路不需要此类装备";

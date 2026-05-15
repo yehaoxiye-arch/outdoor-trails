@@ -6,12 +6,18 @@ export type ProductCategory =
   | "rain-gear"
   | "sun-protection"
   | "backpack"
+  | "tent"
   | "sleeping"
+  | "trekking-poles"
   | "cooking"
   | "navigation"
-  | "safety";
+  | "safety"
+  | "snow-gear"
+  | "lighting"
+  | "emergency"
+  | "hydration";
 
-export type Priority = "required" | "recommended" | "optional";
+export type Priority = "critical" | "required" | "recommended" | "optional";
 
 export interface FootwearSpecs {
   waterproof: boolean;
@@ -56,6 +62,22 @@ export interface SleepingSpecs {
   packedSize: string; // 压缩尺寸
 }
 
+export interface TentSpecs {
+  capacity: number; // 人数
+  weight: number; // 重量(g)
+  waterproof: boolean;
+  waterproofRating?: string;
+  seasonRating: "3-season" | "4-season";
+  material: string;
+}
+
+export interface TrekkingPoleSpecs {
+  weight: number; // 单根重量(g)
+  material: string; // 铝合金/碳纤维
+  collapsible: boolean; // 是否可折叠
+  adjustable: boolean; // 是否可调节
+}
+
 export interface NavigationSpecs {
   type: string;
   weight: number;
@@ -67,14 +89,54 @@ export interface SafetySpecs {
   weight: number;
 }
 
+export interface SnowGearSpecs {
+  type: "crampons" | "gaiters" | "ice-axe" | "snowshoes";
+  weight: number;
+  material: string;
+  compatibleBootSize?: string;
+}
+
+export interface CookingSpecs {
+  type: "stove" | "pot" | "utensil" | "system";
+  weight: number;
+  fuelType?: "gas" | "liquid" | "solid";
+  capacity?: number;
+}
+
+export interface LightingSpecs {
+  type: "headlamp" | "flashlight" | "lantern";
+  weight: number;
+  lumens: number;
+  batteryLife: string;
+  rechargeable: boolean;
+}
+
+export interface EmergencySpecs {
+  type: "blanket" | "whistle" | "fire-starter" | "repair-kit" | "bivy";
+  weight: number;
+}
+
+export interface HydrationSpecs {
+  type: "bladder" | "bottle" | "filter-bottle";
+  volume: number;
+  weight: number;
+}
+
 export type ProductSpecs =
   | FootwearSpecs
   | ClothingSpecs
   | ProtectionSpecs
   | BackpackSpecs
+  | TentSpecs
   | SleepingSpecs
+  | TrekkingPoleSpecs
   | NavigationSpecs
-  | SafetySpecs;
+  | SafetySpecs
+  | SnowGearSpecs
+  | CookingSpecs
+  | LightingSpecs
+  | EmergencySpecs
+  | HydrationSpecs;
 
 export interface Product {
   id: string;
