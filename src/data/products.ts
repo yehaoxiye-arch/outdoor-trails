@@ -4934,7 +4934,7 @@ const outerlayerProducts: Product[] = [
     name: "Summit Futurelight 巅峰系列冲锋衣",
     brand: "The North Face",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 420,
       waterproof: true,
