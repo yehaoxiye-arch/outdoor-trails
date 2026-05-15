@@ -833,7 +833,7 @@ const footwearProducts: Product[] = [
     name: "GORE-TEX防水徒步鞋",
     brand: "探路者",
     category: "footwear",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 450,
       waterproof: true,
@@ -853,7 +853,7 @@ const footwearProducts: Product[] = [
     name: "大红PAO F1越野跑鞋",
     brand: "探路者",
     category: "footwear",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 280,
       waterproof: false,
@@ -872,7 +872,7 @@ const footwearProducts: Product[] = [
     name: "黑金刚高帮防水登山鞋",
     brand: "骆驼喜马拉雅",
     category: "footwear",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/YUs11wQT6K",
     specs: {
       weight: 650,
       waterproof: true,
@@ -892,7 +892,7 @@ const footwearProducts: Product[] = [
     name: "高帮防水登山鞋",
     brand: "骆驼喜马拉雅",
     category: "footwear",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/YUs11wQT6K",
     specs: {
       weight: 550,
       waterproof: true,
@@ -912,7 +912,7 @@ const footwearProducts: Product[] = [
     name: "Quechua MH500 Mid 防水徒步鞋",
     brand: "迪卡侬",
     category: "footwear",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 520,
       waterproof: true,
@@ -1371,7 +1371,7 @@ const trekkingpolesProducts: Product[] = [
     name: "铝合金伸缩登山杖",
     brand: "探路者",
     category: "trekking-poles",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 510,
       material: "7075铝合金",
@@ -1386,7 +1386,7 @@ const trekkingpolesProducts: Product[] = [
     name: "碳纤维折叠登山杖",
     brand: "探路者",
     category: "trekking-poles",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 450,
       material: "碳纤维",
@@ -2110,7 +2110,7 @@ const tentProducts: Product[] = [
     name: "专业高山四季帐篷",
     brand: "骆驼喜马拉雅",
     category: "tent",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/YUs11wQT6K",
     specs: {
       weight: 2800,
       waterproof: true,
@@ -2131,7 +2131,7 @@ const tentProducts: Product[] = [
     name: "Quechua MT500 双人帐篷",
     brand: "迪卡侬",
     category: "tent",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 2600,
       waterproof: false,
@@ -3652,7 +3652,7 @@ const backpackProducts: Product[] = [
     name: "ADV SKIN 5",
     brand: "Salomon",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/q6Zq1wQSk5",
     specs: {
       weight: 204,
       waterproof: false,
@@ -3672,7 +3672,7 @@ const backpackProducts: Product[] = [
     name: "ADV SKIN 12",
     brand: "Salomon",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/bwjA1wQSkA",
     specs: {
       weight: 247,
       waterproof: false,
@@ -3692,7 +3692,7 @@ const backpackProducts: Product[] = [
     name: "SENSE PRO 10",
     brand: "Salomon",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/QJ5M1wQSkF",
     specs: {
       weight: 141,
       waterproof: false,
@@ -3712,7 +3712,7 @@ const backpackProducts: Product[] = [
     name: "Ultra Vest 6.0",
     brand: "Ultimate Direction",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/JFC41wQSmZ",
     specs: {
       weight: 215,
       waterproof: false,
@@ -3732,7 +3732,7 @@ const backpackProducts: Product[] = [
     name: "Trail Vest",
     brand: "Ultimate Direction",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/ALmy1wQSmf",
     specs: {
       weight: 204,
       waterproof: false,
@@ -3752,7 +3752,7 @@ const backpackProducts: Product[] = [
     name: "Adventure PB 5.0",
     brand: "Ultimate Direction",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Vv7f1wQSmj",
     specs: {
       weight: 350,
       waterproof: false,
@@ -3772,7 +3772,7 @@ const backpackProducts: Product[] = [
     name: "Duro 6（男款）",
     brand: "Osprey",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/btLs1wQSmo",
     specs: {
       weight: 180,
       waterproof: true,
@@ -3792,7 +3792,7 @@ const backpackProducts: Product[] = [
     name: "Dyna 6（女款）",
     brand: "Osprey",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/3YJg1wQSms",
     specs: {
       weight: 175,
       waterproof: true,
@@ -3812,7 +3812,7 @@ const backpackProducts: Product[] = [
     name: "Duro 15（男款）",
     brand: "Osprey",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/3BJD1wQSe9",
     specs: {
       weight: 730,
       waterproof: true,
@@ -3832,7 +3832,7 @@ const backpackProducts: Product[] = [
     name: "Dyna 15（女款）",
     brand: "Osprey",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/1GTm1wQSn2",
     specs: {
       weight: 710,
       waterproof: true,
@@ -3852,7 +3852,7 @@ const backpackProducts: Product[] = [
     name: "飞翼·AIR 5 Ⅳ",
     brand: "凯乐石",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Lbw91wQSeC",
     specs: {
       weight: 195,
       waterproof: false,
@@ -3872,7 +3872,7 @@ const backpackProducts: Product[] = [
     name: "飞翼·AIR 8 Ⅳ",
     brand: "凯乐石",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/rp8h1wQSeD",
     specs: {
       weight: 220,
       waterproof: false,
@@ -3892,7 +3892,7 @@ const backpackProducts: Product[] = [
     name: "飞翼·AIR 12 Ⅳ",
     brand: "凯乐石",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/ZWiD1wQSoq",
     specs: {
       weight: 280,
       waterproof: false,
@@ -3912,7 +3912,7 @@ const backpackProducts: Product[] = [
     name: "VaporHowe 12L",
     brand: "Nathan",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/9urB1wQSos",
     specs: {
       weight: 230,
       waterproof: false,
@@ -3932,7 +3932,7 @@ const backpackProducts: Product[] = [
     name: "KIPRUN 5L",
     brand: "迪卡侬",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/jZkG1wQSow",
     specs: {
       weight: 180,
       waterproof: false,
@@ -3952,7 +3952,7 @@ const backpackProducts: Product[] = [
     name: "GT02",
     brand: "Naturehike",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/K71G1wQSeG",
     specs: {
       weight: 320,
       waterproof: false,
@@ -3972,7 +3972,7 @@ const backpackProducts: Product[] = [
     name: "Quechua MH500 20L 徒步背包",
     brand: "迪卡侬",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 650,
       waterproof: true,
@@ -3993,7 +3993,7 @@ const backpackProducts: Product[] = [
     name: "Forclaz 50L 重装登山背包",
     brand: "迪卡侬",
     category: "backpack",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 1800,
       waterproof: true,
@@ -4216,7 +4216,7 @@ const outerlayerProducts: Product[] = [
     name: "Summit Futurelight",
     brand: "The North Face",
     category: "outer-layer",
-    image: "https://aka.doubaocdn.com/s/IplV1wQSHK",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 400,
       waterproof: false,
@@ -4846,7 +4846,7 @@ const outerlayerProducts: Product[] = [
     name: "Beta AR 硬壳冲锋衣",
     brand: "Arc'teryx",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/VAYh1wQSp5",
     specs: {
       weight: 462,
       waterproof: true,
@@ -4868,7 +4868,7 @@ const outerlayerProducts: Product[] = [
     name: "Alpha SV 专业硬壳冲锋衣",
     brand: "Arc'teryx",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/S2Uc1wQSeU",
     specs: {
       weight: 475,
       waterproof: true,
@@ -4890,7 +4890,7 @@ const outerlayerProducts: Product[] = [
     name: "TorrentShell 3L 硬壳冲锋衣",
     brand: "Patagonia",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/mZll1wQT5D",
     specs: {
       weight: 380,
       waterproof: true,
@@ -4912,7 +4912,7 @@ const outerlayerProducts: Product[] = [
     name: "Triolet GORE-TEX 硬壳冲锋衣",
     brand: "Patagonia",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/mZll1wQT5D",
     specs: {
       weight: 505,
       waterproof: true,
@@ -4956,7 +4956,7 @@ const outerlayerProducts: Product[] = [
     name: "Nordwand Pro HS 艾格极限硬壳",
     brand: "Mammut",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/53rO1wQT5R",
     specs: {
       weight: 454,
       waterproof: true,
@@ -4978,7 +4978,7 @@ const outerlayerProducts: Product[] = [
     name: "Precipitation Plus 轻量硬壳",
     brand: "Marmot",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/JWV81wQT5T",
     specs: {
       weight: 340,
       waterproof: true,
@@ -5000,7 +5000,7 @@ const outerlayerProducts: Product[] = [
     name: "MONT X-PRO 专业硬壳冲锋衣",
     brand: "凯乐石",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 482,
       waterproof: true,
@@ -5022,7 +5022,7 @@ const outerlayerProducts: Product[] = [
     name: "Titanium 钛金系列冲锋衣",
     brand: "Columbia",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/uMv61wQT5I",
     specs: {
       weight: 520,
       waterproof: true,
@@ -5044,7 +5044,7 @@ const outerlayerProducts: Product[] = [
     name: "山境Pro 3L硬壳冲锋衣",
     brand: "牧高笛",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/2tQq1wQT6E",
     specs: {
       weight: 490,
       waterproof: true,
@@ -5066,7 +5066,7 @@ const outerlayerProducts: Product[] = [
     name: "HIMEX 33 中国梯硬壳冲锋衣",
     brand: "探路者",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/GiHc1wQT69",
     specs: {
       weight: 580,
       waterproof: true,
@@ -5088,7 +5088,7 @@ const outerlayerProducts: Product[] = [
     name: "HIMEX 33 LT 轻量硬壳冲锋衣",
     brand: "探路者",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/pl2x1wQT69",
     specs: {
       weight: 360,
       waterproof: true,
@@ -5110,7 +5110,7 @@ const outerlayerProducts: Product[] = [
     name: "征野硬壳冲锋衣",
     brand: "探路者",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/CvlZ1wQT69",
     specs: {
       weight: 450,
       waterproof: true,
@@ -5132,7 +5132,7 @@ const outerlayerProducts: Product[] = [
     name: "TiEF科技三合一冲锋衣",
     brand: "探路者",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/45HI1wQT69",
     specs: {
       weight: 1200,
       waterproof: true,
@@ -5156,7 +5156,7 @@ const outerlayerProducts: Product[] = [
     name: "朱雀Pro 3L硬壳冲锋衣",
     brand: "拓路者",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/2tQq1wQT6E",
     specs: {
       weight: 480,
       waterproof: true,
@@ -5178,7 +5178,7 @@ const outerlayerProducts: Product[] = [
     name: "朱雀三合一冲锋衣",
     brand: "拓路者",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/3MwL1wQT6E",
     specs: {
       weight: 1100,
       waterproof: true,
@@ -5202,7 +5202,7 @@ const outerlayerProducts: Product[] = [
     name: "小鹰东丽3L硬壳冲锋衣",
     brand: "拓路者",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/2tQq1wQT6E",
     specs: {
       weight: 420,
       waterproof: true,
@@ -5224,7 +5224,7 @@ const outerlayerProducts: Product[] = [
     name: "青鸟三合一冲锋衣",
     brand: "拓路者",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/4dlu1wQT6E",
     specs: {
       weight: 1050,
       waterproof: true,
@@ -5248,7 +5248,7 @@ const outerlayerProducts: Product[] = [
     name: "雪鹰event蓝标硬壳冲锋衣",
     brand: "拓路者",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/2tQq1wQT6E",
     specs: {
       weight: 450,
       waterproof: true,
@@ -5270,7 +5270,7 @@ const outerlayerProducts: Product[] = [
     name: "城市机能风冲锋衣",
     brand: "拓路者",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/3MwL1wQT6E",
     specs: {
       weight: 400,
       waterproof: true,
@@ -5292,7 +5292,7 @@ const outerlayerProducts: Product[] = [
     name: "Cordura耐磨软壳裤",
     brand: "拓路者",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/2tQq1wQT6E",
     specs: {
       weight: 380,
       waterproof: true,
@@ -5313,7 +5313,7 @@ const outerlayerProducts: Product[] = [
     name: "H8848 专业攀登硬壳冲锋衣",
     brand: "骆驼喜马拉雅",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/YUs11wQT6K",
     specs: {
       weight: 520,
       waterproof: true,
@@ -5335,7 +5335,7 @@ const outerlayerProducts: Product[] = [
     name: "H5500 重装穿越硬壳冲锋衣",
     brand: "骆驼喜马拉雅",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/IfcK1wQT6K",
     specs: {
       weight: 480,
       waterproof: true,
@@ -5357,7 +5357,7 @@ const outerlayerProducts: Product[] = [
     name: "H3500 徒步探索冲锋衣",
     brand: "骆驼喜马拉雅",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/y2uQ1wQT6K",
     specs: {
       weight: 450,
       waterproof: true,
@@ -5379,7 +5379,7 @@ const outerlayerProducts: Product[] = [
     name: "超级登山家系列冲锋衣",
     brand: "骆驼喜马拉雅",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/PF0V1wQT6K",
     specs: {
       weight: 550,
       waterproof: true,
@@ -5401,7 +5401,7 @@ const outerlayerProducts: Product[] = [
     name: "威峰防风防水硬壳冲锋衣",
     brand: "骆驼喜马拉雅",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/cc0V1wQT6K",
     specs: {
       weight: 460,
       waterproof: true,
@@ -5423,7 +5423,7 @@ const outerlayerProducts: Product[] = [
     name: "Quechua MH500 硬壳冲锋衣",
     brand: "迪卡侬",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 574,
       waterproof: true,
@@ -5446,7 +5446,7 @@ const outerlayerProducts: Product[] = [
     name: "Quechua MH900 专业硬壳冲锋衣",
     brand: "迪卡侬",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/pl2x1wQT69",
     specs: {
       weight: 450,
       waterproof: true,
@@ -5468,7 +5468,7 @@ const outerlayerProducts: Product[] = [
     name: "Quechua MH500 Light 轻量冲锋衣",
     brand: "迪卡侬",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/GiHc1wQT69",
     specs: {
       weight: 420,
       waterproof: true,
@@ -5548,7 +5548,7 @@ const midlayerProducts: Product[] = [
     name: "Glacier 抓绒",
     brand: "The North Face",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/uyI11wQSdB",
     specs: {
       weight: 320,
       waterproof: true,
@@ -5638,7 +5638,7 @@ const midlayerProducts: Product[] = [
     name: "Atom LT Hoody 棉服",
     brand: "Arc'teryx",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/buKr1wQSrx",
     specs: {
       weight: 385,
       waterproof: false,
@@ -5662,7 +5662,7 @@ const midlayerProducts: Product[] = [
     name: "Cerium Hoody 羽绒服",
     brand: "Arc'teryx",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/PdJF1wQSs3",
     specs: {
       weight: 337,
       waterproof: false,
@@ -5686,7 +5686,7 @@ const midlayerProducts: Product[] = [
     name: "R1 Air 抓绒衣",
     brand: "Patagonia",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/tujY1wQSs8",
     specs: {
       weight: 363,
       waterproof: false,
@@ -5706,7 +5706,7 @@ const midlayerProducts: Product[] = [
     name: "Nano Puff Hoody 棉服",
     brand: "Patagonia",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/NBuT1wQSsE",
     specs: {
       weight: 363,
       waterproof: false,
@@ -5730,7 +5730,7 @@ const midlayerProducts: Product[] = [
     name: "Down Sweater Hoody 羽绒服",
     brand: "Patagonia",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/W1ay1wQSuE",
     specs: {
       weight: 368,
       waterproof: false,
@@ -5754,7 +5754,7 @@ const midlayerProducts: Product[] = [
     name: "Ghost Whisperer 2 鬼语者羽绒服",
     brand: "Mountain Hardwear",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/cTTn1wQSuK",
     specs: {
       weight: 280,
       waterproof: false,
@@ -5778,7 +5778,7 @@ const midlayerProducts: Product[] = [
     name: "艾格极限 Advanced IN 羽绒服",
     brand: "Mammut",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/KAFI1wQSuQ",
     specs: {
       weight: 580,
       waterproof: false,
@@ -5802,7 +5802,7 @@ const midlayerProducts: Product[] = [
     name: "Canyonlands 抓绒衣",
     brand: "The North Face",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/gcW51wQSuW",
     specs: {
       weight: 414,
       waterproof: false,
@@ -5822,7 +5822,7 @@ const midlayerProducts: Product[] = [
     name: "6000 GT 高海拔羽绒服",
     brand: "凯乐石",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/rAhI1wQSua",
     specs: {
       weight: 450,
       waterproof: false,
@@ -5846,7 +5846,7 @@ const midlayerProducts: Product[] = [
     name: "玉龙 超轻羽绒服",
     brand: "华巍",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/DRWR1wQSuf",
     specs: {
       weight: 260,
       waterproof: false,
@@ -5870,7 +5870,7 @@ const midlayerProducts: Product[] = [
     name: "POLAREX极地系列羽绒服",
     brand: "探路者",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/y2uQ1wQT6K",
     specs: {
       weight: 850,
       waterproof: true,
@@ -5893,7 +5893,7 @@ const midlayerProducts: Product[] = [
     name: "极地连体羽绒服",
     brand: "探路者",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/YUs11wQT6K",
     specs: {
       weight: 1800,
       waterproof: true,
@@ -5916,7 +5916,7 @@ const midlayerProducts: Product[] = [
     name: "Primaloft保暖棉服",
     brand: "拓路者",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/2tQq1wQT6E",
     specs: {
       weight: 650,
       waterproof: true,
@@ -5939,7 +5939,7 @@ const midlayerProducts: Product[] = [
     name: "Polartec抓绒衣",
     brand: "拓路者",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/2tQq1wQT6E",
     specs: {
       weight: 320,
       waterproof: false,
@@ -5960,7 +5960,7 @@ const midlayerProducts: Product[] = [
     name: "极寒系列高蓬羽绒服",
     brand: "骆驼喜马拉雅",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/y2uQ1wQT6K",
     specs: {
       weight: 950,
       waterproof: true,
@@ -5983,7 +5983,7 @@ const midlayerProducts: Product[] = [
     name: "高燃系列保暖羽绒服",
     brand: "骆驼喜马拉雅",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/IfcK1wQT6K",
     specs: {
       weight: 750,
       waterproof: true,
@@ -6006,7 +6006,7 @@ const midlayerProducts: Product[] = [
     name: "Quechua 保暖抓绒衣",
     brand: "迪卡侬",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 280,
       waterproof: false,
@@ -6049,7 +6049,7 @@ const baselayerProducts: Product[] = [
     name: "Rho LT Crew 速干内衣",
     brand: "Arc'teryx",
     category: "base-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/vMoq1wQSpN",
     specs: {
       weight: 159,
       waterproof: false,
@@ -6069,7 +6069,7 @@ const baselayerProducts: Product[] = [
     name: "Capilene Midweight Crew 速干内衣",
     brand: "Patagonia",
     category: "base-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/IEte1wQSpS",
     specs: {
       weight: 176,
       waterproof: false,
@@ -6089,7 +6089,7 @@ const baselayerProducts: Product[] = [
     name: "Merino 200 Oasis 美利奴羊毛内衣",
     brand: "Icebreaker",
     category: "base-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/ljqu1wQSpY",
     specs: {
       weight: 217,
       waterproof: false,
@@ -6109,7 +6109,7 @@ const baselayerProducts: Product[] = [
     name: "Classic Thermal Merino 保暖内衣",
     brand: "Smartwool",
     category: "base-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/HVHV1wQSpe",
     specs: {
       weight: 298,
       waterproof: false,
@@ -6129,7 +6129,7 @@ const baselayerProducts: Product[] = [
     name: "Woolies Pro Tech 超轻美利奴内衣",
     brand: "Ibex",
     category: "base-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/oZtr1wQSpj",
     specs: {
       weight: 119,
       waterproof: false,
@@ -6149,7 +6149,7 @@ const baselayerProducts: Product[] = [
     name: "185 Merino Rock'n'Wool 内衣",
     brand: "Ortovox",
     category: "base-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/fDVb1wQSpm",
     specs: {
       weight: 187,
       waterproof: false,
@@ -6169,7 +6169,7 @@ const baselayerProducts: Product[] = [
     name: "Lifa Stripe Crew 轻量速干内衣",
     brand: "Helly Hansen",
     category: "base-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/0Uew1wQSdT",
     specs: {
       weight: 136,
       waterproof: false,
@@ -6189,7 +6189,7 @@ const baselayerProducts: Product[] = [
     name: "速干功能内衣套装",
     brand: "凯乐石",
     category: "base-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/rgvE1wQSpw",
     specs: {
       weight: 220,
       waterproof: false,
@@ -6209,7 +6209,7 @@ const baselayerProducts: Product[] = [
     name: "聚能发热功能内衣",
     brand: "悠途UTO",
     category: "base-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/v5t11wQSrn",
     specs: {
       weight: 195,
       waterproof: false,
@@ -6229,7 +6229,7 @@ const baselayerProducts: Product[] = [
     name: "聚能4.0 功能内衣",
     brand: "X-Bionic",
     category: "base-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/6lAk1wQSrs",
     specs: {
       weight: 240,
       waterproof: false,
@@ -6249,7 +6249,7 @@ const baselayerProducts: Product[] = [
     name: "速干透气T恤",
     brand: "拓路者",
     category: "base-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/2tQq1wQT6E",
     specs: {
       weight: 120,
       waterproof: false,
@@ -6269,7 +6269,7 @@ const baselayerProducts: Product[] = [
     name: "Quechua 速干透气T恤",
     brand: "迪卡侬",
     category: "base-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 110,
       waterproof: false,
@@ -6293,7 +6293,7 @@ const safetyProducts: Product[] = [
     name: "Simond 攀岩登山安全带",
     brand: "迪卡侬",
     category: "safety",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Jlh71wQT69",
     specs: {
       weight: 350,
       material: "高强度尼龙织带",
