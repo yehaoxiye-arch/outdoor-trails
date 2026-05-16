@@ -5988,9 +5988,48 @@ const raingearProducts: Product[] = [
   },
 ];
 
-// sun-protection 产品 (1条)
+// sun-protection 产品 (3条)
 const sunprotectionProducts: Product[] = [
-  ];
+  {
+    id: "outdoor-research-sun-runner",
+    name: "Sun Runner Cap",
+    brand: "Outdoor Research",
+    category: "sun-protection",
+    image: "",
+    specs: {
+      type: "sun-hat",
+      weight: 85,
+      waterproof: false,
+    },
+    scenarios: ["徒步", "越野跑"],
+  },
+  {
+    id: "buff-coolnet-uv",
+    name: "CoolNet UV+ 头巾",
+    brand: "Buff",
+    category: "sun-protection",
+    image: "",
+    specs: {
+      type: "sun-hat",
+      weight: 30,
+      waterproof: false,
+    },
+    scenarios: ["徒步", "越野跑"],
+  },
+  {
+    id: "columbia-bora-bora-hat",
+    name: "Bora Bora 宽檐帽",
+    brand: "Columbia",
+    category: "sun-protection",
+    image: "",
+    specs: {
+      type: "sun-hat",
+      weight: 100,
+      waterproof: false,
+    },
+    scenarios: ["徒步", "钓鱼"],
+  },
+];
 
 // cooking 产品 (2条)
 const cookingProducts: Product[] = [
@@ -6028,9 +6067,48 @@ const navigationProducts: Product[] = [
   },
 ];
 
-// snow-gear 产品 (2条)
+// snow-gear 产品 (3条)
 const snowgearProducts: Product[] = [
-  ];
+  {
+    id: "grivel-g12-crampons",
+    name: "G12 冰爪",
+    brand: "Grivel",
+    category: "snow-gear",
+    image: "",
+    specs: {
+      type: "crampons",
+      weight: 880,
+      material: "钢",
+    },
+    scenarios: ["冰川", "雪山"],
+  },
+  {
+    id: "black-diamond-contact-crampons",
+    name: "Contact 冰爪",
+    brand: "Black Diamond",
+    category: "snow-gear",
+    image: "",
+    specs: {
+      type: "crampons",
+      weight: 490,
+      material: "不锈钢",
+    },
+    scenarios: ["冰川", "雪山"],
+  },
+  {
+    id: "outdoor-research-crocodile-gaiters",
+    name: "Crocodile 雪套",
+    brand: "Outdoor Research",
+    category: "snow-gear",
+    image: "",
+    specs: {
+      type: "gaiters",
+      weight: 255,
+      material: "GORE-TEX",
+    },
+    scenarios: ["雪地", "泥地"],
+  },
+];
 
 // lighting 产品 (3条)
 const lightingProducts: Product[] = [
@@ -6084,9 +6162,45 @@ const lightingProducts: Product[] = [
   },
 ];
 
-// emergency 产品 (4条)
+// emergency 产品 (3条)
 const emergencyProducts: Product[] = [
-  ];
+  {
+    id: "sol-emergency-blanket",
+    name: "应急保温毯",
+    brand: "SOL",
+    category: "emergency",
+    image: "",
+    specs: {
+      type: "blanket",
+      weight: 60,
+    },
+    scenarios: ["应急", "失温防护"],
+  },
+  {
+    id: "sos-rescue-whistle",
+    name: "求生哨",
+    brand: "SOS",
+    category: "emergency",
+    image: "",
+    specs: {
+      type: "whistle",
+      weight: 15,
+    },
+    scenarios: ["应急", "求救"],
+  },
+  {
+    id: "uco-stormproof-matches",
+    name: "防风暴火柴",
+    brand: "UCO",
+    category: "emergency",
+    image: "",
+    specs: {
+      type: "fire-starter",
+      weight: 45,
+    },
+    scenarios: ["应急", "生火"],
+  },
+];
 
 // hydration 产品 (3条)
 const hydrationProducts: Product[] = [
