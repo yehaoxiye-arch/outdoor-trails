@@ -1,4 +1,4 @@
-import { Product, Recommendation, ReasonTag, GearRecommendation, ProductCategory, FootwearSpecs, ClothingSpecs, BackpackSpecs, SleepingSpecs, TentSpecs, TrekkingPoleSpecs, CookingSpecs, LightingSpecs, HydrationSpecs } from "@/types/product";
+import { Product, Recommendation, ReasonTag, GearRecommendation, ProductCategory, FootwearSpecs, ClothingSpecs, BackpackSpecs, SleepingSpecs, TentSpecs, TrekkingPoleSpecs, CookingSpecs, LightingSpecs, HydrationSpecs, ProtectionSpecs, SafetySpecs, SnowGearSpecs, NavigationSpecs } from "@/types/product";
 import { DayForecast } from "@/types/weather";
 import { Route, RouteStyleData } from "@/types/route";
 import { products, productCategories } from "@/data/products";
@@ -188,6 +188,33 @@ function selectBestProduct(categoryProducts: Product[], context: RecommendationC
       }
       const bladder = sortByWeight(categoryProducts.filter((p) => (p.specs as HydrationSpecs).type === "bladder"));
       return bladder[0] || sortByWeight(categoryProducts)[0];
+    }
+
+    case "rain-gear": {
+      // 优先轻量防水
+      return sortByWeight(categoryProducts)[0];
+    }
+
+    case "sun-protection": {
+      // 优先有 UV 防护的产品
+      const uvProtected = categoryProducts.filter((p) => (p.specs as ProtectionSpecs).uvProtection);
+      return uvProtected[0] || sortByWeight(categoryProducts)[0];
+    }
+
+    case "navigation": {
+      // 按重量排序
+      return sortByWeight(categoryProducts)[0];
+    }
+
+    case "safety": {
+      // 优先急救包类型
+      const firstAid = categoryProducts.filter((p) => (p.specs as SafetySpecs).type === "first-aid");
+      return firstAid[0] || sortByWeight(categoryProducts)[0];
+    }
+
+    case "snow-gear": {
+      // 按重量排序
+      return sortByWeight(categoryProducts)[0];
     }
 
     default:
