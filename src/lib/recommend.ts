@@ -223,6 +223,7 @@ function fillReasonTemplate(template: string, context: RecommendationContext): s
     .replace("{tempLow}", getMinTemp(forecasts).toString())
     .replace("{tempHigh}", getMaxTemp(forecasts).toString())
     .replace("{precipitation}", getMaxPrecipitation(forecasts).toString())
+    .replace("{windSpeed}", getMaxWindSpeed(forecasts).toString())
     .replace("{style}", style.name);
 }
 
