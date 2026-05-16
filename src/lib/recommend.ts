@@ -103,8 +103,17 @@ function selectBestProduct(categoryProducts: Product[], context: RecommendationC
     }
 
     case "backpack": {
-      // 按行程时长选择容量，按容量接近度排序
-      const targetVolume = duration <= 1 ? 20 : duration <= 3 ? 40 : 60;
+      // 按行程风格和时长选择容量
+      let targetVolume: number;
+      if (style.name === "重装露营") {
+        targetVolume = 60;
+      } else if (style.name === "越野跑") {
+        targetVolume = 10;
+      } else {
+        // 轻装速穿
+        targetVolume = duration <= 1 ? 20 : duration <= 3 ? 35 : 50;
+      }
+
       const suitable = categoryProducts.filter((p) => {
         const specs = p.specs as BackpackSpecs;
         return Math.abs(specs.volume - targetVolume) < 15;
