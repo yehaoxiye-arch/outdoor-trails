@@ -4683,7 +4683,7 @@ const outerlayerProducts: Product[] = [
     price: 3140,
   },
   {
-    id: "the-north-face-summit-futurelight",
+    id: "the-north-face-summit-futurelight-jacket",
     name: "Summit Futurelight 巅峰系列冲锋衣",
     brand: "The North Face",
     category: "outer-layer",
