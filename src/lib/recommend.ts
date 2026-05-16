@@ -55,6 +55,118 @@ function sortByWeight(products: Product[]): Product[] {
   });
 }
 
+// 按品类筛选产品（用于替代品选择，与 selectBestProduct 使用相同逻辑）
+function filterProductsForCategory(categoryProducts: Product[], context: RecommendationContext, category: ProductCategory): Product[] {
+  if (categoryProducts.length === 0) return [];
+
+  const { style, forecasts } = context;
+  const duration = parseDuration(style.duration);
+  const minTemp = getMinTemp(forecasts);
+  const maxTemp = getMaxTemp(forecasts);
+  const maxPrecip = getMaxPrecipitation(forecasts);
+  const altitude = parseAltitude(style.altitude);
+
+  switch (category) {
+    case "footwear": {
+      if (duration >= 2) {
+        return categoryProducts.filter((p) => {
+          const specs = p.specs as FootwearSpecs;
+          return (specs.ankleSupport === "mid" || specs.ankleSupport === "high") && specs.waterproof;
+        });
+      }
+      let suitable = categoryProducts.filter((p) => {
+        const specs = p.specs as FootwearSpecs;
+        return specs.temperatureRange.min <= minTemp && specs.temperatureRange.max >= maxTemp;
+      });
+      if (style.difficulty === "困难" || style.difficulty === "极难") {
+        const highAnkle = suitable.filter((p) => (p.specs as FootwearSpecs).ankleSupport === "high");
+        if (highAnkle.length > 0) suitable = highAnkle;
+      }
+      if (maxPrecip > 40) {
+        const waterproof = suitable.filter((p) => (p.specs as FootwearSpecs).waterproof);
+        return waterproof.length > 0 ? waterproof : suitable;
+      }
+      return suitable.length > 0 ? suitable : categoryProducts;
+    }
+
+    case "outer-layer":
+    case "mid-layer":
+    case "base-layer": {
+      const suitable = categoryProducts.filter((p) => {
+        const specs = p.specs as ClothingSpecs;
+        return specs.temperatureRange.min <= minTemp && specs.temperatureRange.max >= maxTemp;
+      });
+      return suitable.length > 0 ? suitable : categoryProducts;
+    }
+
+    case "backpack": {
+      let targetVolume: number;
+      if (style.name === "重装露营") targetVolume = 60;
+      else if (style.name === "越野跑") targetVolume = 10;
+      else targetVolume = duration <= 1 ? 20 : duration <= 3 ? 35 : 50;
+      return categoryProducts.filter((p) => {
+        const specs = p.specs as BackpackSpecs;
+        return Math.abs(specs.volume - targetVolume) < 15;
+      });
+    }
+
+    case "tent": {
+      const need4Season = minTemp < 0 || altitude > 3500;
+      if (need4Season) {
+        return categoryProducts.filter((p) => (p.specs as TentSpecs).seasonRating === "4-season");
+      }
+      return categoryProducts;
+    }
+
+    case "sleeping": {
+      const suitable = categoryProducts.filter((p) => (p.specs as SleepingSpecs).temperatureRating <= minTemp);
+      return suitable.length > 0 ? suitable : categoryProducts;
+    }
+
+    case "trekking-poles": {
+      if (altitude > 3000 || style.difficulty === "困难") {
+        const carbon = categoryProducts.filter((p) => (p.specs as TrekkingPoleSpecs).material.includes("碳"));
+        return carbon.length > 0 ? carbon : categoryProducts;
+      }
+      return categoryProducts;
+    }
+
+    case "cooking": {
+      if (style.name === "重装露营") {
+        const system = categoryProducts.filter((p) => (p.specs as CookingSpecs).type === "system");
+        return system.length > 0 ? system : categoryProducts;
+      }
+      const stove = categoryProducts.filter((p) => (p.specs as CookingSpecs).type === "stove");
+      return stove.length > 0 ? stove : categoryProducts;
+    }
+
+    case "lighting": {
+      if (style.name === "越野跑") {
+        const ultralight = categoryProducts.filter((p) => (p.specs as LightingSpecs).weight < 50);
+        return ultralight.length > 0 ? ultralight : categoryProducts;
+      }
+      return categoryProducts;
+    }
+
+    case "hydration": {
+      if (style.name === "越野跑") {
+        const flask = categoryProducts.filter((p) => (p.specs as HydrationSpecs).type === "bottle");
+        return flask.length > 0 ? flask : categoryProducts;
+      }
+      const bladder = categoryProducts.filter((p) => (p.specs as HydrationSpecs).type === "bladder");
+      return bladder.length > 0 ? bladder : categoryProducts;
+    }
+
+    case "safety": {
+      const firstAid = categoryProducts.filter((p) => (p.specs as SafetySpecs).type === "first-aid");
+      return firstAid.length > 0 ? firstAid : categoryProducts;
+    }
+
+    default:
+      return categoryProducts;
+  }
+}
+
 // 智能选择产品：根据上下文筛选最合适的
 function selectBestProduct(categoryProducts: Product[], context: RecommendationContext, category: ProductCategory): Product | undefined {
   if (categoryProducts.length === 0) return undefined;
@@ -375,16 +487,8 @@ export function generateRecommendations(context: RecommendationContext): GearRec
       const primaryProduct = selectBestProduct(categoryProducts, context, rule.category);
 
       // 选择替代品：优先不同品牌，按重量排序，取3个
-      // 对于 footwear，需要应用同样的筛选逻辑
-      let filteredForAlternatives = categoryProducts;
-      if (rule.category === "footwear" && duration >= 2) {
-        // 多日行程只选中高帮防水鞋作为替代品
-        filteredForAlternatives = categoryProducts.filter((p) => {
-          const specs = p.specs as FootwearSpecs;
-          const isSupportive = specs.ankleSupport === "mid" || specs.ankleSupport === "high";
-          return isSupportive && specs.waterproof;
-        });
-      }
+      // 使用与 selectBestProduct 相同的筛选逻辑
+      const filteredForAlternatives = filterProductsForCategory(categoryProducts, context, rule.category);
       const alternatives = filteredForAlternatives
         .filter((p) => p.id !== primaryProduct?.id)
         .sort((a, b) => ((a.specs as any).weight || 0) - ((b.specs as any).weight || 0));
