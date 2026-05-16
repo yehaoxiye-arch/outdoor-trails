@@ -356,7 +356,6 @@ const footwearProducts: Product[] = [
     specs: {
       weight: 290,
       waterproof: false,
-      waterproofRating: "undefined",
       temperatureRange: {"min":-10,"max":30},
       soleType: "橡胶大底",
       ankleSupport: "low",
@@ -500,7 +499,6 @@ const footwearProducts: Product[] = [
     specs: {
       weight: 290,
       waterproof: false,
-      waterproofRating: "undefined",
       temperatureRange: {"min":-10,"max":30},
       soleType: "橡胶大底",
       ankleSupport: "low",
@@ -878,7 +876,6 @@ const footwearProducts: Product[] = [
     specs: {
       weight: 280,
       waterproof: false,
-      waterproofRating: "undefined",
       temperatureRange: {"min":-10,"max":30},
       soleType: "橡胶大底",
       ankleSupport: "low",
