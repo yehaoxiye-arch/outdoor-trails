@@ -1776,7 +1776,7 @@ const tentProducts: Product[] = [
     name: "Duplex",
     brand: "Zpacks",
     category: "tent",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/RDfN1wQpIK",
     specs: {
       weight: 540,
       waterproof: true,
@@ -4423,7 +4423,7 @@ const outerlayerProducts: Product[] = [
     name: "WE2619 单冲",
     brand: "哥伦比亚",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/6QdW1wQpJo",
     specs: {
       weight: 500,
       waterproof: true,
@@ -4441,7 +4441,7 @@ const outerlayerProducts: Product[] = [
     name: "XE5743",
     brand: "哥伦比亚",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/RfCw1wQpJo",
     specs: {
       weight: 520,
       waterproof: true,
@@ -4459,7 +4459,7 @@ const outerlayerProducts: Product[] = [
     name: "TRAILTIME",
     brand: "狼爪",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/ySqu1wQpJo",
     specs: {
       weight: 550,
       waterproof: true,
@@ -4477,7 +4477,7 @@ const outerlayerProducts: Product[] = [
     name: "MH500",
     brand: "迪卡侬",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/6QdW1wQpJo",
     specs: {
       weight: 450,
       waterproof: true,
@@ -4495,7 +4495,7 @@ const outerlayerProducts: Product[] = [
     name: "MONT X 全天候硬壳",
     brand: "凯乐石",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/RZvp1wQpJm",
     specs: {
       weight: 450,
       waterproof: true,
@@ -4513,7 +4513,7 @@ const outerlayerProducts: Product[] = [
     name: "MONT-X PRO GTX",
     brand: "凯乐石",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/RZvp1wQpJm",
     specs: {
       weight: 420,
       waterproof: true,
@@ -4531,7 +4531,7 @@ const outerlayerProducts: Product[] = [
     name: "M8 连帽软壳",
     brand: "凯乐石",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/RZvp1wQpJm",
     specs: {
       weight: 350,
       waterproof: false,
@@ -4549,7 +4549,7 @@ const outerlayerProducts: Product[] = [
     name: "M8-LT 轻量软壳",
     brand: "凯乐石",
     category: "outer-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/RZvp1wQpJm",
     specs: {
       weight: 280,
       waterproof: false,
@@ -5233,7 +5233,7 @@ const midlayerProducts: Product[] = [
     name: "Atom SL Hoody",
     brand: "始祖鸟",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/n6DN1wQpIr",
     specs: {
       weight: 280,
       waterproof: false,
@@ -5251,7 +5251,7 @@ const midlayerProducts: Product[] = [
     name: "Atom Hoody",
     brand: "始祖鸟",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/TU1O1wQpIu",
     specs: {
       weight: 380,
       waterproof: false,
@@ -5269,7 +5269,7 @@ const midlayerProducts: Product[] = [
     name: "Lightweight Hoody",
     brand: "始祖鸟",
     category: "mid-layer",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/RZvp1wQpJm",
     specs: {
       weight: 320,
       waterproof: true,
@@ -5962,7 +5962,7 @@ const raingearProducts: Product[] = [
     name: "Precip Eco Jacket",
     brand: "Marmot",
     category: "rain-gear",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/oLlK1wQpIy",
     specs: {
       type: "rain-jacket",
       waterproof: true,
@@ -5985,7 +5985,7 @@ const cookingProducts: Product[] = [
     name: "PocketRocket 2",
     brand: "MSR",
     category: "cooking",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/bhI41wQpJ3",
     specs: {
       type: "stove",
       weight: 73,
@@ -6003,7 +6003,7 @@ const navigationProducts: Product[] = [
     name: "inReach Mini 2",
     brand: "Garmin",
     category: "navigation",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/UhV61wQpJe",
     specs: {
       type: "satellite-communicator",
       weight: 100,
@@ -6025,7 +6025,7 @@ const lightingProducts: Product[] = [
     name: "Black Diamond Spot 400-R 头灯",
     brand: "Black Diamond",
     category: "lighting",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/CrSi1wQpJB",
     specs: {
       type: "headlamp",
       weight: 75,
@@ -6041,7 +6041,7 @@ const lightingProducts: Product[] = [
     name: "Petzl Actik Core 头灯",
     brand: "Petzl",
     category: "lighting",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/JSgc1wQpJG",
     specs: {
       type: "headlamp",
       weight: 82,
@@ -6057,7 +6057,7 @@ const lightingProducts: Product[] = [
     name: "Nitecore NU25 UL 超轻头灯",
     brand: "Nitecore",
     category: "lighting",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/EGGQ1wQpJL",
     specs: {
       type: "headlamp",
       weight: 28,
@@ -6081,7 +6081,7 @@ const hydrationProducts: Product[] = [
     name: "CamelBak Crux 3L 水袋",
     brand: "CamelBak",
     category: "hydration",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/Yfui1wQpJj",
     specs: {
       type: "bladder",
       volume: 3,
@@ -6095,7 +6095,7 @@ const hydrationProducts: Product[] = [
     name: "HydraPak SoftFlask 500ml 软水壶",
     brand: "HydraPak",
     category: "hydration",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/CeHN1wQpJX",
     specs: {
       type: "bottle",
       volume: 0.5,
@@ -6109,7 +6109,7 @@ const hydrationProducts: Product[] = [
     name: "Katadyn BeFree 1L 净水壶",
     brand: "Katadyn",
     category: "hydration",
-    image: "",
+    image: "https://aka.doubaocdn.com/s/PUiP1wQpJZ",
     specs: {
       type: "filter-bottle",
       volume: 1,
