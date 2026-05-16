@@ -425,6 +425,20 @@ export function generateRecommendations(context: RecommendationContext): GearRec
     return sum;
   }, 0);
 
+  // 按优先级排序
+  const priorityOrder: Record<string, number> = {
+    critical: 0,
+    required: 1,
+    recommended: 2,
+    optional: 3,
+  };
+
+  recommendations.sort((a, b) => {
+    const pa = priorityOrder[a.priority] ?? 99;
+    const pb = priorityOrder[b.priority] ?? 99;
+    return pa - pb;
+  });
+
   return {
     routeId: route.id,
     style: style.name,
