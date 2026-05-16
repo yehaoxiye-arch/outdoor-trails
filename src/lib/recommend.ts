@@ -69,31 +69,32 @@ function selectBestProduct(categoryProducts: Product[], context: RecommendationC
   // 根据品类特性筛选
   switch (category) {
     case "footwear": {
-      // 按温度范围筛选
+      // 多日行程优先中高帮防水鞋，不考虑温度范围
+      if (duration >= 2) {
+        const supportive = categoryProducts.filter((p) => {
+          const specs = p.specs as FootwearSpecs;
+          const isSupportive = specs.ankleSupport === "mid" || specs.ankleSupport === "high";
+          return isSupportive && specs.waterproof;
+        });
+        if (supportive.length > 0) return sortByWeight(supportive)[0];
+      }
+      // 按温度范围筛选（单日行程或无中高帮防水鞋时）
       let suitable = categoryProducts.filter((p) => {
         const specs = p.specs as FootwearSpecs;
         return specs.temperatureRange.min <= minTemp && specs.temperatureRange.max >= maxTemp;
       });
-      // 多日行程或困难线路优先中高帮鞋（护踝支撑）
-      if (duration >= 2 || style.difficulty === "困难" || style.difficulty === "极难") {
-        const supportive = suitable.filter((p) => {
-          const ankle = (p.specs as FootwearSpecs).ankleSupport;
-          return ankle === "mid" || ankle === "high";
-        });
-        if (supportive.length > 0) suitable = supportive;
-      }
-      // 困难线路进一步优先高帮鞋
+      // 困难线路优先高帮鞋（护踝支撑）
       if (style.difficulty === "困难" || style.difficulty === "极难") {
         const highAnkle = suitable.filter((p) => (p.specs as FootwearSpecs).ankleSupport === "high");
         if (highAnkle.length > 0) suitable = highAnkle;
       }
-      // 多日行程或高降水优先防水鞋
-      const needWaterproof = duration >= 2 || maxPrecip > 40;
+      // 根据降水概率决定是否优先防水
+      const needWaterproof = maxPrecip > 40;
       if (needWaterproof) {
         const waterproof = sortByWeight(suitable.filter((p) => (p.specs as FootwearSpecs).waterproof));
         return waterproof[0] || sortByWeight(suitable)[0] || sortByWeight(categoryProducts)[0];
       } else {
-        // 单日天气良好时优先选择轻量鞋（非防水）
+        // 天气良好时优先选择轻量鞋（非防水）
         const lightweight = sortByWeight(suitable.filter((p) => !(p.specs as FootwearSpecs).waterproof));
         return lightweight[0] || sortByWeight(suitable)[0] || sortByWeight(categoryProducts)[0];
       }
