@@ -375,7 +375,17 @@ export function generateRecommendations(context: RecommendationContext): GearRec
       const primaryProduct = selectBestProduct(categoryProducts, context, rule.category);
 
       // 选择替代品：优先不同品牌，按重量排序，取3个
-      const alternatives = categoryProducts
+      // 对于 footwear，需要应用同样的筛选逻辑
+      let filteredForAlternatives = categoryProducts;
+      if (rule.category === "footwear" && duration >= 2) {
+        // 多日行程只选中高帮防水鞋作为替代品
+        filteredForAlternatives = categoryProducts.filter((p) => {
+          const specs = p.specs as FootwearSpecs;
+          const isSupportive = specs.ankleSupport === "mid" || specs.ankleSupport === "high";
+          return isSupportive && specs.waterproof;
+        });
+      }
+      const alternatives = filteredForAlternatives
         .filter((p) => p.id !== primaryProduct?.id)
         .sort((a, b) => ((a.specs as any).weight || 0) - ((b.specs as any).weight || 0));
       const alternativeProducts: Product[] = [];
