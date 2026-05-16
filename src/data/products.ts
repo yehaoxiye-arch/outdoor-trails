@@ -258,7 +258,7 @@ const footwearProducts: Product[] = [
     price: 899,
   },
   {
-    id: "-界山gtx",
+    id: "kailas-界山gtx",
     name: "界山GTX",
     brand: "凯乐石",
     category: "footwear",
@@ -276,7 +276,7 @@ const footwearProducts: Product[] = [
     price: 1530,
   },
   {
-    id: "-远征-5低帮",
+    id: "kailas-远征-5低帮",
     name: "远征-5低帮",
     brand: "凯乐石",
     category: "footwear",
@@ -294,7 +294,7 @@ const footwearProducts: Product[] = [
     price: 1200,
   },
   {
-    id: "-fuga-du-大坡王",
+    id: "kailas-fuga-du-大坡王",
     name: "FUGA DU 大坡王",
     brand: "凯乐石",
     category: "footwear",
@@ -312,7 +312,7 @@ const footwearProducts: Product[] = [
     price: 1499,
   },
   {
-    id: "-fuga-ex-3",
+    id: "kailas-fuga-ex-3",
     name: "FUGA EX 3",
     brand: "凯乐石",
     category: "footwear",
@@ -330,7 +330,7 @@ const footwearProducts: Product[] = [
     price: 1299,
   },
   {
-    id: "-fuga-pro-3",
+    id: "kailas-fuga-pro-3",
     name: "FUGA PRO 3",
     brand: "凯乐石",
     category: "footwear",
@@ -348,7 +348,7 @@ const footwearProducts: Product[] = [
     price: 1699,
   },
   {
-    id: "-fuga-ex-3-boa",
+    id: "kailas-fuga-ex-3-boa",
     name: "FUGA EX 3 BOA",
     brand: "凯乐石",
     category: "footwear",
@@ -365,7 +365,7 @@ const footwearProducts: Product[] = [
     price: 1399,
   },
   {
-    id: "-fuga-du-2-boa",
+    id: "kailas-fuga-du-2-boa",
     name: "FUGA DU 2 BOA",
     brand: "凯乐石",
     category: "footwear",
@@ -383,7 +383,7 @@ const footwearProducts: Product[] = [
     price: 1799,
   },
   {
-    id: "-c4-越野跑鞋",
+    id: "kailas-c4-越野跑鞋",
     name: "C4 越野跑鞋",
     brand: "凯乐石",
     category: "footwear",
@@ -598,7 +598,7 @@ const footwearProducts: Product[] = [
     price: 1299,
   },
   {
-    id: "-大红pao-f1",
+    id: "toread-大红pao-f1",
     name: "大红PAO F1",
     brand: "探路者",
     category: "footwear",
@@ -616,7 +616,7 @@ const footwearProducts: Product[] = [
     price: 799,
   },
   {
-    id: "-vibram大底轻量越野跑鞋",
+    id: "toread-vibram大底轻量越野跑鞋",
     name: "Vibram大底轻量越野跑鞋",
     brand: "探路者",
     category: "footwear",
@@ -634,7 +634,7 @@ const footwearProducts: Product[] = [
     price: 699,
   },
   {
-    id: "-ct-驰风2-0-透气版",
+    id: "pelliot-ct-驰风2-0-透气版",
     name: "CT-驰风2.0 透气版",
     brand: "伯希和",
     category: "footwear",
@@ -652,7 +652,7 @@ const footwearProducts: Product[] = [
     price: 690,
   },
   {
-    id: "-ct-劲跑-vibram版",
+    id: "pelliot-ct-劲跑-vibram版",
     name: "CT-劲跑 Vibram版",
     brand: "伯希和",
     category: "footwear",
@@ -670,7 +670,7 @@ const footwearProducts: Product[] = [
     price: 699,
   },
   {
-    id: "-ct-野跑-碳板版",
+    id: "pelliot-ct-野跑-碳板版",
     name: "CT-野跑 碳板版",
     brand: "伯希和",
     category: "footwear",
@@ -688,7 +688,7 @@ const footwearProducts: Product[] = [
     price: 899,
   },
   {
-    id: "-碳zero风速2",
+    id: "camel-碳zero风速2",
     name: "碳Zero风速2",
     brand: "骆驼",
     category: "footwear",
@@ -706,7 +706,7 @@ const footwearProducts: Product[] = [
     price: 409,
   },
   {
-    id: "-sky-line-天际线-gtx",
+    id: "kailas-sky-line-天际线-gtx",
     name: "Sky Line 天际线 GTX",
     brand: "凯乐石",
     category: "footwear",
@@ -724,7 +724,7 @@ const footwearProducts: Product[] = [
     price: 1899,
   },
   {
-    id: "-远征-5-mid中帮",
+    id: "kailas-远征-5-mid中帮",
     name: "远征-5 Mid中帮",
     brand: "凯乐石",
     category: "footwear",
@@ -742,7 +742,7 @@ const footwearProducts: Product[] = [
     price: 1499,
   },
   {
-    id: "-行云-低帮徒步鞋",
+    id: "kailas-行云-低帮徒步鞋",
     name: "行云 低帮徒步鞋",
     brand: "凯乐石",
     category: "footwear",
@@ -760,7 +760,7 @@ const footwearProducts: Product[] = [
     price: 599,
   },
   {
-    id: "-gore-tex防水徒步鞋",
+    id: "toread-gore-tex防水徒步鞋",
     name: "GORE-TEX防水徒步鞋",
     brand: "探路者",
     category: "footwear",
@@ -778,7 +778,7 @@ const footwearProducts: Product[] = [
     price: 1299,
   },
   {
-    id: "-轻量徒步鞋tfaabl81702",
+    id: "toread-轻量徒步鞋tfaabl81702",
     name: "轻量徒步鞋TFAABL81702",
     brand: "探路者",
     category: "footwear",
@@ -796,7 +796,7 @@ const footwearProducts: Product[] = [
     price: 599,
   },
   {
-    id: "-高帮防水登山鞋",
+    id: "camel-高帮防水登山鞋",
     name: "高帮防水登山鞋",
     brand: "骆驼",
     category: "footwear",
@@ -814,7 +814,7 @@ const footwearProducts: Product[] = [
     price: 499,
   },
   {
-    id: "-低帮透气徒步鞋",
+    id: "camel-低帮透气徒步鞋",
     name: "低帮透气徒步鞋",
     brand: "骆驼",
     category: "footwear",
@@ -832,7 +832,7 @@ const footwearProducts: Product[] = [
     price: 399,
   },
   {
-    id: "-低帮防水登山鞋",
+    id: "pelliot-低帮防水登山鞋",
     name: "低帮防水登山鞋",
     brand: "伯希和",
     category: "footwear",
@@ -1228,7 +1228,7 @@ const trekkingpolesProducts: Product[] = [
     price: 1398,
   },
   {
-    id: "-铝合金三节伸缩杖",
+    id: "kailas-铝合金三节伸缩杖",
     name: "铝合金三节伸缩杖",
     brand: "凯乐石",
     category: "trekking-poles",
@@ -1243,7 +1243,7 @@ const trekkingpolesProducts: Product[] = [
     price: 299,
   },
   {
-    id: "-铝合金伸缩登山杖",
+    id: "toread-铝合金伸缩登山杖",
     name: "铝合金伸缩登山杖",
     brand: "探路者",
     category: "trekking-poles",
@@ -1258,7 +1258,7 @@ const trekkingpolesProducts: Product[] = [
     price: 199,
   },
   {
-    id: "-碳纤维折叠登山杖",
+    id: "toread-碳纤维折叠登山杖",
     name: "碳纤维折叠登山杖",
     brand: "探路者",
     category: "trekking-poles",
@@ -1273,7 +1273,7 @@ const trekkingpolesProducts: Product[] = [
     price: 399,
   },
   {
-    id: "-铝合金避震登山杖",
+    id: "camel-铝合金避震登山杖",
     name: "铝合金避震登山杖",
     brand: "骆驼",
     category: "trekking-poles",
@@ -1288,7 +1288,7 @@ const trekkingpolesProducts: Product[] = [
     price: 159,
   },
   {
-    id: "-碳纤维五节折叠杖",
+    id: "camel-碳纤维五节折叠杖",
     name: "碳纤维五节折叠杖",
     brand: "骆驼",
     category: "trekking-poles",
@@ -1303,7 +1303,7 @@ const trekkingpolesProducts: Product[] = [
     price: 299,
   },
   {
-    id: "-铝合金三节杖",
+    id: "muxing-铝合金三节杖",
     name: "铝合金三节杖",
     brand: "牧高笛",
     category: "trekking-poles",
@@ -1318,7 +1318,7 @@ const trekkingpolesProducts: Product[] = [
     price: 199,
   },
   {
-    id: "-铝合金伸缩杖",
+    id: "naturehike-铝合金伸缩杖",
     name: "铝合金伸缩杖",
     brand: "挪客",
     category: "trekking-poles",
@@ -1367,7 +1367,7 @@ const trekkingpolesProducts: Product[] = [
 // tent 产品 (46条)
 const tentProducts: Product[] = [
   {
-    id: "-冷山2air",
+    id: "muxing-冷山2air",
     name: "冷山2air",
     brand: "牧高笛",
     category: "tent",
@@ -1383,7 +1383,7 @@ const tentProducts: Product[] = [
     price: 699,
   },
   {
-    id: "-冷山3air",
+    id: "muxing-冷山3air",
     name: "冷山3air",
     brand: "牧高笛",
     category: "tent",
@@ -1399,7 +1399,7 @@ const tentProducts: Product[] = [
     price: 799,
   },
   {
-    id: "-冷山ul",
+    id: "muxing-冷山ul",
     name: "冷山UL",
     brand: "牧高笛",
     category: "tent",
@@ -1415,7 +1415,7 @@ const tentProducts: Product[] = [
     price: 799,
   },
   {
-    id: "-冷山2plus",
+    id: "muxing-冷山2plus",
     name: "冷山2plus",
     brand: "牧高笛",
     category: "tent",
@@ -1431,7 +1431,7 @@ const tentProducts: Product[] = [
     price: 799,
   },
   {
-    id: "-晴日",
+    id: "muxing-晴日",
     name: "晴日",
     brand: "牧高笛",
     category: "tent",
@@ -1447,7 +1447,7 @@ const tentProducts: Product[] = [
     price: 399,
   },
   {
-    id: "-零动145",
+    id: "muxing-零动145",
     name: "零动145",
     brand: "牧高笛",
     category: "tent",
@@ -1463,7 +1463,7 @@ const tentProducts: Product[] = [
     price: 499,
   },
   {
-    id: "-世家4",
+    id: "muxing-世家4",
     name: "世家4",
     brand: "牧高笛",
     category: "tent",
@@ -1479,7 +1479,7 @@ const tentProducts: Product[] = [
     price: 1499,
   },
   {
-    id: "-纪元230",
+    id: "muxing-纪元230",
     name: "纪元230",
     brand: "牧高笛",
     category: "tent",
@@ -1495,7 +1495,7 @@ const tentProducts: Product[] = [
     price: 3999,
   },
   {
-    id: "-假日山居5-9",
+    id: "muxing-假日山居5-9",
     name: "假日山居5.9",
     brand: "牧高笛",
     category: "tent",
@@ -1511,7 +1511,7 @@ const tentProducts: Product[] = [
     price: 1299,
   },
   {
-    id: "-弦月kt320026",
+    id: "kailas-弦月kt320026",
     name: "弦月KT320026",
     brand: "凯乐石",
     category: "tent",
@@ -1527,7 +1527,7 @@ const tentProducts: Product[] = [
     price: 699,
   },
   {
-    id: "-春晖iii",
+    id: "kailas-春晖iii",
     name: "春晖III",
     brand: "凯乐石",
     category: "tent",
@@ -1543,7 +1543,7 @@ const tentProducts: Product[] = [
     price: 699,
   },
   {
-    id: "-云尚pro",
+    id: "naturehike-云尚pro",
     name: "云尚Pro",
     brand: "挪客",
     category: "tent",
@@ -1559,7 +1559,7 @@ const tentProducts: Product[] = [
     price: 799,
   },
   {
-    id: "-云尚升级款",
+    id: "naturehike-云尚升级款",
     name: "云尚升级款",
     brand: "挪客",
     category: "tent",
@@ -1575,7 +1575,7 @@ const tentProducts: Product[] = [
     price: 699,
   },
   {
-    id: "-飘云2",
+    id: "sanfeng-飘云2",
     name: "飘云2",
     brand: "三峰出",
     category: "tent",
@@ -1591,7 +1591,7 @@ const tentProducts: Product[] = [
     price: 899,
   },
   {
-    id: "-征途2",
+    id: "sanfeng-征途2",
     name: "征途2",
     brand: "三峰出",
     category: "tent",
@@ -1607,7 +1607,7 @@ const tentProducts: Product[] = [
     price: 799,
   },
   {
-    id: "-风吟2",
+    id: "jingxing-风吟2",
     name: "风吟2",
     brand: "静星",
     category: "tent",
@@ -1735,7 +1735,7 @@ const tentProducts: Product[] = [
     price: 2598,
   },
   {
-    id: "-mt500",
+    id: "decathlon-mt500",
     name: "MT500",
     brand: "迪卡侬",
     category: "tent",
@@ -1816,7 +1816,7 @@ const tentProducts: Product[] = [
     price: 2498,
   },
   {
-    id: "-冷山4air",
+    id: "muxing-冷山4air",
     name: "冷山4air",
     brand: "牧高笛",
     category: "tent",
@@ -1832,7 +1832,7 @@ const tentProducts: Product[] = [
     price: 899,
   },
   {
-    id: "-冷山3plus",
+    id: "muxing-冷山3plus",
     name: "冷山3plus",
     brand: "牧高笛",
     category: "tent",
@@ -1848,7 +1848,7 @@ const tentProducts: Product[] = [
     price: 899,
   },
   {
-    id: "-零动155",
+    id: "muxing-零动155",
     name: "零动155",
     brand: "牧高笛",
     category: "tent",
@@ -1864,7 +1864,7 @@ const tentProducts: Product[] = [
     price: 599,
   },
   {
-    id: "-世家6",
+    id: "muxing-世家6",
     name: "世家6",
     brand: "牧高笛",
     category: "tent",
@@ -1880,7 +1880,7 @@ const tentProducts: Product[] = [
     price: 2499,
   },
   {
-    id: "-指挥官185",
+    id: "muxing-指挥官185",
     name: "指挥官185",
     brand: "牧高笛",
     category: "tent",
@@ -1896,7 +1896,7 @@ const tentProducts: Product[] = [
     price: 3999,
   },
   {
-    id: "-纪元290",
+    id: "muxing-纪元290",
     name: "纪元290",
     brand: "牧高笛",
     category: "tent",
@@ -1912,7 +1912,7 @@ const tentProducts: Product[] = [
     price: 4999,
   },
   {
-    id: "-云尚3",
+    id: "naturehike-云尚3",
     name: "云尚3",
     brand: "挪客",
     category: "tent",
@@ -1928,7 +1928,7 @@ const tentProducts: Product[] = [
     price: 999,
   },
   {
-    id: "-吉岭pro",
+    id: "naturehike-吉岭pro",
     name: "吉岭PRO",
     brand: "挪客",
     category: "tent",
@@ -1944,7 +1944,7 @@ const tentProducts: Product[] = [
     price: 899,
   },
   {
-    id: "-速开全自动帐篷",
+    id: "naturehike-速开全自动帐篷",
     name: "速开全自动帐篷",
     brand: "挪客",
     category: "tent",
@@ -1960,7 +1960,7 @@ const tentProducts: Product[] = [
     price: 499,
   },
   {
-    id: "-地平线",
+    id: "naturehike-地平线",
     name: "地平线",
     brand: "挪客",
     category: "tent",
@@ -1976,7 +1976,7 @@ const tentProducts: Product[] = [
     price: 1999,
   },
   {
-    id: "-飘云3",
+    id: "sanfeng-飘云3",
     name: "飘云3",
     brand: "三峰出",
     category: "tent",
@@ -1992,7 +1992,7 @@ const tentProducts: Product[] = [
     price: 1099,
   },
   {
-    id: "-征途3",
+    id: "sanfeng-征途3",
     name: "征途3",
     brand: "三峰出",
     category: "tent",
@@ -2008,7 +2008,7 @@ const tentProducts: Product[] = [
     price: 999,
   },
   {
-    id: "-太极2",
+    id: "sanfeng-太极2",
     name: "太极2",
     brand: "三峰出",
     category: "tent",
@@ -2024,7 +2024,7 @@ const tentProducts: Product[] = [
     price: 1299,
   },
   {
-    id: "-苍穹",
+    id: "sanfeng-苍穹",
     name: "苍穹",
     brand: "三峰出",
     category: "tent",
@@ -2040,7 +2040,7 @@ const tentProducts: Product[] = [
     price: 899,
   },
   {
-    id: "-风吟4",
+    id: "jingxing-风吟4",
     name: "风吟4",
     brand: "静星",
     category: "tent",
@@ -2056,7 +2056,7 @@ const tentProducts: Product[] = [
     price: 899,
   },
   {
-    id: "-云雀",
+    id: "jingxing-云雀",
     name: "云雀",
     brand: "静星",
     category: "tent",
@@ -2115,7 +2115,7 @@ const tentProducts: Product[] = [
 // sleeping 产品 (43条)
 const sleepingProducts: Product[] = [
   {
-    id: "-a400",
+    id: "blackice-a400",
     name: "A400",
     brand: "黑冰",
     category: "sleeping",
@@ -2130,7 +2130,7 @@ const sleepingProducts: Product[] = [
     price: 399,
   },
   {
-    id: "-a700",
+    id: "blackice-a700",
     name: "A700",
     brand: "黑冰",
     category: "sleeping",
@@ -2145,7 +2145,7 @@ const sleepingProducts: Product[] = [
     price: 599,
   },
   {
-    id: "-a1000",
+    id: "blackice-a1000",
     name: "A1000",
     brand: "黑冰",
     category: "sleeping",
@@ -2160,7 +2160,7 @@ const sleepingProducts: Product[] = [
     price: 799,
   },
   {
-    id: "-a1500",
+    id: "blackice-a1500",
     name: "A1500",
     brand: "黑冰",
     category: "sleeping",
@@ -2175,7 +2175,7 @@ const sleepingProducts: Product[] = [
     price: 1099,
   },
   {
-    id: "-b200",
+    id: "blackice-b200",
     name: "B200",
     brand: "黑冰",
     category: "sleeping",
@@ -2190,7 +2190,7 @@ const sleepingProducts: Product[] = [
     price: 349,
   },
   {
-    id: "-b400",
+    id: "blackice-b400",
     name: "B400",
     brand: "黑冰",
     category: "sleeping",
@@ -2205,7 +2205,7 @@ const sleepingProducts: Product[] = [
     price: 499,
   },
   {
-    id: "-b700",
+    id: "blackice-b700",
     name: "B700",
     brand: "黑冰",
     category: "sleeping",
@@ -2220,7 +2220,7 @@ const sleepingProducts: Product[] = [
     price: 699,
   },
   {
-    id: "-b1000",
+    id: "blackice-b1000",
     name: "B1000",
     brand: "黑冰",
     category: "sleeping",
@@ -2235,7 +2235,7 @@ const sleepingProducts: Product[] = [
     price: 1099,
   },
   {
-    id: "-b1500",
+    id: "blackice-b1500",
     name: "B1500",
     brand: "黑冰",
     category: "sleeping",
@@ -2250,7 +2250,7 @@ const sleepingProducts: Product[] = [
     price: 1499,
   },
   {
-    id: "-e400",
+    id: "blackice-e400",
     name: "E400",
     brand: "黑冰",
     category: "sleeping",
@@ -2265,7 +2265,7 @@ const sleepingProducts: Product[] = [
     price: 699,
   },
   {
-    id: "-e700",
+    id: "blackice-e700",
     name: "E700",
     brand: "黑冰",
     category: "sleeping",
@@ -2280,7 +2280,7 @@ const sleepingProducts: Product[] = [
     price: 1099,
   },
   {
-    id: "-e1000",
+    id: "blackice-e1000",
     name: "E1000",
     brand: "黑冰",
     category: "sleeping",
@@ -2295,7 +2295,7 @@ const sleepingProducts: Product[] = [
     price: 1499,
   },
   {
-    id: "-g200",
+    id: "blackice-g200",
     name: "G200",
     brand: "黑冰",
     category: "sleeping",
@@ -2310,7 +2310,7 @@ const sleepingProducts: Product[] = [
     price: 499,
   },
   {
-    id: "-g400",
+    id: "blackice-g400",
     name: "G400",
     brand: "黑冰",
     category: "sleeping",
@@ -2325,7 +2325,7 @@ const sleepingProducts: Product[] = [
     price: 699,
   },
   {
-    id: "-g700",
+    id: "blackice-g700",
     name: "G700",
     brand: "黑冰",
     category: "sleeping",
@@ -2340,7 +2340,7 @@ const sleepingProducts: Product[] = [
     price: 1199,
   },
   {
-    id: "-g1000",
+    id: "blackice-g1000",
     name: "G1000",
     brand: "黑冰",
     category: "sleeping",
@@ -2355,7 +2355,7 @@ const sleepingProducts: Product[] = [
     price: 1599,
   },
   {
-    id: "-g1300",
+    id: "blackice-g1300",
     name: "G1300",
     brand: "黑冰",
     category: "sleeping",
@@ -2370,7 +2370,7 @@ const sleepingProducts: Product[] = [
     price: 1999,
   },
   {
-    id: "-z400",
+    id: "blackice-z400",
     name: "Z400",
     brand: "黑冰",
     category: "sleeping",
@@ -2385,7 +2385,7 @@ const sleepingProducts: Product[] = [
     price: 1099,
   },
   {
-    id: "-z700",
+    id: "blackice-z700",
     name: "Z700",
     brand: "黑冰",
     category: "sleeping",
@@ -2400,7 +2400,7 @@ const sleepingProducts: Product[] = [
     price: 1599,
   },
   {
-    id: "-z1000",
+    id: "blackice-z1000",
     name: "Z1000",
     brand: "黑冰",
     category: "sleeping",
@@ -2520,7 +2520,7 @@ const sleepingProducts: Product[] = [
     price: 3499,
   },
   {
-    id: "-驯鹿1000",
+    id: "tianshi-驯鹿1000",
     name: "驯鹿1000",
     brand: "天石",
     category: "sleeping",
@@ -2535,7 +2535,7 @@ const sleepingProducts: Product[] = [
     price: 999,
   },
   {
-    id: "-乐土700m",
+    id: "gaoshanke-乐土700m",
     name: "乐土700m",
     brand: "高山客",
     category: "sleeping",
@@ -2565,7 +2565,7 @@ const sleepingProducts: Product[] = [
     price: 3499,
   },
   {
-    id: "-at100-p棉睡袋",
+    id: "blackice-at100-p棉睡袋",
     name: "AT100 P棉睡袋",
     brand: "黑冰",
     category: "sleeping",
@@ -2580,7 +2580,7 @@ const sleepingProducts: Product[] = [
     price: 499,
   },
   {
-    id: "-at200-p棉睡袋",
+    id: "blackice-at200-p棉睡袋",
     name: "AT200 P棉睡袋",
     brand: "黑冰",
     category: "sleeping",
@@ -2595,7 +2595,7 @@ const sleepingProducts: Product[] = [
     price: 699,
   },
   {
-    id: "-丝绒睡胆",
+    id: "blackice-丝绒睡胆",
     name: "丝绒睡胆",
     brand: "黑冰",
     category: "sleeping",
@@ -2610,7 +2610,7 @@ const sleepingProducts: Product[] = [
     price: 99,
   },
   {
-    id: "-z1300",
+    id: "blackice-z1300",
     name: "Z1300",
     brand: "黑冰",
     category: "sleeping",
@@ -2625,7 +2625,7 @@ const sleepingProducts: Product[] = [
     price: 2699,
   },
   {
-    id: "-驯鹿700",
+    id: "tianshi-驯鹿700",
     name: "驯鹿700",
     brand: "天石",
     category: "sleeping",
@@ -2640,7 +2640,7 @@ const sleepingProducts: Product[] = [
     price: 799,
   },
   {
-    id: "-驯鹿1300",
+    id: "tianshi-驯鹿1300",
     name: "驯鹿1300",
     brand: "天石",
     category: "sleeping",
@@ -2655,7 +2655,7 @@ const sleepingProducts: Product[] = [
     price: 1299,
   },
   {
-    id: "-极光700",
+    id: "tianshi-极光700",
     name: "极光700",
     brand: "天石",
     category: "sleeping",
@@ -2670,7 +2670,7 @@ const sleepingProducts: Product[] = [
     price: 1099,
   },
   {
-    id: "-极光1000",
+    id: "tianshi-极光1000",
     name: "极光1000",
     brand: "天石",
     category: "sleeping",
@@ -2685,7 +2685,7 @@ const sleepingProducts: Product[] = [
     price: 1599,
   },
   {
-    id: "-羽绒信封睡袋",
+    id: "naturehike-羽绒信封睡袋",
     name: "羽绒信封睡袋",
     brand: "挪客",
     category: "sleeping",
@@ -2700,7 +2700,7 @@ const sleepingProducts: Product[] = [
     price: 499,
   },
   {
-    id: "-抓绒睡袋内胆",
+    id: "naturehike-抓绒睡袋内胆",
     name: "抓绒睡袋内胆",
     brand: "挪客",
     category: "sleeping",
@@ -2715,7 +2715,7 @@ const sleepingProducts: Product[] = [
     price: 89,
   },
   {
-    id: "-春秋棉睡袋",
+    id: "naturehike-春秋棉睡袋",
     name: "春秋棉睡袋",
     brand: "挪客",
     category: "sleeping",
@@ -2730,7 +2730,7 @@ const sleepingProducts: Product[] = [
     price: 199,
   },
   {
-    id: "-祥云棉睡袋",
+    id: "muxing-祥云棉睡袋",
     name: "祥云棉睡袋",
     brand: "牧高笛",
     category: "sleeping",
@@ -2745,7 +2745,7 @@ const sleepingProducts: Product[] = [
     price: 179,
   },
   {
-    id: "-羽绒木乃伊睡袋",
+    id: "muxing-羽绒木乃伊睡袋",
     name: "羽绒木乃伊睡袋",
     brand: "牧高笛",
     category: "sleeping",
@@ -3155,7 +3155,7 @@ const backpackProducts: Product[] = [
     price: 2599,
   },
   {
-    id: "-风洞26l",
+    id: "kailas-风洞26l",
     name: "风洞26L",
     brand: "凯乐石",
     category: "backpack",
@@ -3172,7 +3172,7 @@ const backpackProducts: Product[] = [
     price: 990,
   },
   {
-    id: "-风洞48l",
+    id: "kailas-风洞48l",
     name: "风洞48L",
     brand: "凯乐石",
     category: "backpack",
@@ -3189,7 +3189,7 @@ const backpackProducts: Product[] = [
     price: 1799,
   },
   {
-    id: "-山脊iv-48l-5",
+    id: "kailas-山脊iv-48l-5",
     name: "山脊IV 48L+5",
     brand: "凯乐石",
     category: "backpack",
@@ -3206,7 +3206,7 @@ const backpackProducts: Product[] = [
     price: 1499,
   },
   {
-    id: "-巅峰-bc-65l",
+    id: "kailas-巅峰-bc-65l",
     name: "巅峰-BC 65L",
     brand: "凯乐石",
     category: "backpack",
@@ -3223,7 +3223,7 @@ const backpackProducts: Product[] = [
     price: 1799,
   },
   {
-    id: "-bora-ar-50",
+    id: "arcteryx-bora-ar-50",
     name: "Bora AR 50",
     brand: "始祖鸟",
     category: "backpack",
@@ -3240,7 +3240,7 @@ const backpackProducts: Product[] = [
     price: 3999,
   },
   {
-    id: "-bora-ar-63",
+    id: "arcteryx-bora-ar-63",
     name: "Bora AR 63",
     brand: "始祖鸟",
     category: "backpack",
@@ -3257,7 +3257,7 @@ const backpackProducts: Product[] = [
     price: 4499,
   },
   {
-    id: "-alpha-ar",
+    id: "arcteryx-alpha-ar",
     name: "Alpha AR",
     brand: "始祖鸟",
     category: "backpack",
@@ -3274,7 +3274,7 @@ const backpackProducts: Product[] = [
     price: 7499,
   },
   {
-    id: "-micon-42",
+    id: "arcteryx-micon-42",
     name: "Micon 42",
     brand: "始祖鸟",
     category: "backpack",
@@ -3342,7 +3342,7 @@ const backpackProducts: Product[] = [
     price: 2199,
   },
   {
-    id: "-mt500-30l",
+    id: "decathlon-mt500-30l",
     name: "MT500 30L",
     brand: "迪卡侬",
     category: "backpack",
@@ -3359,7 +3359,7 @@ const backpackProducts: Product[] = [
     price: 249,
   },
   {
-    id: "-mt900-55-70l",
+    id: "decathlon-mt900-55-70l",
     name: "MT900 55-70L",
     brand: "迪卡侬",
     category: "backpack",
@@ -3376,7 +3376,7 @@ const backpackProducts: Product[] = [
     price: 799,
   },
   {
-    id: "-奥林匹斯iv-65-10l",
+    id: "kailas-奥林匹斯iv-65-10l",
     name: "奥林匹斯IV 65+10L",
     brand: "凯乐石",
     category: "backpack",
@@ -3393,7 +3393,7 @@ const backpackProducts: Product[] = [
     price: 1299,
   },
   {
-    id: "-气旋-48l",
+    id: "kailas-气旋-48l",
     name: "气旋 48L",
     brand: "凯乐石",
     category: "backpack",
@@ -3410,7 +3410,7 @@ const backpackProducts: Product[] = [
     price: 899,
   },
   {
-    id: "-风洞-28l",
+    id: "kailas-风洞-28l",
     name: "风洞 28L",
     brand: "凯乐石",
     category: "backpack",
@@ -3427,7 +3427,7 @@ const backpackProducts: Product[] = [
     price: 499,
   },
   {
-    id: "-骑行背包-12l",
+    id: "kailas-骑行背包-12l",
     name: "骑行背包 12L",
     brand: "凯乐石",
     category: "backpack",
@@ -3444,7 +3444,7 @@ const backpackProducts: Product[] = [
     price: 399,
   },
   {
-    id: "-雪域air-38l",
+    id: "toread-雪域air-38l",
     name: "雪域Air 38L",
     brand: "探路者",
     category: "backpack",
@@ -3461,7 +3461,7 @@ const backpackProducts: Product[] = [
     price: 799,
   },
   {
-    id: "-雪域air-50l",
+    id: "toread-雪域air-50l",
     name: "雪域Air 50L",
     brand: "探路者",
     category: "backpack",
@@ -3478,7 +3478,7 @@ const backpackProducts: Product[] = [
     price: 999,
   },
   {
-    id: "-云野-30l",
+    id: "toread-云野-30l",
     name: "云野 30L",
     brand: "探路者",
     category: "backpack",
@@ -3495,7 +3495,7 @@ const backpackProducts: Product[] = [
     price: 499,
   },
   {
-    id: "-云野-20l",
+    id: "toread-云野-20l",
     name: "云野 20L",
     brand: "探路者",
     category: "backpack",
@@ -3512,7 +3512,7 @@ const backpackProducts: Product[] = [
     price: 399,
   },
   {
-    id: "-登山背包-40l",
+    id: "camel-登山背包-40l",
     name: "登山背包 40L",
     brand: "骆驼",
     category: "backpack",
@@ -3529,7 +3529,7 @@ const backpackProducts: Product[] = [
     price: 399,
   },
   {
-    id: "-户外双肩包-25l",
+    id: "camel-户外双肩包-25l",
     name: "户外双肩包 25L",
     brand: "骆驼",
     category: "backpack",
@@ -3546,7 +3546,7 @@ const backpackProducts: Product[] = [
     price: 199,
   },
   {
-    id: "-徒步背包-45l",
+    id: "muxing-徒步背包-45l",
     name: "徒步背包 45L",
     brand: "牧高笛",
     category: "backpack",
@@ -3563,7 +3563,7 @@ const backpackProducts: Product[] = [
     price: 599,
   },
   {
-    id: "-休闲双肩包-20l",
+    id: "muxing-休闲双肩包-20l",
     name: "休闲双肩包 20L",
     brand: "牧高笛",
     category: "backpack",
@@ -3580,7 +3580,7 @@ const backpackProducts: Product[] = [
     price: 299,
   },
   {
-    id: "-轻量徒步包-35l",
+    id: "naturehike-轻量徒步包-35l",
     name: "轻量徒步包 35L",
     brand: "挪客",
     category: "backpack",
@@ -3597,7 +3597,7 @@ const backpackProducts: Product[] = [
     price: 459,
   },
   {
-    id: "-城市户外双肩包-22l",
+    id: "naturehike-城市户外双肩包-22l",
     name: "城市户外双肩包 22L",
     brand: "挪客",
     category: "backpack",
@@ -3980,7 +3980,7 @@ const backpackProducts: Product[] = [
 // outer-layer 产品 (75条)
 const outerlayerProducts: Product[] = [
   {
-    id: "-beta-ar-jacket",
+    id: "arcteryx-beta-ar-jacket",
     name: "Beta AR Jacket",
     brand: "始祖鸟",
     category: "outer-layer",
@@ -3998,7 +3998,7 @@ const outerlayerProducts: Product[] = [
     price: 6400,
   },
   {
-    id: "-alpha-sv-jacket",
+    id: "arcteryx-alpha-sv-jacket",
     name: "Alpha SV Jacket",
     brand: "始祖鸟",
     category: "outer-layer",
@@ -4016,7 +4016,7 @@ const outerlayerProducts: Product[] = [
     price: 7998,
   },
   {
-    id: "-beta-jacket",
+    id: "arcteryx-beta-jacket",
     name: "Beta Jacket",
     brand: "始祖鸟",
     category: "outer-layer",
@@ -4034,7 +4034,7 @@ const outerlayerProducts: Product[] = [
     price: 4500,
   },
   {
-    id: "-rush-jacket",
+    id: "arcteryx-rush-jacket",
     name: "Rush Jacket",
     brand: "始祖鸟",
     category: "outer-layer",
@@ -4052,7 +4052,7 @@ const outerlayerProducts: Product[] = [
     price: 7800,
   },
   {
-    id: "-gamma-lt-hoody",
+    id: "arcteryx-gamma-lt-hoody",
     name: "Gamma LT Hoody",
     brand: "始祖鸟",
     category: "outer-layer",
@@ -4070,7 +4070,7 @@ const outerlayerProducts: Product[] = [
     price: 2800,
   },
   {
-    id: "-mont-x-pro",
+    id: "kailas-mont-x-pro",
     name: "MONT X-PRO",
     brand: "凯乐石",
     category: "outer-layer",
@@ -4088,7 +4088,7 @@ const outerlayerProducts: Product[] = [
     price: 3600,
   },
   {
-    id: "-mont-x",
+    id: "kailas-mont-x",
     name: "MONT X",
     brand: "凯乐石",
     category: "outer-layer",
@@ -4106,7 +4106,7 @@ const outerlayerProducts: Product[] = [
     price: 2800,
   },
   {
-    id: "-博格达lt",
+    id: "kailas-博格达lt",
     name: "博格达LT",
     brand: "凯乐石",
     category: "outer-layer",
@@ -4124,7 +4124,7 @@ const outerlayerProducts: Product[] = [
     price: 2100,
   },
   {
-    id: "-m8-基础款",
+    id: "kailas-m8-基础款",
     name: "M8 基础款",
     brand: "凯乐石",
     category: "outer-layer",
@@ -4142,7 +4142,7 @@ const outerlayerProducts: Product[] = [
     price: 990,
   },
   {
-    id: "-m8-ic",
+    id: "kailas-m8-ic",
     name: "M8 IC",
     brand: "凯乐石",
     category: "outer-layer",
@@ -4160,7 +4160,7 @@ const outerlayerProducts: Product[] = [
     price: 2300,
   },
   {
-    id: "-m3-x",
+    id: "kailas-m3-x",
     name: "M3-X",
     brand: "凯乐石",
     category: "outer-layer",
@@ -4250,7 +4250,7 @@ const outerlayerProducts: Product[] = [
     price: 1298,
   },
   {
-    id: "-山境pro-3l",
+    id: "muxing-山境pro-3l",
     name: "山境Pro 3L",
     brand: "牧高笛",
     category: "outer-layer",
@@ -4268,7 +4268,7 @@ const outerlayerProducts: Product[] = [
     price: 4499,
   },
   {
-    id: "-torrentshell-3l",
+    id: "patagonia-torrentshell-3l",
     name: "TorrentShell 3L",
     brand: "巴塔哥尼亚",
     category: "outer-layer",
@@ -4286,7 +4286,7 @@ const outerlayerProducts: Product[] = [
     price: 3998,
   },
   {
-    id: "-granite-crest-g3",
+    id: "patagonia-granite-crest-g3",
     name: "Granite Crest G3",
     brand: "巴塔哥尼亚",
     category: "outer-layer",
@@ -4304,7 +4304,7 @@ const outerlayerProducts: Product[] = [
     price: 2374,
   },
   {
-    id: "-nordwand-pro-hs",
+    id: "mammut-nordwand-pro-hs",
     name: "Nordwand Pro HS",
     brand: "猛犸象",
     category: "outer-layer",
@@ -4322,7 +4322,7 @@ const outerlayerProducts: Product[] = [
     price: 6899,
   },
   {
-    id: "-ayako-pro-2-0",
+    id: "mammut-ayako-pro-2-0",
     name: "Ayako Pro 2.0",
     brand: "猛犸象",
     category: "outer-layer",
@@ -4340,7 +4340,7 @@ const outerlayerProducts: Product[] = [
     price: 3998,
   },
   {
-    id: "-linard-light",
+    id: "mammut-linard-light",
     name: "Linard Light",
     brand: "猛犸象",
     category: "outer-layer",
@@ -4358,7 +4358,7 @@ const outerlayerProducts: Product[] = [
     price: 1798,
   },
   {
-    id: "-gtx-软壳系列",
+    id: "kolon-gtx-软壳系列",
     name: "GTX 软壳系列",
     brand: "可隆",
     category: "outer-layer",
@@ -4376,7 +4376,7 @@ const outerlayerProducts: Product[] = [
     price: 3699,
   },
   {
-    id: "-山野经典2-0",
+    id: "pelliot-山野经典2-0",
     name: "山野经典2.0",
     brand: "伯希和",
     category: "outer-layer",
@@ -4394,7 +4394,7 @@ const outerlayerProducts: Product[] = [
     price: 1599,
   },
   {
-    id: "-智能温控系列",
+    id: "toread-智能温控系列",
     name: "智能温控系列",
     brand: "探路者",
     category: "outer-layer",
@@ -4412,7 +4412,7 @@ const outerlayerProducts: Product[] = [
     price: 1699,
   },
   {
-    id: "-黑标三合一",
+    id: "camel-黑标三合一",
     name: "黑标三合一",
     brand: "骆驼",
     category: "outer-layer",
@@ -4430,7 +4430,7 @@ const outerlayerProducts: Product[] = [
     price: 1099,
   },
   {
-    id: "-we2619-单冲",
+    id: "columbia-we2619-单冲",
     name: "WE2619 单冲",
     brand: "哥伦比亚",
     category: "outer-layer",
@@ -4448,7 +4448,7 @@ const outerlayerProducts: Product[] = [
     price: 899,
   },
   {
-    id: "-xe5743",
+    id: "columbia-xe5743",
     name: "XE5743",
     brand: "哥伦比亚",
     category: "outer-layer",
@@ -4466,7 +4466,7 @@ const outerlayerProducts: Product[] = [
     price: 939,
   },
   {
-    id: "-trailtime",
+    id: "jackwolfskin-trailtime",
     name: "TRAILTIME",
     brand: "狼爪",
     category: "outer-layer",
@@ -4484,7 +4484,7 @@ const outerlayerProducts: Product[] = [
     price: 698,
   },
   {
-    id: "-mh500",
+    id: "decathlon-mh500",
     name: "MH500",
     brand: "迪卡侬",
     category: "outer-layer",
@@ -4502,7 +4502,7 @@ const outerlayerProducts: Product[] = [
     price: 599,
   },
   {
-    id: "-mont-x-全天候硬壳",
+    id: "kailas-mont-x-全天候硬壳",
     name: "MONT X 全天候硬壳",
     brand: "凯乐石",
     category: "outer-layer",
@@ -4520,7 +4520,7 @@ const outerlayerProducts: Product[] = [
     price: 2800,
   },
   {
-    id: "-mont-x-pro-gtx",
+    id: "kailas-mont-x-pro-gtx",
     name: "MONT-X PRO GTX",
     brand: "凯乐石",
     category: "outer-layer",
@@ -4538,7 +4538,7 @@ const outerlayerProducts: Product[] = [
     price: 3600,
   },
   {
-    id: "-m8-连帽软壳",
+    id: "kailas-m8-连帽软壳",
     name: "M8 连帽软壳",
     brand: "凯乐石",
     category: "outer-layer",
@@ -4556,7 +4556,7 @@ const outerlayerProducts: Product[] = [
     price: 1800,
   },
   {
-    id: "-m8-lt-轻量软壳",
+    id: "kailas-m8-lt-轻量软壳",
     name: "M8-LT 轻量软壳",
     brand: "凯乐石",
     category: "outer-layer",
@@ -4574,7 +4574,7 @@ const outerlayerProducts: Product[] = [
     price: 1600,
   },
   {
-    id: "-弹力软壳夹克",
+    id: "pelliot-弹力软壳夹克",
     name: "弹力软壳夹克",
     brand: "伯希和",
     category: "outer-layer",
@@ -5240,7 +5240,7 @@ const outerlayerProducts: Product[] = [
 // mid-layer 产品 (25条)
 const midlayerProducts: Product[] = [
   {
-    id: "-atom-sl-hoody",
+    id: "arcteryx-atom-sl-hoody",
     name: "Atom SL Hoody",
     brand: "始祖鸟",
     category: "mid-layer",
@@ -5258,7 +5258,7 @@ const midlayerProducts: Product[] = [
     price: 2200,
   },
   {
-    id: "-atom-hoody",
+    id: "arcteryx-atom-hoody",
     name: "Atom Hoody",
     brand: "始祖鸟",
     category: "mid-layer",
@@ -5276,7 +5276,7 @@ const midlayerProducts: Product[] = [
     price: 2800,
   },
   {
-    id: "-lightweight-hoody",
+    id: "arcteryx-lightweight-hoody",
     name: "Lightweight Hoody",
     brand: "始祖鸟",
     category: "mid-layer",
