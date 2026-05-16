@@ -1,3 +1,5 @@
+import { DayForecast } from "./weather";
+
 export type ProductCategory =
   | "footwear"
   | "base-layer"
@@ -178,17 +180,6 @@ export interface GearRecommendation {
   recommendations: Recommendation[];
   notRecommended: { category: string; reason: string }[];
   totalWeight: number; // 总重量(g)
-  weatherForecast?: WeatherForecast[];
+  weatherForecast?: DayForecast[];
 }
 
-export interface WeatherForecast {
-  date: string;
-  tempHigh: number;
-  tempLow: number;
-  precipitation: number; // 降水概率 0-100
-  precipitationType: "none" | "rain" | "snow" | "sleet";
-  windSpeed: number; // km/h
-  windLevel: string; // "微风" / "大风" / "狂风"
-  condition: string;
-  icon: string;
-}
