@@ -115,7 +115,7 @@ export const gearRules: GearRule[] = [
   },
 
   // ============ 基础层 (base-layer) ============
-  // 所有户外活动都需要速干基础层
+  // 所有户外活动都需要速干基础层（棉质是失温元凶）
   {
     category: "base-layer",
     categoryName: "基础层",
@@ -125,14 +125,44 @@ export const gearRules: GearRule[] = [
     priority: "required",
     reasonTemplate: "速干排汗基础层是户外必备，棉质衣物是失温元凶",
   },
+  // 高温天气需要超薄透气基础层
+  {
+    category: "base-layer",
+    categoryName: "基础层",
+    categoryIcon: "👕",
+    conditions: [{ field: "tempHigh", operator: "gt", value: 28 }],
+    recommended: true,
+    priority: "required",
+    reasonTemplate: "高温{tempHigh}°C，需要超薄透气速干基础层",
+  },
+  // 低温天气需要保暖基础层
+  {
+    category: "base-layer",
+    categoryName: "基础层",
+    categoryIcon: "👕",
+    conditions: [{ field: "tempLow", operator: "lt", value: 10 }],
+    recommended: true,
+    priority: "required",
+    reasonTemplate: "低温{tempLow}°C，需要美利奴羊毛保暖基础层",
+  },
+  // 多日行程需要抗臭基础层
+  {
+    category: "base-layer",
+    categoryName: "基础层",
+    categoryIcon: "👕",
+    conditions: [{ field: "duration", operator: "gt", value: 2 }],
+    recommended: true,
+    priority: "recommended",
+    reasonTemplate: "多日行程建议美利奴羊毛基础层，天然抗臭",
+  },
 
   // ============ 保暖层 (mid-layer) ============
-  // 低温必须保暖层
+  // 低温必须保暖层（失温风险）
   {
     category: "mid-layer",
     categoryName: "保暖层",
     categoryIcon: "🧥",
-    conditions: [{ field: "tempLow", operator: "lt", value: 0 }],
+    conditions: [{ field: "tempLow", operator: "lt", value: 5 }],
     recommended: true,
     priority: "required",
     reasonTemplate: "低温{tempLow}°C，必须保暖层，失温风险高",
@@ -142,30 +172,43 @@ export const gearRules: GearRule[] = [
     category: "mid-layer",
     categoryName: "保暖层",
     categoryIcon: "🧥",
-    conditions: [{ field: "altitude", operator: "gt", value: 3500 }],
+    conditions: [{ field: "altitude", operator: "gt", value: 3000 }],
     recommended: true,
     priority: "required",
     reasonTemplate: "海拔{altitude}m气温骤降，必须保暖层",
   },
-  // 低温+大风 → 失温风险
+  // 低温+大风 → 失温三要素
   {
     category: "mid-layer",
     categoryName: "保暖层",
     categoryIcon: "🧥",
     conditions: [
-      { field: "tempLow", operator: "lt", value: 5 },
-      { field: "windSpeed", operator: "gt", value: 30 },
+      { field: "tempLow", operator: "lt", value: 10 },
+      { field: "windSpeed", operator: "gt", value: 25 },
     ],
     recommended: true,
     priority: "required",
     reasonTemplate: "低温{tempLow}°C+大风{windSpeed}km/h，失温风险高",
   },
-  // 低温建议保暖层
+  // 雨天优先化纤保暖层（羽绒受潮失效）
   {
     category: "mid-layer",
     categoryName: "保暖层",
     categoryIcon: "🧥",
-    conditions: [{ field: "tempLow", operator: "lt", value: 10 }],
+    conditions: [
+      { field: "tempLow", operator: "lt", value: 15 },
+      { field: "precipitation", operator: "gt", value: 50 },
+    ],
+    recommended: true,
+    priority: "required",
+    reasonTemplate: "雨天低温{tempLow}°C，建议化纤保暖层（羽绒受潮失效）",
+  },
+  // 夜间温差大建议保暖层
+  {
+    category: "mid-layer",
+    categoryName: "保暖层",
+    categoryIcon: "🧥",
+    conditions: [{ field: "tempLow", operator: "lt", value: 15 }],
     recommended: true,
     priority: "recommended",
     reasonTemplate: "夜间温度约{tempLow}°C，建议保暖层",
@@ -176,31 +219,41 @@ export const gearRules: GearRule[] = [
     categoryName: "保暖层",
     categoryIcon: "🧥",
     conditions: [
-      { field: "altitude", operator: "gt", value: 2500 },
+      { field: "altitude", operator: "gt", value: 2000 },
       { field: "duration", operator: "gt", value: 1 },
     ],
     recommended: true,
     priority: "recommended",
     reasonTemplate: "海拔{altitude}m多日行程温差大，建议保暖层",
   },
+  // 大风天气需要保暖层
+  {
+    category: "mid-layer",
+    categoryName: "保暖层",
+    categoryIcon: "🧥",
+    conditions: [{ field: "windSpeed", operator: "gt", value: 30 }],
+    recommended: true,
+    priority: "recommended",
+    reasonTemplate: "大风{windSpeed}km/h，需要保暖层防风",
+  },
 
   // ============ 防护层 (outer-layer) ============
-  // 高降水必须冲锋衣
+  // 降水必须冲锋衣（降低阈值到30%）
   {
     category: "outer-layer",
     categoryName: "防护层",
     categoryIcon: "🧥",
-    conditions: [{ field: "precipitation", operator: "gt", value: 60 }],
+    conditions: [{ field: "precipitation", operator: "gt", value: 30 }],
     recommended: true,
     priority: "required",
     reasonTemplate: "降水概率{precipitation}%，必须防水透气冲锋衣",
   },
-  // 大风必须防风层
+  // 大风必须防风层（降低阈值到25km/h）
   {
     category: "outer-layer",
     categoryName: "防护层",
     categoryIcon: "🧥",
-    conditions: [{ field: "windSpeed", operator: "gt", value: 40 }],
+    conditions: [{ field: "windSpeed", operator: "gt", value: 25 }],
     recommended: true,
     priority: "required",
     reasonTemplate: "风速{windSpeed}km/h，需要防风防水层",
@@ -210,7 +263,7 @@ export const gearRules: GearRule[] = [
     category: "outer-layer",
     categoryName: "防护层",
     categoryIcon: "🧥",
-    conditions: [{ field: "tempLow", operator: "lt", value: -10 }],
+    conditions: [{ field: "tempLow", operator: "lt", value: -5 }],
     recommended: true,
     priority: "required",
     reasonTemplate: "极寒{tempLow}°C，需要专业防寒外层",
@@ -220,17 +273,30 @@ export const gearRules: GearRule[] = [
     category: "outer-layer",
     categoryName: "防护层",
     categoryIcon: "🧥",
-    conditions: [{ field: "altitude", operator: "gt", value: 4500 }],
+    conditions: [{ field: "altitude", operator: "gt", value: 3500 }],
     recommended: true,
     priority: "required",
     reasonTemplate: "海拔{altitude}m天气瞬息万变，必须防护层",
   },
-  // 中等降水建议
+  // 低温大风组合
   {
     category: "outer-layer",
     categoryName: "防护层",
     categoryIcon: "🧥",
-    conditions: [{ field: "precipitation", operator: "gt", value: 30 }],
+    conditions: [
+      { field: "windSpeed", operator: "gt", value: 20 },
+      { field: "tempLow", operator: "lt", value: 10 },
+    ],
+    recommended: true,
+    priority: "required",
+    reasonTemplate: "低温{tempLow}°C+大风{windSpeed}km/h，需要防风层",
+  },
+  // 有降水风险建议冲锋衣
+  {
+    category: "outer-layer",
+    categoryName: "防护层",
+    categoryIcon: "🧥",
+    conditions: [{ field: "precipitation", operator: "gt", value: 20 }],
     recommended: true,
     priority: "recommended",
     reasonTemplate: "降水概率{precipitation}%，建议携带冲锋衣",
@@ -241,25 +307,22 @@ export const gearRules: GearRule[] = [
     categoryName: "防护层",
     categoryIcon: "🧥",
     conditions: [
-      { field: "altitude", operator: "gt", value: 2500 },
+      { field: "altitude", operator: "gt", value: 2000 },
       { field: "duration", operator: "gt", value: 1 },
     ],
     recommended: true,
     priority: "recommended",
     reasonTemplate: "海拔{altitude}m多日行程天气多变，建议防护层",
   },
-  // 低温大风组合
+  // 多日行程天气变化大
   {
     category: "outer-layer",
     categoryName: "防护层",
     categoryIcon: "🧥",
-    conditions: [
-      { field: "windSpeed", operator: "gt", value: 25 },
-      { field: "tempLow", operator: "lt", value: 5 },
-    ],
+    conditions: [{ field: "duration", operator: "gt", value: 2 }],
     recommended: true,
     priority: "recommended",
-    reasonTemplate: "低温{tempLow}°C+大风{windSpeed}km/h，建议防风层",
+    reasonTemplate: "多日行程天气变化大，建议携带防护层",
   },
 
   // ============ 雨具 (rain-gear) ============

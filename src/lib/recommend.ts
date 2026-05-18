@@ -92,11 +92,58 @@ function filterProductsForCategory(categoryProducts: Product[], context: Recomme
     case "outer-layer":
     case "mid-layer":
     case "base-layer": {
-      const suitable = categoryProducts.filter((p) => {
+      // 按温度范围筛选
+      let suitable = categoryProducts.filter((p) => {
         const specs = p.specs as ClothingSpecs;
         return specs.temperatureRange.min <= minTemp && specs.temperatureRange.max >= maxTemp;
       });
-      return suitable.length > 0 ? suitable : categoryProducts;
+      if (suitable.length === 0) suitable = categoryProducts;
+
+      // 基础层优化：高温选透气，低温选保暖
+      if (category === "base-layer") {
+        if (maxTemp > 28) {
+          // 高温天气：优先选择透气性高的产品
+          const highBreathability = suitable.filter((p) => (p.specs as ClothingSpecs).breathability === "high");
+          if (highBreathability.length > 0) return highBreathability;
+        } else if (minTemp < 10) {
+          // 低温天气：优先选择保暖性好的产品（warmthLevel >= 2）
+          const warm = suitable.filter((p) => (p.specs as ClothingSpecs).warmthLevel >= 2);
+          if (warm.length > 0) return warm;
+        }
+      }
+
+      // 保暖层优化：雨天优先化纤，极寒选厚羽绒
+      if (category === "mid-layer") {
+        if (maxPrecip > 50) {
+          // 雨天：优先选择化纤保暖层（羽绒受潮失效）
+          const synthetic = suitable.filter((p) => {
+            const specs = p.specs as ClothingSpecs;
+            return specs.material?.includes("化纤") || specs.material?.includes("合成");
+          });
+          if (synthetic.length > 0) return synthetic;
+        }
+        if (minTemp < -10) {
+          // 极寒：优先选择保暖等级高的产品
+          const highWarmth = suitable.filter((p) => (p.specs as ClothingSpecs).warmthLevel >= 4);
+          if (highWarmth.length > 0) return highWarmth;
+        }
+      }
+
+      // 防护层优化：高海拔选硬壳，低海拔选软壳
+      if (category === "outer-layer") {
+        if (altitude > 3000) {
+          // 高海拔：优先选择防水性好的产品（硬壳）
+          const waterproof = suitable.filter((p) => (p.specs as ClothingSpecs).waterproof);
+          if (waterproof.length > 0) return waterproof;
+        }
+        if (maxTemp > 20) {
+          // 温暖天气：优先选择透气性好的产品
+          const breathable = suitable.filter((p) => (p.specs as ClothingSpecs).breathability === "high");
+          if (breathable.length > 0) return breathable;
+        }
+      }
+
+      return suitable;
     }
 
     case "backpack": {
