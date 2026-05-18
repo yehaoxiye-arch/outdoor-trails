@@ -221,9 +221,6 @@ export default function CategoryCard({ recommendation }: CategoryCardProps) {
                         </div>
                         <div className="flex-1">
                           <span className="font-medium text-text-primary">{brand}</span>
-                          <span className="text-xs text-gray-500 ml-2">
-                            {brandProducts.length} 款推荐产品
-                          </span>
                         </div>
                       </div>
                     </div>
