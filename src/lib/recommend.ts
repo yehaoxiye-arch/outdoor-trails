@@ -609,7 +609,20 @@ export function generateRecommendations(context: RecommendationContext): GearRec
     return sum;
   }, 0);
 
-  // 按优先级排序，鞋类和背包始终排在最前面
+  // 按固定品类顺序排序
+  const categoryOrder: Record<string, number> = {
+    footwear: 0,        // 鞋类
+    backpack: 1,        // 背包
+    "base-layer": 2,    // 基础层
+    "mid-layer": 3,     // 保暖层
+    "outer-layer": 4,   // 防护层
+    "sun-protection": 5, // 防晒
+    tent: 6,            // 帐篷
+    sleeping: 7,        // 睡眠
+    "rain-gear": 8,     // 雨具
+  };
+
+  // 优先级排序权重
   const priorityOrder: Record<string, number> = {
     critical: 0,
     required: 1,
@@ -617,14 +630,8 @@ export function generateRecommendations(context: RecommendationContext): GearRec
     optional: 3,
   };
 
-  // 品类排序权重：鞋类和背包始终在最前面
-  const categoryOrder: Record<string, number> = {
-    footwear: 0,
-    backpack: 1,
-  };
-
   recommendations.sort((a, b) => {
-    // 首先按品类权重排序（鞋类和背包优先）
+    // 首先按品类顺序排序
     const ca = categoryOrder[a.category] ?? 99;
     const cb = categoryOrder[b.category] ?? 99;
     if (ca !== cb) return ca - cb;
