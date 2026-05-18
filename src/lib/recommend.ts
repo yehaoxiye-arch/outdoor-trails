@@ -112,20 +112,45 @@ function filterProductsForCategory(categoryProducts: Product[], context: Recomme
         }
       }
 
-      // 保暖层优化：雨天优先化纤，极寒选厚羽绒
+      // 保暖层优化：根据温度选择合适保暖等级
       if (category === "mid-layer") {
+        // 根据温度确定目标保暖等级
+        let targetWarmth: number;
+        if (minTemp < -10) {
+          targetWarmth = 5; // 极寒：最高等暖
+        } else if (minTemp < 0) {
+          targetWarmth = 4; // 严寒：高保暖
+        } else if (minTemp < 5) {
+          targetWarmth = 3; // 寒冷：中等保暖
+        } else if (minTemp < 10) {
+          targetWarmth = 2; // 凉爽：轻薄保暖
+        } else {
+          targetWarmth = 1; // 温和：最薄保暖
+        }
+
+        // 优先选择匹配保暖等级的产品
+        const matchedWarmth = suitable.filter((p) => {
+          const specs = p.specs as ClothingSpecs;
+          return specs.warmthLevel === targetWarmth;
+        });
+        if (matchedWarmth.length > 0) {
+          suitable = matchedWarmth;
+        } else {
+          // 如果没有精确匹配，选择保暖等级接近且不低于目标的产品
+          const closeWarmth = suitable.filter((p) => {
+            const specs = p.specs as ClothingSpecs;
+            return specs.warmthLevel >= targetWarmth - 1 && specs.warmthLevel <= targetWarmth + 1;
+          });
+          if (closeWarmth.length > 0) suitable = closeWarmth;
+        }
+
+        // 雨天：在合适保暖等级中优先选择化纤（羽绒受潮失效）
         if (maxPrecip > 50) {
-          // 雨天：优先选择化纤保暖层（羽绒受潮失效）
           const synthetic = suitable.filter((p) => {
             const specs = p.specs as ClothingSpecs;
             return specs.material?.includes("化纤") || specs.material?.includes("合成");
           });
           if (synthetic.length > 0) return synthetic;
-        }
-        if (minTemp < -10) {
-          // 极寒：优先选择保暖等级高的产品
-          const highWarmth = suitable.filter((p) => (p.specs as ClothingSpecs).warmthLevel >= 4);
-          if (highWarmth.length > 0) return highWarmth;
         }
       }
 
