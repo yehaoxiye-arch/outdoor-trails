@@ -492,23 +492,8 @@ export function generateRecommendations(context: RecommendationContext): GearRec
       const alternatives = filteredForAlternatives
         .filter((p) => p.id !== primaryProduct?.id)
         .sort((a, b) => ((a.specs as any).weight || 0) - ((b.specs as any).weight || 0));
-      const alternativeProducts: Product[] = [];
-      const usedBrands = new Set<string>(primaryProduct ? [primaryProduct.brand] : []);
-      // 第一轮：不同品牌
-      for (const p of alternatives) {
-        if (alternativeProducts.length >= 3) break;
-        if (!usedBrands.has(p.brand)) {
-          alternativeProducts.push(p);
-          usedBrands.add(p.brand);
-        }
-      }
-      // 第二轮：不足3个时用同品牌补足
-      for (const p of alternatives) {
-        if (alternativeProducts.length >= 3) break;
-        if (!alternativeProducts.find((a) => a.id === p.id)) {
-          alternativeProducts.push(p);
-        }
-      }
+      // 返回所有符合筛选条件的产品（不限制数量）
+      const alternativeProducts: Product[] = alternatives;
 
       const reasonTags = generateReasonTags(context, rule);
       const reason = fillReasonTemplate(rule.reasonTemplate, context);
