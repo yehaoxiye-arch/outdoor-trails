@@ -92,10 +92,10 @@ function filterProductsForCategory(categoryProducts: Product[], context: Recomme
     case "outer-layer":
     case "mid-layer":
     case "base-layer": {
-      // 按温度范围筛选
+      // 按温度范围筛选（保暖层主要看最低温度）
       let suitable = categoryProducts.filter((p) => {
         const specs = p.specs as ClothingSpecs;
-        return specs.temperatureRange.min <= minTemp && specs.temperatureRange.max >= maxTemp;
+        return specs.temperatureRange.min <= minTemp;
       });
       if (suitable.length === 0) suitable = categoryProducts;
 
