@@ -514,6 +514,35 @@ export function generateRecommendations(context: RecommendationContext): GearRec
     }
   }
 
+  // 确保鞋类和背包总是被推荐
+  const requiredCategories: ProductCategory[] = ["footwear", "backpack"];
+  for (const category of requiredCategories) {
+    if (!processedCategories.has(category)) {
+      const categoryProducts = products.filter((p) => p.category === category);
+      const primaryProduct = selectBestProduct(categoryProducts, context, category);
+      const filteredForAlternatives = filterProductsForCategory(categoryProducts, context, category);
+      const alternatives = filteredForAlternatives
+        .filter((p) => p.id !== primaryProduct?.id)
+        .sort((a, b) => ((a.specs as any).weight || 0) - ((b.specs as any).weight || 0));
+
+      const categoryInfo = productCategories.find((c) => c.id === category);
+      recommendations.push({
+        category,
+        categoryName: categoryInfo?.name || category,
+        categoryIcon: categoryInfo?.icon || "📦",
+        recommended: true,
+        product: primaryProduct,
+        alternativeProducts: alternatives,
+        reason: category === "footwear" ? "所有户外活动都需要合适的鞋类" : "所有户外活动都需要背包",
+        reasonTags: [{ type: "style", text: "必备装备" }],
+        priority: "required",
+        carryingTips: primaryProduct?.maintenanceTips,
+        maintenanceTips: primaryProduct?.maintenanceTips,
+      });
+      processedCategories.add(category);
+    }
+  }
+
   // 添加不推荐的品类
   for (const category of productCategories) {
     if (!processedCategories.has(category.id)) {
@@ -533,7 +562,7 @@ export function generateRecommendations(context: RecommendationContext): GearRec
     return sum;
   }, 0);
 
-  // 按优先级排序
+  // 按优先级排序，鞋类和背包始终排在最前面
   const priorityOrder: Record<string, number> = {
     critical: 0,
     required: 1,
@@ -541,7 +570,19 @@ export function generateRecommendations(context: RecommendationContext): GearRec
     optional: 3,
   };
 
+  // 品类排序权重：鞋类和背包始终在最前面
+  const categoryOrder: Record<string, number> = {
+    footwear: 0,
+    backpack: 1,
+  };
+
   recommendations.sort((a, b) => {
+    // 首先按品类权重排序（鞋类和背包优先）
+    const ca = categoryOrder[a.category] ?? 99;
+    const cb = categoryOrder[b.category] ?? 99;
+    if (ca !== cb) return ca - cb;
+
+    // 然后按优先级排序
     const pa = priorityOrder[a.priority] ?? 99;
     const pb = priorityOrder[b.priority] ?? 99;
     return pa - pb;
