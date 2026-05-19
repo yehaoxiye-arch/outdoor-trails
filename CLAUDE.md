@@ -16,7 +16,7 @@ src/
 │   ├── product.ts      # 装备类型定义（Product, ProductCategory, 各品类Specs）
 │   └── route.ts        # 线路类型定义
 ├── data/
-│   ├── products.ts     # 装备数据库（371条，17品类）
+│   ├── products.ts     # 装备数据库（17品类，裤类已合并到服饰品类）
 │   ├── routes.ts       # 线路数据库
 │   └── gear-rules.ts   # 推荐规则引擎
 ├── lib/
@@ -32,6 +32,7 @@ src/
 ### 类型安全
 - 所有产品必须使用 `Product` 类型
 - 产品规格必须使用对应的 `*Specs` 接口（如 `FootwearSpecs`, `ClothingSpecs`）
+- 裤类产品使用 `ClothingSpecs`，通过 `garmentType: "bottom"` 标识
 - 禁止使用 `any` 类型，除非有充分理由并添加注释
 - 产品 ID 必须使用 kebab-case 格式：`品牌-产品名`（如 `salomon-x-ultra-4-gtx`）
 
@@ -56,6 +57,8 @@ footwear, base-layer, mid-layer, outer-layer, rain-gear,
 sun-protection, backpack, tent, sleeping, trekking-poles, 
 cooking, navigation, safety, snow-gear, lighting, emergency, hydration
 ```
+
+裤类产品已合并到服饰品类（base-layer / mid-layer / outer-layer），通过 `garmentType: "bottom"` 区分。
 
 ## 开发流程
 

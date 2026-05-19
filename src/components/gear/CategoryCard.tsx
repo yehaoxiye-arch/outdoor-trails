@@ -188,7 +188,7 @@ export default function CategoryCard({ recommendation }: CategoryCardProps) {
                     {/* 品牌卡片 - 简约风格 */}
                     <div
                       onClick={() => handleBrandClick(brand)}
-                      className={`p-4 rounded-alltrails cursor-pointer transition-all ${
+                      className={`p-3 md:p-4 rounded-alltrails cursor-pointer transition-all ${
                         isSelected
                           ? "bg-primary-100 border-2 border-primary-500"
                           : "bg-gray-50 hover:bg-gray-100 border-2 border-transparent"

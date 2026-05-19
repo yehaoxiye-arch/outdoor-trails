@@ -86,104 +86,126 @@ function filterProductsForCategory(categoryProducts: Product[], context: Recomme
         const waterproof = suitable.filter((p) => (p.specs as FootwearSpecs).waterproof);
         return waterproof.length > 0 ? waterproof : suitable;
       }
+      // 天气良好时优先返回非防水鞋
+      const nonWaterproof = suitable.filter((p) => !(p.specs as FootwearSpecs).waterproof);
+      if (nonWaterproof.length > 0) return nonWaterproof;
       return suitable.length > 0 ? suitable : categoryProducts;
     }
 
     case "outer-layer":
     case "mid-layer":
     case "base-layer": {
-      // 按温度范围筛选（保暖层主要看最低温度）
+      // 按温度范围筛选（主要看最低温度）
       let suitable = categoryProducts.filter((p) => {
         const specs = p.specs as ClothingSpecs;
         return specs.temperatureRange.min <= minTemp;
       });
       if (suitable.length === 0) suitable = categoryProducts;
 
-      // 基础层优化：根据温度选择合适产品
+      // 分离上装和下装
+      const tops = suitable.filter((p) => (p.specs as ClothingSpecs).garmentType !== "bottom");
+      const pants = suitable.filter((p) => (p.specs as ClothingSpecs).garmentType === "bottom");
+
+      // 上装筛选逻辑
+      let filteredTops = tops;
       if (category === "base-layer") {
         if (maxTemp > 28) {
-          // 高温天气：优先选择透气性高的产品
-          const highBreathability = suitable.filter((p) => (p.specs as ClothingSpecs).breathability === "high");
-          if (highBreathability.length > 0) return highBreathability;
+          const highBreathability = tops.filter((p) => (p.specs as ClothingSpecs).breathability === "high");
+          if (highBreathability.length > 0) filteredTops = highBreathability;
         } else if (minTemp < 10) {
-          // 低温天气：选择保暖等级2的产品（不要太厚，基础层主要排汗）
-          const warm = suitable.filter((p) => {
+          const warm = tops.filter((p) => {
             const specs = p.specs as ClothingSpecs;
             return specs.warmthLevel >= 2 && specs.warmthLevel <= 3;
           });
-          if (warm.length > 0) return warm;
+          if (warm.length > 0) filteredTops = warm;
         } else {
-          // 常温天气：选择透气性中等的产品
-          const mediumBreathability = suitable.filter((p) => (p.specs as ClothingSpecs).breathability === "medium");
-          if (mediumBreathability.length > 0) return mediumBreathability;
+          const mediumBreathability = tops.filter((p) => (p.specs as ClothingSpecs).breathability === "medium");
+          if (mediumBreathability.length > 0) filteredTops = mediumBreathability;
         }
       }
 
-      // 保暖层优化：根据温度选择合适保暖等级
       if (category === "mid-layer") {
-        // 根据温度确定目标保暖等级
         let targetWarmth: number;
-        if (minTemp < -10) {
-          targetWarmth = 5; // 极寒：最高等暖
-        } else if (minTemp < 0) {
-          targetWarmth = 4; // 严寒：高保暖
-        } else if (minTemp < 5) {
-          targetWarmth = 3; // 寒冷：中等保暖
-        } else if (minTemp < 10) {
-          targetWarmth = 2; // 凉爽：轻薄保暖
-        } else {
-          targetWarmth = 1; // 温和：最薄保暖
-        }
+        if (minTemp < -10) targetWarmth = 5;
+        else if (minTemp < 0) targetWarmth = 4;
+        else if (minTemp < 5) targetWarmth = 3;
+        else if (minTemp < 10) targetWarmth = 2;
+        else targetWarmth = 1;
 
-        // 优先选择匹配保暖等级的产品
-        const matchedWarmth = suitable.filter((p) => {
-          const specs = p.specs as ClothingSpecs;
-          return specs.warmthLevel === targetWarmth;
-        });
+        const matchedWarmth = tops.filter((p) => (p.specs as ClothingSpecs).warmthLevel === targetWarmth);
         if (matchedWarmth.length > 0) {
-          suitable = matchedWarmth;
+          filteredTops = matchedWarmth;
         } else {
-          // 如果没有精确匹配，选择保暖等级最低的产品（避免过热）
-          const sortedByWarmth = [...suitable].sort((a, b) => {
+          const sortedByWarmth = [...tops].sort((a, b) => {
             return (a.specs as ClothingSpecs).warmthLevel - (b.specs as ClothingSpecs).warmthLevel;
           });
-          const lowestWarmth = (sortedByWarmth[0].specs as ClothingSpecs).warmthLevel;
-          suitable = sortedByWarmth.filter((p) => (p.specs as ClothingSpecs).warmthLevel === lowestWarmth);
+          if (sortedByWarmth.length > 0) {
+            const lowestWarmth = (sortedByWarmth[0].specs as ClothingSpecs).warmthLevel;
+            filteredTops = sortedByWarmth.filter((p) => (p.specs as ClothingSpecs).warmthLevel === lowestWarmth);
+          }
         }
 
-        // 雨天：在合适保暖等级中优先选择化纤（羽绒受潮失效）
         if (maxPrecip > 50) {
-          const synthetic = suitable.filter((p) => {
+          const synthetic = filteredTops.filter((p) => {
             const specs = p.specs as ClothingSpecs;
             return specs.material?.includes("化纤") || specs.material?.includes("合成");
           });
-          if (synthetic.length > 0) return synthetic;
+          if (synthetic.length > 0) filteredTops = synthetic;
         }
       }
 
-      // 防护层优化：根据条件选择合适产品
       if (category === "outer-layer") {
         if (altitude > 3000) {
-          // 高海拔：优先选择防水性好的产品（硬壳）
-          const waterproof = suitable.filter((p) => (p.specs as ClothingSpecs).waterproof);
-          if (waterproof.length > 0) return waterproof;
+          const waterproof = tops.filter((p) => (p.specs as ClothingSpecs).waterproof);
+          if (waterproof.length > 0) filteredTops = waterproof;
         }
         if (maxTemp > 20) {
-          // 温暖天气：优先选择透气性好的产品
-          const breathable = suitable.filter((p) => (p.specs as ClothingSpecs).breathability === "high");
-          if (breathable.length > 0) return breathable;
+          const breathable = filteredTops.filter((p) => (p.specs as ClothingSpecs).breathability === "high");
+          if (breathable.length > 0) filteredTops = breathable;
         }
         if (minTemp < 5) {
-          // 低温天气：选择保暖等级适中的产品（不要太薄）
-          const warm = suitable.filter((p) => {
+          const warm = filteredTops.filter((p) => {
             const specs = p.specs as ClothingSpecs;
             return specs.warmthLevel >= 3 && specs.warmthLevel <= 4;
           });
-          if (warm.length > 0) return warm;
+          if (warm.length > 0) filteredTops = warm;
         }
       }
 
-      return suitable;
+      // 下装筛选逻辑（裤类推荐原则）
+      let filteredPants = pants;
+      if (category === "base-layer") {
+        if (maxTemp > 28) {
+          // 高温：优先短裤或高透气裤
+          const shorts = pants.filter((p) => (p.specs as ClothingSpecs).pantsType === "short");
+          if (shorts.length > 0) { filteredTops = [...filteredTops, ...shorts]; filteredPants = pants.filter((p) => (p.specs as ClothingSpecs).pantsType !== "short"); }
+        }
+        if (style.difficulty === "困难" || style.difficulty === "极难") {
+          const stretch = filteredPants.filter((p) => (p.specs as ClothingSpecs).stretch);
+          if (stretch.length > 0) filteredPants = stretch;
+        }
+      }
+
+      if (category === "mid-layer") {
+        if (minTemp < 5) {
+          const windproof = pants.filter((p) => (p.specs as ClothingSpecs).windproof);
+          if (windproof.length > 0) filteredPants = windproof;
+        }
+      }
+
+      if (category === "outer-layer") {
+        if (maxPrecip > 50) {
+          const waterproof = pants.filter((p) => (p.specs as ClothingSpecs).waterproof);
+          if (waterproof.length > 0) filteredPants = waterproof;
+        }
+        if (minTemp < 5) {
+          const windproof = filteredPants.filter((p) => (p.specs as ClothingSpecs).windproof);
+          if (windproof.length > 0) filteredPants = windproof;
+        }
+      }
+
+      // 返回：上装在前，下装在后
+      return [...filteredTops, ...filteredPants];
     }
 
     case "backpack": {
@@ -293,21 +315,31 @@ function selectBestProduct(categoryProducts: Product[], context: RecommendationC
         const waterproof = sortByWeight(suitable.filter((p) => (p.specs as FootwearSpecs).waterproof));
         return waterproof[0] || sortByWeight(suitable)[0] || sortByWeight(categoryProducts)[0];
       } else {
-        // 天气良好时优先选择轻量鞋（非防水）
-        const lightweight = sortByWeight(suitable.filter((p) => !(p.specs as FootwearSpecs).waterproof));
-        return lightweight[0] || sortByWeight(suitable)[0] || sortByWeight(categoryProducts)[0];
+        // 天气良好时优先选择轻量非防水鞋（从suitable中选，如果没有则从全库选）
+        const lightweightSuitable = sortByWeight(suitable.filter((p) => !(p.specs as FootwearSpecs).waterproof));
+        if (lightweightSuitable.length > 0) return lightweightSuitable[0];
+        // suitable中没有非防水鞋，从全库中选择非防水鞋
+        const lightweightAll = sortByWeight(categoryProducts.filter((p) => !(p.specs as FootwearSpecs).waterproof));
+        if (lightweightAll.length > 0) return lightweightAll[0];
+        // 全库都没有非防水鞋，回退到suitable或全库
+        return sortByWeight(suitable)[0] || sortByWeight(categoryProducts)[0];
       }
     }
 
     case "outer-layer":
     case "mid-layer":
     case "base-layer": {
-      // 按温度范围筛选，按重量排序
-      const suitable = sortByWeight(categoryProducts.filter((p) => {
+      // 按温度范围筛选
+      const suitable = categoryProducts.filter((p) => {
         const specs = p.specs as ClothingSpecs;
-        return specs.temperatureRange.min <= minTemp && specs.temperatureRange.max >= maxTemp;
-      }));
-      return suitable[0] || sortByWeight(categoryProducts)[0];
+        return specs.temperatureRange.min <= minTemp;
+      });
+      // 优先选择上装作为主推荐
+      const tops = sortByWeight(suitable.filter((p) => (p.specs as ClothingSpecs).garmentType !== "bottom"));
+      if (tops.length > 0) return tops[0];
+      // 无上装时回退到下装
+      const pants = sortByWeight(suitable.filter((p) => (p.specs as ClothingSpecs).garmentType === "bottom"));
+      return pants[0] || sortByWeight(categoryProducts)[0];
     }
 
     case "backpack": {

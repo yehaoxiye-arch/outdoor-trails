@@ -39,6 +39,10 @@ export interface ClothingSpecs {
   windproof: boolean;
   waterproof: boolean;
   temperatureRange: { min: number; max: number };
+  garmentType?: "top" | "bottom"; // 缺省为 "top"
+  stretch?: boolean;
+  uvProtection?: boolean;
+  pantsType?: "long" | "short" | "convertible";
 }
 
 export interface ProtectionSpecs {

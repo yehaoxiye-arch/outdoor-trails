@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SearchBar from "./SearchBar";
 
 interface HeaderProps {
   showBack?: boolean;
@@ -8,38 +9,36 @@ interface HeaderProps {
 export default function Header({ showBack = false, transparent = false }: HeaderProps) {
   return (
     <header
-      className={
-        transparent
-          ? "bg-transparent"
-          : "fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
-      }
+      className={`h-16 bg-white ${transparent ? "" : "border-b border-gray-200"}`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-between">
+      <div className="max-w-[1280px] mx-auto px-6 h-full flex items-center justify-between">
+        {/* 左侧：Logo */}
+        <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+          <svg className="w-8 h-8 text-primary-500" viewBox="0 0 32 32" fill="currentColor">
+            <path d="M16 2L4 28h24L16 2zm0 8l8 16H8l8-16z" />
+          </svg>
+          <span className="text-xl font-bold text-text-primary">径迹</span>
+        </Link>
+
+        {/* 中间：搜索框 */}
+        <div className="hidden md:block">
+          <SearchBar />
+        </div>
+
+        {/* 右侧：返回按钮或占位 */}
         {showBack ? (
           <Link
             href="/"
-            className={`flex items-center gap-2 transition-colors ${
-              transparent
-                ? "text-white/80 hover:text-white"
-                : "text-gray-600 hover:text-primary-500"
-            }`}
+            className="flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors flex-shrink-0"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            <span className="text-sm">返回</span>
+            返回
           </Link>
         ) : (
-          <div />
+          <div className="hidden md:block w-20 flex-shrink-0" />
         )}
-        <Link
-          href="/"
-          className={`font-semibold ${
-            transparent ? "text-white" : "text-primary-500"
-          }`}
-        >
-          径迹
-        </Link>
       </div>
     </header>
   );

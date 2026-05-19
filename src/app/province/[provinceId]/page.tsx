@@ -54,7 +54,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
       {/* Main Content */}
       <main className="pt-20 pb-16">
         {/* Breadcrumb */}
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-4">
           <nav className="flex items-center gap-2 text-sm text-gray-500">
             <Link href="/" className="hover:text-green-700 transition-colors">
               首页
@@ -65,7 +65,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
         </div>
 
         {/* Province Header */}
-        <div className="max-w-7xl mx-auto px-6 mb-8">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-2">
             {province}徒步线路
           </h1>
@@ -75,7 +75,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
         </div>
 
         {/* Filter Bar */}
-        <div className="max-w-7xl mx-auto px-6 mb-6">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 mb-6">
           <div className="flex items-center gap-4 flex-wrap">
             <button className="px-4 py-2 bg-white border border-gray-300 rounded-full text-sm font-medium hover:border-green-500 transition-colors">
               难度
@@ -93,7 +93,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
         </div>
 
         {/* Routes Grid */}
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {routes.map((route) => (
               <RouteCard key={route.id} route={route} />

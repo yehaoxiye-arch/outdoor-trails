@@ -1,13 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Route } from "@/types/route";
 import { DayForecast } from "@/types/weather";
+import { getFallbackWeather } from "@/data/weather";
+import { fetchWeatherForecast } from "@/lib/weather";
 
 interface WeatherSectionProps {
   route: Route;
   selectedDate?: string;
   forecasts?: DayForecast[];
+  defaultForecasts?: DayForecast[];
 }
 
 // 统一的天气数据格式
@@ -94,38 +97,47 @@ function forecastToWeatherDay(forecast: DayForecast, index: number): WeatherDay 
   };
 }
 
-export default function WeatherSection({ route, selectedDate, forecasts }: WeatherSectionProps) {
+export default function WeatherSection({ route, selectedDate, forecasts, defaultForecasts }: WeatherSectionProps) {
   const [selectedDayIndex, setSelectedDayIndex] = useState<number | null>(null);
+  const [realtimeForecasts, setRealtimeForecasts] = useState<DayForecast[]>([]);
+  const [isLoadingWeather, setIsLoadingWeather] = useState(false);
 
-  // 默认天气数据（基于当前日期动态生成）
-  const today = new Date();
-  const defaultWeatherDays: WeatherDay[] = Array.from({ length: 5 }, (_, i) => {
-    const forecastDate = new Date(today);
-    forecastDate.setDate(today.getDate() + i);
-    const dateStr = forecastDate.toISOString().split("T")[0];
-    // 模拟不同的天气条件
-    const conditions = [
-      { icon: "☀️", condition: "晴朗", precipitation: 10, low: 8, high: 22 },
-      { icon: "⛅", condition: "多云", precipitation: 30, low: 10, high: 20 },
-      { icon: "🌧️", condition: "小雨", precipitation: 70, low: 12, high: 18 },
-      { icon: "☀️", condition: "晴朗", precipitation: 5, low: 9, high: 24 },
-      { icon: "⛅", condition: "多云", precipitation: 25, low: 11, high: 21 },
-    ];
-    const cond = conditions[i];
-    return {
-      date: dateStr,
-      icon: cond.icon,
-      low: cond.low,
-      high: cond.high,
-      sunrise: `6:${(15 - i).toString().padStart(2, "0")}`,
-      sunset: `19:${(45 + i).toString().padStart(2, "0")}`,
-      humidity: 45 + i * 5,
-      condition: cond.condition,
-      precipitation: cond.precipitation,
-      windSpeed: 8 + i * 2,
-      windLevel: "微风",
+  // 组件挂载时获取真实天气数据
+  useEffect(() => {
+    const loadWeather = async () => {
+      const coords = route.coordinates;
+      if (!coords) return;
+
+      setIsLoadingWeather(true);
+      try {
+        const result = await fetchWeatherForecast(coords.lat, coords.lng, 5);
+        if (result.success) {
+          setRealtimeForecasts(result.data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch weather:", error);
+      } finally {
+        setIsLoadingWeather(false);
+      }
     };
-  });
+
+    loadWeather();
+  }, [route.coordinates]);
+
+  // 确定使用的天气数据（优先级：实时API > 传入的forecasts > fallback）
+  const getWeatherData = (): DayForecast[] => {
+    // 如果有实时获取的天气数据，使用它
+    if (realtimeForecasts.length > 0) return realtimeForecasts;
+    // 如果有传入的forecasts（用户选择日期后的数据），使用它
+    if (forecasts && forecasts.length > 0) return forecasts;
+    // 如果有传入的defaultForecasts，使用它
+    if (defaultForecasts && defaultForecasts.length > 0) return defaultForecasts;
+    // 最后使用fallback
+    return getFallbackWeather(route.province, 5);
+  };
+
+  const weatherData = getWeatherData();
+  const defaultWeatherDays: WeatherDay[] = weatherData.map((f, i) => forecastToWeatherDay(f, i));
 
   // 使用 forecasts 或默认数据
   const weatherDays: WeatherDay[] = forecasts && forecasts.length > 0
@@ -137,7 +149,7 @@ export default function WeatherSection({ route, selectedDate, forecasts }: Weath
   const hourlyData = selectedDayData ? generateHourlyWeather(selectedDayData, selectedDayIndex!) : [];
 
   return (
-    <div className="bg-white rounded-alltrails shadow-alltrails p-6">
+    <div className="bg-white rounded-alltrails shadow-alltrails p-4 md:p-6">
       <h3 className="text-lg font-semibold text-text-primary mb-4">
         {selectedDate && weatherDays.length > 0
           ? weatherDays.length === 1
@@ -179,28 +191,28 @@ export default function WeatherSection({ route, selectedDate, forecasts }: Weath
                   </div>
                 </div>
                 <div className="text-right">
-                  <span className="text-lg font-bold text-text-primary">{day.high}°</span>
-                  <span className="text-sm text-text-secondary"> / {day.low}°</span>
+                  <span className="text-lg font-bold text-text-primary" suppressHydrationWarning>{day.high}°</span>
+                  <span className="text-sm text-text-secondary" suppressHydrationWarning> / {day.low}°</span>
                 </div>
               </div>
 
               {/* 温度条 */}
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-xs text-text-secondary w-6">{day.low}°</span>
+                <span className="text-xs text-text-secondary w-6" suppressHydrationWarning>{day.low}°</span>
                 <div className="flex-1 flex h-1.5 rounded-full overflow-hidden">
                   <div className="temp-bar-cold" style={{ width: `${coldWidth}%` }} />
                   <div className="temp-bar-mid" style={{ width: `${midWidth}%` }} />
                   <div className="temp-bar-hot" style={{ width: `${hotWidth}%` }} />
                 </div>
-                <span className="text-xs text-text-secondary w-6">{day.high}°</span>
+                <span className="text-xs text-text-secondary w-6" suppressHydrationWarning>{day.high}°</span>
               </div>
 
               {/* 详细信息 */}
               <div className="flex items-center justify-between text-xs text-text-secondary">
-                <span>{day.condition}</span>
+                <span suppressHydrationWarning>{day.condition}</span>
                 <div className="flex items-center gap-3">
-                  <span>降水 {day.precipitation}%</span>
-                  <span>风速 {day.windSpeed}km/h</span>
+                  <span suppressHydrationWarning>降水 {day.precipitation}%</span>
+                  <span suppressHydrationWarning>风速 {day.windSpeed}km/h</span>
                 </div>
               </div>
 

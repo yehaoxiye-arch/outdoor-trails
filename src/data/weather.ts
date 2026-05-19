@@ -2,7 +2,7 @@ import { DayForecast } from "@/types/weather";
 
 export function getFallbackWeather(province: string, days: number): DayForecast[] {
   const baseWeather: Record<string, { tempHigh: number; tempLow: number; condition: string; icon: string }> = {
-    江西: { tempHigh: 25, tempLow: 15, condition: "多云", icon: "⛅" },
+    江西: { tempHigh: 22, tempLow: 10, condition: "多云", icon: "⛅" },
     西藏: { tempHigh: 15, tempLow: 0, condition: "晴", icon: "☀️" },
     四川: { tempHigh: 20, tempLow: 10, condition: "多云", icon: "⛅" },
     云南: { tempHigh: 22, tempLow: 12, condition: "晴", icon: "☀️" },

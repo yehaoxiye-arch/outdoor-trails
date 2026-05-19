@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# temp/generated files
+*.xlsx
+*.docx
+import-output.json
+backpacks.html
+do-import.js
+*-mapping.json
+*_images.json

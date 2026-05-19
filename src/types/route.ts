@@ -20,6 +20,7 @@ export interface Route {
   location: string;
   mountainRange?: string; // 所属山脉
   image: string;
+  image2?: string; // 第二张图片
   styles: RouteStyleData[]; // 多种走法
   coordinates?: {
     lat: number;

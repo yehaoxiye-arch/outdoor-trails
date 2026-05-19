@@ -213,13 +213,13 @@ export const gearRules: GearRule[] = [
     priority: "recommended",
     reasonTemplate: "夜间温度约{tempLow}°C，建议保暖层",
   },
-  // 高海拔多日温差大
+  // 高海拔多日温差大（华东高山1500m+即需保暖层）
   {
     category: "mid-layer",
     categoryName: "保暖层",
     categoryIcon: "🧥",
     conditions: [
-      { field: "altitude", operator: "gt", value: 2000 },
+      { field: "altitude", operator: "gt", value: 1500 },
       { field: "duration", operator: "gt", value: 1 },
     ],
     recommended: true,
@@ -301,40 +301,40 @@ export const gearRules: GearRule[] = [
     priority: "recommended",
     reasonTemplate: "降水概率{precipitation}%，建议携带冲锋衣",
   },
-  // 高海拔多日天气多变
+  // 高海拔多日天气多变（华东高山1500m+即需防护层）
   {
     category: "outer-layer",
     categoryName: "防护层",
     categoryIcon: "🧥",
     conditions: [
-      { field: "altitude", operator: "gt", value: 2000 },
+      { field: "altitude", operator: "gt", value: 1500 },
       { field: "duration", operator: "gt", value: 1 },
     ],
     recommended: true,
     priority: "recommended",
     reasonTemplate: "海拔{altitude}m多日行程天气多变，建议防护层",
   },
-  // 多日行程天气变化大
+  // 多日行程天气变化大（2天及以上）
   {
     category: "outer-layer",
     categoryName: "防护层",
     categoryIcon: "🧥",
-    conditions: [{ field: "duration", operator: "gt", value: 2 }],
+    conditions: [{ field: "duration", operator: "gt", value: 1 }],
     recommended: true,
     priority: "recommended",
     reasonTemplate: "多日行程天气变化大，建议携带防护层",
   },
 
   // ============ 雨具 (rain-gear) ============
-  // 高降水必须雨衣
+  // 降水概率 > 45% 必备
   {
     category: "rain-gear",
     categoryName: "雨具",
     categoryIcon: "🌧️",
-    conditions: [{ field: "precipitation", operator: "gt", value: 60 }],
+    conditions: [{ field: "precipitation", operator: "gt", value: 45 }],
     recommended: true,
     priority: "required",
-    reasonTemplate: "降水概率{precipitation}%，必须携带雨衣",
+    reasonTemplate: "降水概率{precipitation}%，必须携带雨具",
   },
   // 降雪需要防水外层
   {
@@ -346,12 +346,12 @@ export const gearRules: GearRule[] = [
     priority: "required",
     reasonTemplate: "有降雪，需要防水外层",
   },
-  // 中等降水建议
+  // 降水概率 5%-45% 推荐
   {
     category: "rain-gear",
     categoryName: "雨具",
     categoryIcon: "🌧️",
-    conditions: [{ field: "precipitation", operator: "gt", value: 40 }],
+    conditions: [{ field: "precipitation", operator: "gt", value: 5 }],
     recommended: true,
     priority: "recommended",
     reasonTemplate: "降水概率{precipitation}%，建议携带雨具",

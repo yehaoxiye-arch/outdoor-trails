@@ -7,17 +7,18 @@ import { DayForecast } from "@/types/weather";
 import { generateRecommendations } from "@/lib/recommend";
 import { fetchWeatherForecast } from "@/lib/weather";
 import { getFallbackWeather } from "@/data/weather";
-import WeatherForecast from "./WeatherForecast";
+import DatePicker from "@/components/ui/DatePicker";
 import CategoryCard from "./CategoryCard";
 import NotRecommended from "./NotRecommended";
-import Button from "@/components/ui/Button";
 
 interface GearPlannerProps {
   route: Route;
   selectedStyle: RouteStyleData;
+  onDateChange?: (date: string, forecasts: DayForecast[]) => void;
+  defaultForecasts?: DayForecast[];
 }
 
-export default function GearPlanner({ route, selectedStyle }: GearPlannerProps) {
+export default function GearPlanner({ route, selectedStyle, onDateChange, defaultForecasts }: GearPlannerProps) {
   const [date, setDate] = useState("");
   const [recommendation, setRecommendation] = useState<GearRecommendation | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -54,14 +55,41 @@ export default function GearPlanner({ route, selectedStyle }: GearPlannerProps) 
       const coords = route.coordinates;
 
       if (coords && daysDiff <= 14) {
-        const result = await fetchWeatherForecast(coords.lat, coords.lng, duration);
+        // 需要获取从今天到出行结束的所有天数
+        const totalDays = daysDiff + duration;
+        const result = await fetchWeatherForecast(coords.lat, coords.lng, Math.min(totalDays, 14));
         if (result.success) {
-          forecasts = result.data;
+          // 跳过从今天到出行日期的天数，只保留出行期间的天气
+          forecasts = result.data.slice(daysDiff, daysDiff + duration);
+          // 如果切片后数据不足，用备用数据补充
+          if (forecasts.length < duration) {
+            const fallback = getFallbackWeather(route.province, totalDays);
+            forecasts = [...forecasts, ...fallback.slice(daysDiff + forecasts.length, daysDiff + duration)];
+          }
         } else {
-          forecasts = getFallbackWeather(route.province, duration);
+          // API失败，使用备用数据并根据出行日期偏移
+          const fallback = getFallbackWeather(route.province, daysDiff + duration);
+          forecasts = fallback.slice(daysDiff, daysDiff + duration);
         }
       } else {
-        forecasts = getFallbackWeather(route.province, duration);
+        // 没有坐标或超出14天，使用备用数据并根据出行日期偏移
+        const fallback = getFallbackWeather(route.province, daysDiff + duration);
+        forecasts = fallback.slice(daysDiff, daysDiff + duration);
+      }
+
+      // 确保天气数据的日期从用户选择的出行日期开始
+      forecasts = forecasts.map((f, i) => {
+        const forecastDate = new Date(date);
+        forecastDate.setDate(forecastDate.getDate() + i);
+        return {
+          ...f,
+          date: forecastDate.toISOString().split("T")[0],
+        };
+      });
+
+      // 通知父组件天气数据变化
+      if (onDateChange) {
+        onDateChange(date, forecasts);
       }
 
       const rec = generateRecommendations({
@@ -79,67 +107,70 @@ export default function GearPlanner({ route, selectedStyle }: GearPlannerProps) 
     }
   };
 
+  const handleReset = () => {
+    setRecommendation(null);
+    if (onDateChange) {
+      onDateChange("", []);
+    }
+  };
+
   return (
-    <div className="bg-background-gray rounded-xl p-6">
-      <h3 className="text-xl font-bold text-gray-900 mb-4">装备推荐</h3>
+    <div className="bg-white rounded-alltrails shadow-alltrails p-4">
+      <h3 className="text-lg font-semibold text-text-primary mb-3">装备规划</h3>
 
       {!recommendation ? (
         <div>
-          <p className="text-gray-500 text-sm mb-4">
-            选择出发日期后，系统将根据线路条件和天气预报为您生成个性化装备清单。
+          <p className="text-text-secondary text-sm mb-4">
+            根据线路条件和天气预报，为您生成个性化装备推荐。
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3">
-            <div className="flex-1">
-              <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">
+          <div className="space-y-3">
+            <div>
+              <label htmlFor="date" className="block text-sm font-medium text-text-primary mb-1">
                 出发日期
               </label>
-              <input
-                type="date"
+              <DatePicker
                 id="date"
                 value={date}
-                onChange={(e) => {
-                  setDate(e.target.value);
+                onChange={(val) => {
+                  setDate(val);
                   setError(null);
                 }}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
               />
             </div>
-            <div className="flex items-end">
-              <Button onClick={handleGenerate} disabled={isLoading}>
-                {isLoading ? "生成中..." : "生成清单"}
-              </Button>
-            </div>
+            <button
+              onClick={handleGenerate}
+              disabled={isLoading}
+              className="w-full py-2.5 bg-primary-500 text-white text-sm font-medium rounded-alltrails hover:bg-primary-600 transition-colors disabled:opacity-50"
+            >
+              {isLoading ? "生成中..." : "获取推荐"}
+            </button>
           </div>
 
           {error && (
-            <p className="mt-2 text-sm text-red-600">{error}</p>
+            <p className="mt-2 text-sm text-red-500">{error}</p>
           )}
         </div>
       ) : (
         <div>
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-3">
             <div>
-              <p className="text-sm text-gray-500">
-                {recommendation.style} · {recommendation.date}
+              <p className="text-sm font-medium text-text-primary">
+                {recommendation.style}
               </p>
-              <p className="text-sm text-gray-500">
-                预估负重：{(recommendation.totalWeight / 1000).toFixed(1)}kg
+              <p className="text-xs text-text-secondary">
+                {recommendation.date} · 预估负重: {(recommendation.totalWeight / 1000).toFixed(1)}kg
               </p>
             </div>
             <button
-              onClick={() => setRecommendation(null)}
-              className="text-sm text-primary-500 hover:text-primary-600"
+              onClick={handleReset}
+              className="text-xs text-primary-500 hover:text-primary-600 font-medium"
             >
-              重新选择
+              重置
             </button>
           </div>
 
-          {recommendation.weatherForecast && (
-            <WeatherForecast forecasts={recommendation.weatherForecast} />
-          )}
-
-          <div className="space-y-3 mb-6">
+          <div className="space-y-2 mb-4">
             {recommendation.recommendations.map((rec, index) => (
               <CategoryCard key={index} recommendation={rec} />
             ))}

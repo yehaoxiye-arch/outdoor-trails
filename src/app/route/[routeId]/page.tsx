@@ -2,9 +2,9 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { getRouteById, routes } from "@/data/routes";
 import Header from "@/components/layout/Header";
-import TrailHero from "@/components/trail/TrailHero";
-import TrailInfo from "@/components/trail/TrailInfo";
-import GearPlanner from "@/components/gear/GearPlanner";
+import TrailMainContent from "@/components/trail/TrailMainContent";
+import TrailSidebar from "@/components/trail/TrailSidebar";
+import RouteDetailContent from "@/components/trail/RouteDetailContent";
 
 interface RoutePageProps {
   params: Promise<{
@@ -49,21 +49,53 @@ export default async function RoutePage({ params }: RoutePageProps) {
 
   const defaultStyle = route.styles[0];
 
+  const difficultyColors: Record<string, string> = {
+    简单: "bg-green-500",
+    中等: "bg-yellow-500",
+    困难: "bg-difficulty-orange",
+    极难: "bg-red-500",
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      {/* 顶部固定导航栏 */}
       <Header showBack />
-      <TrailHero image={route.image} alt={route.name} />
 
-      <main className="max-w-7xl mx-auto px-6 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <TrailInfo route={route} selectedStyle={defaultStyle} />
+      {/* 标题信息区 */}
+      <div className="max-w-[1280px] mx-auto px-4 pt-4 pb-3 md:px-6 md:pt-6 md:pb-4">
+        {/* 主标题 */}
+        <h1 className="text-[2.5rem] font-bold text-text-primary leading-tight mb-3">
+          {route.name}
+        </h1>
+
+        {/* 评分行 */}
+        <div className="flex items-center gap-3 mb-4">
+          <span className={`px-3 py-1 ${difficultyColors[defaultStyle.difficulty] || "bg-gray-500"} text-white text-sm font-medium rounded-full`}>
+            {defaultStyle.difficulty}
+          </span>
+          <span className="text-text-secondary text-sm">{route.location}</span>
+        </div>
+
+        {/* 分割线 */}
+        <div className="h-px bg-border" />
+      </div>
+
+      {/* 主内容区 */}
+      <main className="max-w-[1280px] mx-auto px-4 py-4 md:px-6 md:py-6">
+        <div className="flex flex-col gap-6 md:flex-row">
+          {/* 左侧主栏 65% */}
+          <div className="w-full md:flex-[65]">
+            <TrailMainContent route={route} selectedStyle={defaultStyle} />
           </div>
 
-          <div className="lg:col-span-1">
-            <GearPlanner route={route} selectedStyle={defaultStyle} />
+          {/* 右侧边栏 35% */}
+          <div className="w-full md:flex-[35]">
+            <TrailSidebar route={route} selectedStyle={defaultStyle} />
           </div>
         </div>
+
+        {/* 天气与装备推荐区 - 共享日期状态 */}
+        <RouteDetailContent route={route} selectedStyle={defaultStyle} />
       </main>
     </div>
   );
