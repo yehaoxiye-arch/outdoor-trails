@@ -5,16 +5,20 @@ import Image from "next/image";
 
 const heroImages = [
   {
-    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80",
-    alt: "山脉全景",
+    src: "https://p6-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/269851fc9f1d4446bb19490e0afa5571.jpg~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=202605240108178C90385715D63BF0B315&rrcfp=935dee89&x-expires=1780160898&x-signature=KwNGcFUvEPLSr6we8JbuKvsVjf0%3D",
+    alt: "户外风景",
   },
   {
-    src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80",
-    alt: "山峰",
+    src: "https://aka.doubaocdn.com/s/KQiE1wTNXl",
+    alt: "户外风景",
   },
   {
-    src: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1920&q=80",
-    alt: "雪山",
+    src: "https://aka.doubaocdn.com/s/qLOy1wTNXl",
+    alt: "户外风景",
+  },
+  {
+    src: "https://aka.doubaocdn.com/s/cgkK1wTNXl",
+    alt: "户外风景",
   },
 ];
 
@@ -29,8 +33,20 @@ export default function HeroCarousel() {
     return () => clearInterval(timer);
   }, []);
 
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  const goToPrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % heroImages.length);
+  };
+
   return (
-    <div className="relative w-full h-full overflow-hidden">
+    <div className="relative w-full h-full overflow-hidden group">
       {heroImages.map((image, index) => (
         <div
           key={index}
@@ -49,6 +65,42 @@ export default function HeroCarousel() {
         </div>
       ))}
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+
+      {/* 左右箭头 */}
+      <button
+        onClick={goToPrev}
+        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-black/30 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50"
+        aria-label="上一张"
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button
+        onClick={goToNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-black/30 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50"
+        aria-label="下一张"
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      {/* 右下角圆点指示器 */}
+      <div className="absolute bottom-4 right-4 flex gap-2">
+        {heroImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-2.5 h-2.5 rounded-full transition-all ${
+              index === currentIndex
+                ? "bg-white scale-110"
+                : "bg-white/50 hover:bg-white/75"
+            }`}
+            aria-label={`切换到第${index + 1}张图片`}
+          />
+        ))}
+      </div>
     </div>
   );
 }

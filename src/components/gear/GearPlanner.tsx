@@ -51,7 +51,7 @@ export default function GearPlanner({ route, selectedStyle, onDateChange, defaul
     try {
       let forecasts: DayForecast[];
 
-      const duration = parseInt(selectedStyle.duration) || 1;
+      const duration = Math.max(...(selectedStyle.duration.match(/\d+/g) || ["1"]).map(Number));
       const coords = route.coordinates;
 
       if (coords && daysDiff <= 14) {

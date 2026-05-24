@@ -588,69 +588,6 @@ export const gearRules: GearRule[] = [
     reasonTemplate: "导航设备是户外安全的基本保障",
   },
 
-  // ============ 安全装备 (safety) ============
-  // 高海拔 critical
-  {
-    category: "safety",
-    categoryName: "安全",
-    categoryIcon: "🏥",
-    conditions: [{ field: "altitude", operator: "gt", value: 3500 }],
-    recommended: true,
-    priority: "critical",
-    reasonTemplate: "海拔{altitude}m，急救包是生命保障",
-  },
-  // 多日必须
-  {
-    category: "safety",
-    categoryName: "安全",
-    categoryIcon: "🏥",
-    conditions: [
-      { field: "duration", operator: "gt", value: 1 },
-    ],
-    recommended: true,
-    priority: "required",
-    reasonTemplate: "多日行程必须携带急救包",
-  },
-  // 困难线路必须
-  {
-    category: "safety",
-    categoryName: "安全",
-    categoryIcon: "🏥",
-    conditions: [{ field: "difficulty", operator: "eq", value: "困难" }],
-    recommended: true,
-    priority: "required",
-    reasonTemplate: "困难线路必须携带急救包",
-  },
-  {
-    category: "safety",
-    categoryName: "安全",
-    categoryIcon: "🏥",
-    conditions: [{ field: "difficulty", operator: "eq", value: "极难" }],
-    recommended: true,
-    priority: "required",
-    reasonTemplate: "极难线路必须携带急救包",
-  },
-  // 长距离建议
-  {
-    category: "safety",
-    categoryName: "安全",
-    categoryIcon: "🏥",
-    conditions: [{ field: "distance", operator: "gt", value: 20 }],
-    recommended: true,
-    priority: "recommended",
-    reasonTemplate: "{distance}km长距离建议携带急救包",
-  },
-  // 所有路线建议急救包（兜底）
-  {
-    category: "safety",
-    categoryName: "安全",
-    categoryIcon: "🏥",
-    conditions: [],
-    recommended: true,
-    priority: "recommended",
-    reasonTemplate: "建议携带基本急救包以备不时之需",
-  },
-
   // ============ 雪地装备 (snow-gear) ============
   // 有降雪必须
   {

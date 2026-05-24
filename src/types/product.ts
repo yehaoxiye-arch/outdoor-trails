@@ -13,7 +13,6 @@ export type ProductCategory =
   | "trekking-poles"
   | "cooking"
   | "navigation"
-  | "safety"
   | "snow-gear"
   | "lighting"
   | "emergency"

@@ -9,6 +9,9 @@ interface CategoryCardProps {
   recommendation: Recommendation;
 }
 
+// 直接展示所有产品的品类（跳过品牌分组）
+const DIRECT_SHOW_CATEGORIES = new Set(["emergency"]);
+
 // 品牌Logo映射（可扩展）
 const brandLogos: Record<string, string> = {
   "Salomon": "/images/brands/salomon.png",
@@ -173,8 +176,16 @@ export default function CategoryCard({ recommendation }: CategoryCardProps) {
 
           {isExpanded && (
             <div className="p-4 border-t border-gray-200 space-y-3">
-              {/* 品牌卡片列表 */}
-              {brands.map((brand) => {
+              {/* 直接展示产品（应急等品类跳过品牌分组） */}
+              {DIRECT_SHOW_CATEGORIES.has(recommendation.category) ? (
+                <div className="space-y-2">
+                  {allProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
+              ) : (
+              /* 品牌卡片列表 */
+              brands.map((brand) => {
                 const brandProducts = brandMap.get(brand)!;
                 const isSelected = selectedBrand === brand;
                 const isBrandExpanded = expandedBrands.has(brand);
@@ -254,7 +265,8 @@ export default function CategoryCard({ recommendation }: CategoryCardProps) {
                     )}
                   </div>
                 );
-              })}
+              })
+              )}
             </div>
           )}
         </>

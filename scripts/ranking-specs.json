@@ -1,0 +1,388 @@
+{
+  "osprey-talon-55l": {
+    "weight": 1330,
+    "volume": 55,
+    "frameType": "internal",
+    "hipBelt": true,
+    "rainCover": false,
+    "price": 1400
+  },
+  "ortlieb-atrack-35l": {
+    "weight": 1260,
+    "volume": 35,
+    "frameType": "none",
+    "hipBelt": true,
+    "rainCover": false,
+    "waterproof": true,
+    "price": 1750
+  },
+  "gregory-maven-58l": {
+    "weight": 1560,
+    "volume": 58,
+    "frameType": "internal",
+    "hipBelt": true,
+    "rainCover": false,
+    "price": 1750
+  },
+  "highlander-ben-nevis-52l": {
+    "weight": 1500,
+    "volume": 52,
+    "frameType": "internal",
+    "hipBelt": true,
+    "rainCover": true,
+    "price": 560
+  },
+  "bach-molecule-45l": {
+    "weight": 1300,
+    "volume": 45,
+    "frameType": "internal",
+    "hipBelt": true,
+    "rainCover": false,
+    "price": 1120
+  },
+  "sierra-designs-flex-capacitor-40-60l": {
+    "weight": 1162,
+    "volume": 50,
+    "frameType": "internal",
+    "hipBelt": true,
+    "rainCover": false,
+    "price": 1400
+  },
+  "simond-trekking-mt500-45+10l": {
+    "weight": 1800,
+    "volume": 55,
+    "frameType": "internal",
+    "hipBelt": true,
+    "rainCover": true,
+    "price": 525
+  },
+  "klattermusen-delling-25l": {
+    "weight": 680,
+    "volume": 25,
+    "frameType": "none",
+    "hipBelt": true,
+    "rainCover": false,
+    "price": 2100
+  },
+  "fjallraven-keb-52l": {
+    "weight": 2130,
+    "volume": 52,
+    "frameType": "internal",
+    "hipBelt": true,
+    "rainCover": true,
+    "price": 2100
+  },
+  "vaude-assymetric-52+8l": {
+    "weight": 1890,
+    "volume": 60,
+    "frameType": "internal",
+    "hipBelt": true,
+    "rainCover": true,
+    "price": 1400
+  },
+  "helly-hansen-verglas-infinity-shell-2.0": {
+    "weight": 480,
+    "material": "Helly Tech Professional",
+    "waterproofRating": "20000mm",
+    "breathability": "medium",
+    "warmthLevel": 3,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": -10, "max": 25},
+    "price": 2500
+  },
+  "simond-mountaineering-jacket": {
+    "weight": 520,
+    "material": "GORE-TEX 3L",
+    "waterproofRating": "28000mm",
+    "breathability": "medium",
+    "warmthLevel": 3,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": -15, "max": 20},
+    "price": 1500
+  },
+  "paramo-caminata": {
+    "weight": 445,
+    "material": "Nikwax Analogy",
+    "waterproofRating": "waterproof",
+    "breathability": "high",
+    "warmthLevel": 3,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": -5, "max": 25},
+    "price": 2300
+  },
+  "cimalp-guide-pro": {
+    "weight": 420,
+    "material": "Cimalp Waterproof Membrane",
+    "waterproofRating": "20000mm",
+    "breathability": "medium",
+    "warmthLevel": 3,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": -10, "max": 25},
+    "price": 1400
+  },
+  "montbell-rain-trekker-2.0": {
+    "weight": 315,
+    "material": "DrizTec 2.5L",
+    "waterproofRating": "20000mm",
+    "breathability": "low",
+    "warmthLevel": 2,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": 5, "max": 30},
+    "price": 1100
+  },
+  "teren-cloudland-shell": {
+    "weight": 170,
+    "material": "Ripstop Nylon DWR",
+    "waterproofRating": "10000mm",
+    "breathability": "low",
+    "warmthLevel": 2,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": 10, "max": 30},
+    "price": 750
+  },
+  "mountain-equipment-makalu-jacket": {
+    "weight": 500,
+    "material": "GORE-TEX 3L",
+    "waterproofRating": "28000mm",
+    "breathability": "medium",
+    "warmthLevel": 4,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": -20, "max": 15},
+    "price": 2800
+  },
+  "paramo-velez-adventure-light-smock": {
+    "weight": 460,
+    "material": "Nikwax Analogy",
+    "waterproofRating": "waterproof",
+    "breathability": "high",
+    "warmthLevel": 3,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": -5, "max": 25},
+    "price": 2100
+  },
+  "rab-latok-mountain-gore-tex-pro": {
+    "weight": 430,
+    "material": "GORE-TEX Pro",
+    "waterproofRating": "28000mm",
+    "breathability": "medium",
+    "warmthLevel": 3,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": -15, "max": 20},
+    "price": 3200
+  },
+  "keela-pinnacle": {
+    "weight": 550,
+    "material": "SDP (System Dual Protection)",
+    "waterproofRating": "20000mm",
+    "breathability": "medium",
+    "warmthLevel": 4,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": -15, "max": 20},
+    "price": 1600
+  },
+  "harrier-exmoor-jacket": {
+    "weight": 140,
+    "material": "Lightweight Nylon DWR",
+    "waterproofRating": "10000mm",
+    "breathability": "high",
+    "warmthLevel": 2,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": 10, "max": 30},
+    "price": 700
+  },
+  "montane-solution-jacket": {
+    "weight": 165,
+    "material": "GORE-TEX Active",
+    "waterproofRating": "28000mm",
+    "breathability": "high",
+    "warmthLevel": 2,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": 5, "max": 30},
+    "price": 1850
+  },
+  "highlander-munro": {
+    "weight": 400,
+    "material": "Polyester Waterproof",
+    "waterproofRating": "10000mm",
+    "breathability": "low",
+    "warmthLevel": 3,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": 0, "max": 25},
+    "price": 450
+  },
+  "outdoor-research-aspire-3l-jacket": {
+    "weight": 298,
+    "material": "AscentShell 3L",
+    "waterproofRating": "20000mm",
+    "breathability": "high",
+    "warmthLevel": 3,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": 0, "max": 30},
+    "price": 1800
+  },
+  "jack-wolfskin-prelight-2.5l": {
+    "weight": 300,
+    "material": "Texapore 2.5L",
+    "waterproofRating": "10000mm",
+    "breathability": "low",
+    "warmthLevel": 2,
+    "windproof": true,
+    "waterproof": true,
+    "temperatureRange": {"min": 5, "max": 30},
+    "price": 900
+  },
+  "scarpa-terra-gtx": {
+    "weight": 620,
+    "waterproof": true,
+    "waterproofRating": "GORE-TEX防水透气膜",
+    "ankleSupport": "mid",
+    "soleType": "Vibram Biometric",
+    "terrain": ["全地形徒步", "山地", "林道"],
+    "temperatureRange": {"min": -5, "max": 30},
+    "price": 1680
+  },
+  "aku-trekker-lite-iii": {
+    "weight": 630,
+    "waterproof": true,
+    "waterproofRating": "GORE-TEX Extended Comfort",
+    "ankleSupport": "mid",
+    "soleType": "Vibram Curcuma",
+    "terrain": ["全地形徒步", "山地", "轻装穿越"],
+    "temperatureRange": {"min": -5, "max": 30},
+    "price": 1850
+  },
+  "helly-hansen-ascender-mid-ht": {
+    "weight": 500,
+    "waterproof": true,
+    "waterproofRating": "Helly Tech防水透气膜",
+    "ankleSupport": "mid",
+    "soleType": "HH Max-Grip",
+    "terrain": ["越野徒步", "城郊步道"],
+    "temperatureRange": {"min": 0, "max": 30},
+    "price": 1100
+  },
+  "altberg-dalesway": {
+    "weight": 700,
+    "waterproof": true,
+    "waterproofRating": "Sympatex防水透气膜",
+    "ankleSupport": "mid",
+    "soleType": "Vibram / Itshide",
+    "terrain": ["山地", "泥地", "全地形徒步"],
+    "temperatureRange": {"min": -5, "max": 25},
+    "price": 2300
+  },
+  "haglofs-skuta-mid-eco-proof": {
+    "weight": 470,
+    "waterproof": true,
+    "waterproofRating": "PROOF防水技术",
+    "ankleSupport": "mid",
+    "soleType": "Haglöfs专属橡胶大底",
+    "terrain": ["越野徒步", "攀岩接近", "轻装穿越"],
+    "temperatureRange": {"min": 0, "max": 30},
+    "price": 1350
+  },
+  "salomon-x-ultra-360-edge-mid": {
+    "weight": 410,
+    "waterproof": true,
+    "waterproofRating": "GORE-TEX防水透气膜",
+    "ankleSupport": "mid",
+    "soleType": "Contagrip MA",
+    "terrain": ["越野徒步", "快速徒步", "技术地形"],
+    "temperatureRange": {"min": 0, "max": 35},
+    "price": 1250
+  },
+  "montbell-alpine-cruiser-800": {
+    "weight": 700,
+    "waterproof": true,
+    "waterproofRating": "GORE-TEX防水透气膜",
+    "ankleSupport": "high",
+    "soleType": "Vibram",
+    "terrain": ["高山", "雪地", "冰川接近"],
+    "temperatureRange": {"min": -15, "max": 20},
+    "price": 1800
+  },
+  "hoka-kaha-2-gtx": {
+    "weight": 488,
+    "waterproof": true,
+    "waterproofRating": "GORE-TEX防水透气膜",
+    "ankleSupport": "mid",
+    "soleType": "Vibram Megagrip",
+    "terrain": ["长距离徒步", "全地形", "山地"],
+    "temperatureRange": {"min": -5, "max": 30},
+    "price": 1980
+  },
+  "asolo-acadia-mid-lth-gtx": {
+    "weight": 650,
+    "waterproof": true,
+    "waterproofRating": "GORE-TEX防水透气膜",
+    "ankleSupport": "mid",
+    "soleType": "Vibram",
+    "terrain": ["全地形徒步", "山地", "林道"],
+    "temperatureRange": {"min": -5, "max": 30},
+    "price": 1800
+  },
+  "keen-targhee-iv": {
+    "weight": 499,
+    "waterproof": true,
+    "waterproofRating": "KEEN.DRY防水透气膜",
+    "ankleSupport": "mid",
+    "soleType": "KEEN All-Terrain橡胶大底",
+    "terrain": ["全地形徒步", "林道", "溪谷"],
+    "temperatureRange": {"min": -5, "max": 30},
+    "price": 1200
+  },
+  "brandecosse-volpe": {
+    "weight": 700,
+    "waterproof": true,
+    "waterproofRating": "防水透气内衬",
+    "ankleSupport": "mid",
+    "soleType": "Vibram",
+    "terrain": ["山地", "全地形徒步", "林道"],
+    "temperatureRange": {"min": -5, "max": 25},
+    "price": 2800
+  },
+  "hanwag-banks-gtx": {
+    "weight": 820,
+    "waterproof": true,
+    "waterproofRating": "GORE-TEX防水透气膜",
+    "ankleSupport": "mid",
+    "soleType": "Vibram Fuora",
+    "terrain": ["重装穿越", "山地", "全地形徒步"],
+    "temperatureRange": {"min": -10, "max": 25},
+    "price": 2000
+  },
+  "salomon-quest-4-gtx": {
+    "weight": 640,
+    "waterproof": true,
+    "waterproofRating": "GORE-TEX防水透气膜",
+    "ankleSupport": "high",
+    "soleType": "Contagrip MA",
+    "terrain": ["重装穿越", "技术地形", "山地"],
+    "temperatureRange": {"min": -10, "max": 25},
+    "price": 1650
+  },
+  "danner-mountain-600-evo": {
+    "weight": 630,
+    "waterproof": true,
+    "waterproofRating": "Danner Dry防水透气膜",
+    "ankleSupport": "mid",
+    "soleType": "Vibram SPE Megagrip",
+    "terrain": ["城市徒步", "轻装徒步", "林道"],
+    "temperatureRange": {"min": 0, "max": 30},
+    "price": 1500
+  }
+}

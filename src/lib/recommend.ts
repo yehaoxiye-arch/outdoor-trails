@@ -1,4 +1,4 @@
-import { Product, Recommendation, ReasonTag, GearRecommendation, ProductCategory, FootwearSpecs, ClothingSpecs, BackpackSpecs, SleepingSpecs, TentSpecs, TrekkingPoleSpecs, CookingSpecs, LightingSpecs, HydrationSpecs, ProtectionSpecs, SafetySpecs, SnowGearSpecs, NavigationSpecs } from "@/types/product";
+import { Product, Recommendation, ReasonTag, GearRecommendation, ProductCategory, FootwearSpecs, ClothingSpecs, BackpackSpecs, SleepingSpecs, TentSpecs, TrekkingPoleSpecs, CookingSpecs, LightingSpecs, HydrationSpecs, ProtectionSpecs, SnowGearSpecs, NavigationSpecs } from "@/types/product";
 import { DayForecast } from "@/types/weather";
 import { Route, RouteStyleData } from "@/types/route";
 import { products, productCategories } from "@/data/products";
@@ -12,8 +12,8 @@ interface RecommendationContext {
 }
 
 function parseDuration(duration: string): number {
-  const match = duration.match(/(\d+)/);
-  return match ? parseInt(match[1]) : 1;
+  const matches = duration.match(/\d+/g);
+  return matches ? Math.max(...matches.map(Number)) : 1;
 }
 
 function parseDistance(distance: string): number {
@@ -266,11 +266,6 @@ function filterProductsForCategory(categoryProducts: Product[], context: Recomme
       return bladder.length > 0 ? bladder : categoryProducts;
     }
 
-    case "safety": {
-      const firstAid = categoryProducts.filter((p) => (p.specs as SafetySpecs).type === "first-aid");
-      return firstAid.length > 0 ? firstAid : categoryProducts;
-    }
-
     default:
       return categoryProducts;
   }
@@ -444,12 +439,6 @@ function selectBestProduct(categoryProducts: Product[], context: RecommendationC
     case "navigation": {
       // 按重量排序
       return sortByWeight(categoryProducts)[0];
-    }
-
-    case "safety": {
-      // 优先急救包类型
-      const firstAid = categoryProducts.filter((p) => (p.specs as SafetySpecs).type === "first-aid");
-      return firstAid[0] || sortByWeight(categoryProducts)[0];
     }
 
     case "snow-gear": {
@@ -760,7 +749,6 @@ function getNotRecommendedReason(category: ProductCategory, context: Recommendat
     navigation: {
       越野跑: "越野跑手机导航即可",
     },
-    safety: {},
     "snow-gear": {},
     lighting: {},
     emergency: {},

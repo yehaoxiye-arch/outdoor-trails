@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "p6-flow-imagex-sign.byteimg.com",
+      },
+      {
+        protocol: "https",
         hostname: "outdoorsmagic.com",
       },
     ],

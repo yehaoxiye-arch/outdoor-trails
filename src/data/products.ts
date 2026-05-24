@@ -1,4 +1,5 @@
 import { Product, ProductCategory, CookingSpecs, LightingSpecs, EmergencySpecs, HydrationSpecs } from "@/types/product";
+import { rankingProducts } from "./ranking-products";
 
 // 品类定义
 export const productCategories: { id: ProductCategory; name: string; icon: string }[] = [
@@ -14,7 +15,7 @@ export const productCategories: { id: ProductCategory; name: string; icon: strin
   { id: "trekking-poles", name: "登山杖", icon: "🏔️" },
   { id: "cooking", name: "炊具", icon: "🍳" },
   { id: "navigation", name: "导航", icon: "🧭" },
-  { id: "safety", name: "安全", icon: "🏥" },
+
   { id: "snow-gear", name: "雪地装备", icon: "❄️" },
   { id: "lighting", name: "照明", icon: "🔦" },
   { id: "emergency", name: "应急", icon: "🆘" },
@@ -188,7 +189,7 @@ const footwearProducts: Product[] = [
   {
     id: "keen-targhee-iii-mid-wp",
     name: "Targhee III Mid WP",
-    brand: "KEEN",
+    brand: "Keen",
     category: "footwear",
     image: "https://aka.doubaocdn.com/s/cQ0H1wQ6Et",
     specs: {
@@ -206,7 +207,7 @@ const footwearProducts: Product[] = [
   {
     id: "keen-newport-h2",
     name: "Newport H2",
-    brand: "KEEN",
+    brand: "Keen",
     category: "footwear",
     image: "https://aka.doubaocdn.com/s/i7zL1wQ6Et",
     specs: {
@@ -545,24 +546,6 @@ const footwearProducts: Product[] = [
     price: 899,
   },
   {
-    id: "camel-碳zero风速2",
-    name: "碳Zero风速2",
-    brand: "骆驼",
-    category: "footwear",
-    image: "https://aka.doubaocdn.com/s/0FLx1wQ6F4",
-    specs: {
-      weight: 350,
-      waterproof: false,
-      waterproofRating: "防泼水处理",
-      temperatureRange: {"min":0,"max":35},
-      soleType: "轻量化橡胶",
-      ankleSupport: "low",
-      terrain: ["轻量徒步","城市户外"],
-    },
-    scenarios: ["越野跑"],
-    price: 409,
-  },
-  {
     id: "toread-gore-tex防水徒步鞋",
     name: "GORE-TEX防水徒步鞋",
     brand: "探路者",
@@ -597,42 +580,6 @@ const footwearProducts: Product[] = [
     },
     scenarios: ["徒步","日常"],
     price: 599,
-  },
-  {
-    id: "camel-高帮防水登山鞋",
-    name: "高帮防水登山鞋",
-    brand: "骆驼",
-    category: "footwear",
-    image: "https://aka.doubaocdn.com/s/0FLx1wQ6F4",
-    specs: {
-      weight: 620,
-      waterproof: true,
-      waterproofRating: "专业防水透气膜",
-      temperatureRange: {"min":-15,"max":20},
-      soleType: "高耐磨橡胶",
-      ankleSupport: "high",
-      terrain: ["高海拔登山","重装徒步"],
-    },
-    scenarios: ["徒步","登山"],
-    price: 499,
-  },
-  {
-    id: "camel-低帮透气徒步鞋",
-    name: "低帮透气徒步鞋",
-    brand: "骆驼",
-    category: "footwear",
-    image: "https://aka.doubaocdn.com/s/0FLx1wQ6F4",
-    specs: {
-      weight: 400,
-      waterproof: false,
-      waterproofRating: "防泼水处理",
-      temperatureRange: {"min":0,"max":35},
-      soleType: "耐磨橡胶",
-      ankleSupport: "low",
-      terrain: ["日常徒步","休闲户外"],
-    },
-    scenarios: ["徒步"],
-    price: 399,
   },
   {
     id: "pelliot-低帮防水登山鞋",
@@ -687,42 +634,6 @@ const footwearProducts: Product[] = [
     scenarios: ["越野跑","日常"],
     price: 799,
   },
-  {
-    id: "camel-black-king-mid-boot",
-    name: "黑金刚高帮防水登山鞋",
-    brand: "骆驼喜马拉雅",
-    category: "footwear",
-    image: "https://aka.doubaocdn.com/s/YUs11wQT6K",
-    specs: {
-      weight: 650,
-      waterproof: true,
-      waterproofRating: "防水膜",
-      temperatureRange: {"min":-10,"max":25},
-      soleType: "橡胶大底",
-      ankleSupport: "mid",
-      terrain: ["山地","岩石"],
-    },
-    scenarios: ["高海拔登山","重装徒步"],
-    price: 599,
-  },
-  {
-    id: "camel-high-waterproof-boot",
-    name: "高帮防水登山鞋",
-    brand: "骆驼喜马拉雅",
-    category: "footwear",
-    image: "https://aka.doubaocdn.com/s/YUs11wQT6K",
-    specs: {
-      weight: 550,
-      waterproof: true,
-      waterproofRating: "防水",
-      temperatureRange: {"min":-10,"max":25},
-      soleType: "橡胶大底",
-      ankleSupport: "mid",
-      terrain: ["山地","碎石"],
-    },
-    scenarios: ["徒步","登山"],
-    price: 499,
-  },
 
     {
       id: "decathlon-quechua-mh500-mid-wp",
@@ -732,14 +643,33 @@ const footwearProducts: Product[] = [
       image: "/images/products/迪卡侬_MH500中帮防水徒步鞋.png",
       specs: {
         weight: 460,
-        waterproof: false,
+        waterproof: true,
+        waterproofRating: "防水透气膜",
         temperatureRange: {min: -10, max: 30},
-        soleType: "橡胶大底",
+        soleType: "CrossContact橡胶",
         ankleSupport: "mid",
-        terrain: ["全地形徒步", "混合地形"]
+        terrain: ["全地形徒步", "山地", "混合地形"]
       },
-      scenarios: ["全场景徒步", "复杂地形", "四季通用"],
-      price: 0,
+      scenarios: ["徒步", "登山", "全场景徒步"],
+      price: 599,
+    },
+    {
+      id: "decathlon-quechua-mh500-low-wp",
+      name: "MH500低帮防水徒步鞋",
+      brand: "迪卡侬",
+      category: "footwear",
+      image: "/images/products/迪卡侬_MH500_Light轻量化徒步鞋.png",
+      specs: {
+        weight: 370,
+        waterproof: true,
+        waterproofRating: "防水透气膜",
+        temperatureRange: {min: -5, max: 30},
+        soleType: "CrossContact橡胶",
+        ankleSupport: "low",
+        terrain: ["全地形徒步", "山地", "快速徒步"]
+      },
+      scenarios: ["徒步", "登山", "快速徒步"],
+      price: 499,
     },
     {
       id: "decathlon-quechua-mh100",
@@ -4302,28 +4232,6 @@ const outerlayerProducts: Product[] = [
     price: 7998,
   },
   {
-    id: "patagonia-torrentshell-3l",
-    name: "TorrentShell 3L 硬壳冲锋衣",
-    brand: "Patagonia",
-    category: "outer-layer",
-    image: "https://aka.doubaocdn.com/s/mZll1wQT5D",
-    specs: {
-      weight: 380,
-      waterproof: true,
-      waterproofRating: "20000mm",
-      windproof: true,
-      breathability: "medium",
-      warmthLevel: 3,
-      temperatureRange: {"min":-10,"max":20},
-      temperatureRating: -10,
-      seasonRating: "4-season",
-      material: "100%再生聚酯纤维H2No",
-      adjustable: true,
-    },
-    scenarios: ["长线徒步、露营、日常通勤"],
-    price: 3998,
-  },
-  {
     id: "patagonia-triolet-jacket",
     name: "Triolet GORE-TEX 硬壳冲锋衣",
     brand: "Patagonia",
@@ -6106,10 +6014,6 @@ const baselayerProducts: Product[] = [
   },
 ];
 
-// safety 产品 (1条)
-const safetyProducts: Product[] = [
-];
-
 // rain-gear 产品 (2条)
 const raingearProducts: Product[] = [
   {
@@ -6353,11 +6257,25 @@ const emergencyProducts: Product[] = [
       weight: 60,
     },
     scenarios: ["应急", "失温防护"],
+    price: 30,
+  },
+  {
+    id: "adventure-medical-kits-first-aid",
+    name: "户外急救医疗包",
+    brand: "Adventure Medical Kits",
+    category: "emergency",
+    image: "",
+    specs: {
+      type: "repair-kit",
+      weight: 300,
+    },
+    scenarios: ["应急", "医疗救护"],
+    price: 150,
   },
   {
     id: "sos-rescue-whistle",
     name: "求生哨",
-    brand: "SOS",
+    brand: "SOL",
     category: "emergency",
     image: "",
     specs: {
@@ -6365,18 +6283,7 @@ const emergencyProducts: Product[] = [
       weight: 15,
     },
     scenarios: ["应急", "求救"],
-  },
-  {
-    id: "uco-stormproof-matches",
-    name: "防风暴火柴",
-    brand: "UCO",
-    category: "emergency",
-    image: "",
-    specs: {
-      type: "fire-starter",
-      weight: 45,
-    },
-    scenarios: ["应急", "生火"],
+    price: 20,
   },
 ];
 
@@ -6436,7 +6343,7 @@ export const products: Product[] = [
   ...outerlayerProducts,
   ...midlayerProducts,
   ...baselayerProducts,
-  ...safetyProducts,
+
   ...raingearProducts,
   ...sunprotectionProducts,
   ...cookingProducts,
@@ -6445,4 +6352,5 @@ export const products: Product[] = [
   ...lightingProducts,
   ...emergencyProducts,
   ...hydrationProducts,
+  ...rankingProducts,
 ];
