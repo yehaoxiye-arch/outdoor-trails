@@ -41,7 +41,7 @@ export default function RankingCard({
           <h3 className="text-2xl font-bold text-gray-900 tracking-tight text-center">
             {title.replace(/^2026年/, "")}
           </h3>
-          <span className="text-xs text-primary-500 font-medium mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+          <span className="text-xs text-primary-500 font-medium mt-3 opacity-70 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
             查看榜单 &rarr;
           </span>
         </div>
