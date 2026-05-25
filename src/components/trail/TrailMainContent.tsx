@@ -187,13 +187,13 @@ function ConditionsTab({ route, style }: { route: Route; style: RouteStyleData }
                   <div className="temp-bar-hot" style={{ width: `${hotWidth}%` }} />
                 </div>
                 <span className="text-sm font-medium text-text-primary w-8">{day.high}°</span>
-                <div className="flex items-center gap-1 text-xs text-text-secondary">
+                <div className="hidden md:flex items-center gap-1 text-xs text-text-secondary">
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
                   </svg>
                   <span>{day.sunrise}</span>
                 </div>
-                <div className="text-xs text-text-secondary">{day.humidity}%</div>
+                <div className="hidden md:block text-xs text-text-secondary">{day.humidity}%</div>
               </div>
             );
           })}
