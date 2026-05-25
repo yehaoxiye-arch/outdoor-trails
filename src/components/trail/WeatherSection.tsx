@@ -232,7 +232,7 @@ export default function WeatherSection({ route, selectedDate, forecasts, default
                           </svg>
                           <span className="text-xs text-text-secondary">{hour.precipitation}%</span>
                         </div>
-                        <span className="text-xs text-text-secondary">
+                        <span className="text-xs text-text-secondary whitespace-nowrap">
                           {hour.windDirection}风 {hour.windSpeed}km/h
                         </span>
                       </div>
