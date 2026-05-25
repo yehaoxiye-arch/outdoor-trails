@@ -141,7 +141,7 @@ export default function GearPlanner({ route, selectedStyle, onDateChange, defaul
             <button
               onClick={handleGenerate}
               disabled={isLoading}
-              className="w-full py-2.5 bg-primary-500 text-white text-sm font-medium rounded-alltrails hover:bg-primary-600 transition-colors disabled:opacity-50"
+              className="w-full py-2.5 bg-primary-500 text-white text-sm font-medium rounded-alltrails hover:bg-primary-600 active:bg-primary-700 transition-colors disabled:opacity-50"
             >
               {isLoading ? "生成中..." : "获取推荐"}
             </button>

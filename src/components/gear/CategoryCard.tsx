@@ -169,7 +169,7 @@ export default function CategoryCard({ recommendation }: CategoryCardProps) {
               setIsExpanded(!isExpanded);
               if (!isExpanded) setSelectedBrand(null);
             }}
-            className="w-full py-2 text-sm text-primary-500 hover:bg-primary-100 transition-colors border-t border-gray-200"
+            className="w-full py-2 text-sm text-primary-500 hover:bg-primary-100 active:bg-primary-200 transition-colors border-t border-gray-200"
           >
             {isExpanded ? "收起" : "查看推荐产品 ▼"}
           </button>
@@ -202,7 +202,7 @@ export default function CategoryCard({ recommendation }: CategoryCardProps) {
                       className={`p-3 md:p-4 rounded-alltrails cursor-pointer transition-all ${
                         isSelected
                           ? "bg-primary-100 border-2 border-primary-500"
-                          : "bg-gray-50 hover:bg-gray-100 border-2 border-transparent"
+                          : "bg-gray-50 hover:bg-gray-100 active:bg-gray-200 border-2 border-transparent"
                       }`}
                     >
                       <div className="flex items-center gap-3">

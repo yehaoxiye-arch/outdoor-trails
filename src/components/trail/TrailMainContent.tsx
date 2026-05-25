@@ -122,7 +122,7 @@ export default function TrailMainContent({ route, selectedStyle }: TrailMainCont
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                       currentStyle.name === style.name
                         ? "bg-primary-500 text-white"
-                        : "bg-gray-100 text-text-primary hover:bg-gray-200"
+                        : "bg-gray-100 text-text-primary hover:bg-gray-200 active:bg-gray-300"
                     }`}
                   >
                     {style.name}

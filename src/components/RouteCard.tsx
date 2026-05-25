@@ -12,7 +12,7 @@ export default function RouteCard({ route }: RouteCardProps) {
   return (
     <Link
       href={`/route/${route.id}`}
-      className="group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
+      className="group bg-white rounded-xl shadow-sm hover:shadow-lg active:shadow-md transition-all duration-300 overflow-hidden"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image

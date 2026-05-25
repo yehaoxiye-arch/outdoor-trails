@@ -178,7 +178,7 @@ export default function WeatherSection({ route, selectedDate, forecasts, default
               className={`p-4 rounded-alltrails cursor-pointer transition-all ${
                 isSelected
                   ? "bg-primary-100 border-2 border-primary-500"
-                  : "bg-gray-50 hover:bg-gray-100 border-2 border-transparent"
+                  : "bg-gray-50 hover:bg-gray-100 active:bg-gray-200 border-2 border-transparent"
               }`}
             >
               {/* 日期和天气概览 */}
