@@ -115,7 +115,7 @@ export default function DatePicker({ value, onChange, id }: DatePickerProps) {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-alltrails shadow-lg border border-gray-200 z-50 p-3">
+        <div className="absolute bottom-full left-0 right-0 mb-1 bg-white rounded-alltrails shadow-lg border border-gray-200 z-50 p-3 md:bottom-auto md:top-full md:mb-0 md:mt-1">
           {/* 头部：年月导航 */}
           <div className="flex items-center justify-between mb-3">
             <button
