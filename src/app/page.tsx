@@ -1,13 +1,10 @@
 import HeroCarousel from "@/components/home/HeroCarousel";
 import SearchBar from "@/components/home/SearchBar";
 import RankingCard from "@/components/home/RankingCard";
-import RouteCard from "@/components/RouteCard";
 import rankingsData from "@/data/outdoormagic-rankings.json";
-import { getHotRoutes } from "@/data/routes";
 
 export default function HomePage() {
   const rankings = Object.values(rankingsData);
-  const hotRoutes = getHotRoutes(6);
 
   return (
     <div className="min-h-screen bg-background-warm">
@@ -28,25 +25,14 @@ export default function HomePage() {
 
       <main className="max-w-5xl mx-auto px-4 md:px-6 pt-10 pb-16 flex flex-col" style={{ minHeight: "calc(55vh - 48px)" }}>
         {/* Search */}
-        <section className="text-center mb-10 pt-4">
+        <section className="text-center mb-auto pt-4">
           <div className="flex justify-center">
             <SearchBar />
           </div>
         </section>
 
-        {/* Hot Routes */}
-        <section className="mb-16">
-          <h2 className="text-xl font-bold text-gray-900 mb-6 text-center">热门线路</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {hotRoutes.map((route) => (
-              <RouteCard key={route.id} route={route} />
-            ))}
-          </div>
-        </section>
-
         {/* Rankings */}
-        <section className="pt-16 border-t border-gray-200">
-          <h2 className="text-xl font-bold text-gray-900 mb-6 text-center">装备榜单</h2>
+        <section className="pt-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {rankings.map((ranking) => (
               <RankingCard
