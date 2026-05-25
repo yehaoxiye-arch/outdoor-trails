@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { getRoutesByProvince, getProvinces } from "@/data/routes";
 import Header from "@/components/Header";
 import RouteCard from "@/components/RouteCard";
+import RouteFilters from "@/components/trail/RouteFilters";
 
 interface ProvincePageProps {
   params: Promise<{
@@ -76,20 +77,7 @@ export default async function ProvincePage({ params }: ProvincePageProps) {
 
         {/* Filter Bar */}
         <div className="max-w-7xl mx-auto px-4 md:px-6 mb-6">
-          <div className="flex items-center gap-4 flex-wrap">
-            <button className="px-4 py-2 bg-white border border-gray-300 rounded-full text-sm font-medium hover:border-green-500 transition-colors">
-              难度
-            </button>
-            <button className="px-4 py-2 bg-white border border-gray-300 rounded-full text-sm font-medium hover:border-green-500 transition-colors">
-              距离
-            </button>
-            <button className="px-4 py-2 bg-white border border-gray-300 rounded-full text-sm font-medium hover:border-green-500 transition-colors">
-              时长
-            </button>
-            <button className="px-4 py-2 bg-white border border-gray-300 rounded-full text-sm font-medium hover:border-green-500 transition-colors">
-              海拔
-            </button>
-          </div>
+          <RouteFilters />
         </div>
 
         {/* Routes Grid */}
