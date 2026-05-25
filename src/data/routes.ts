@@ -1134,3 +1134,7 @@ export function searchRoutes(query: string): Route[] {
       route.location.toLowerCase().includes(lowerQuery)
   );
 }
+
+export function getHotRoutes(limit = 6): Route[] {
+  return routes.slice(0, limit);
+}
