@@ -76,9 +76,20 @@ export default function HomePage() {
       {/* ===== 桌面端 Hero（轮播图） ===== */}
       <section className="hidden md:block relative h-[45vh]">
         <HeroCarousel />
+
+        {/* 左上角品牌标识 */}
+        <div className="absolute top-6 left-8 z-10 flex items-center gap-2">
+          <svg className="w-11 h-6" viewBox="0 0 44 24" fill="none">
+            <path d="M2 21L12 3l10 18" stroke="#dce97a" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M16 21L24 7l8 14" stroke="#fff" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <span className="text-white font-extrabold text-[22px] drop-shadow-lg">径迹</span>
+        </div>
+
+        {/* 底部文案 */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-end pb-10">
           <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight drop-shadow-lg mb-2">
-            径迹
+            Find your trail kit
           </h1>
           <p className="text-sm md:text-base text-white/70 font-light tracking-widest drop-shadow-md">
             智能装备推荐 · 让每一次出发都从容
