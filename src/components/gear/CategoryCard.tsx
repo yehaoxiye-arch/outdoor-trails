@@ -4,10 +4,20 @@ import { useState } from "react";
 import { Recommendation, Product } from "@/types/product";
 import Badge from "@/components/ui/Badge";
 import ProductCard from "./ProductCard";
+import { getBrandOrder } from "@/data/brand-priority";
 
 interface CategoryCardProps {
   recommendation: Recommendation;
+  routeContext?: {
+    altitude: number;
+    durationDays: number;
+    distanceKm: number;
+    minTemp: number;
+    maxPrecipitation: number;
+  };
 }
+
+const DEFAULT_VISIBLE_BRANDS = 5;
 
 // 直接展示所有产品的品类（跳过品牌分组）
 const DIRECT_SHOW_CATEGORIES = new Set(["emergency"]);
@@ -73,10 +83,89 @@ function groupProductsByBrand(products: Product[]): Map<string, Product[]> {
   return brandMap;
 }
 
-export default function CategoryCard({ recommendation }: CategoryCardProps) {
+// 品牌卡片组件（内部使用）
+function BrandCard({
+  brand,
+  brandMap,
+  selectedBrand,
+  expandedBrands,
+  onBrandClick,
+  onToggleExpand,
+}: {
+  brand: string;
+  brandMap: Map<string, Product[]>;
+  selectedBrand: string | null;
+  expandedBrands: Set<string>;
+  onBrandClick: (brand: string) => void;
+  onToggleExpand: (brand: string, e: React.MouseEvent) => void;
+}) {
+  const products = brandMap.get(brand) || [];
+  const primaryProduct = products[0];
+  const otherProducts = products.slice(1);
+  const isSelected = selectedBrand === brand;
+  const isBrandExpanded = expandedBrands.has(brand);
+
+  return (
+    <div
+      className={`border rounded-lg transition-all ${
+        isSelected ? "border-primary-300 bg-primary-50" : "border-gray-200 bg-white"
+      }`}
+    >
+      {/* 品牌头部：点击展示主推产品 */}
+      <div
+        className="flex items-center gap-3 p-3 cursor-pointer"
+        onClick={() => onBrandClick(brand)}
+      >
+        {/* 品牌 Logo */}
+        <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 overflow-hidden">
+          {brandLogos[brand] ? (
+            <img src={brandLogos[brand]} alt={brand} className="w-full h-full object-cover" />
+          ) : (
+            <span className="text-sm font-semibold text-gray-500">{getBrandInitial(brand)}</span>
+          )}
+        </div>
+
+        {/* 品牌名 + 产品数 */}
+        <div className="flex-1 min-w-0">
+          <div className="font-medium text-sm text-gray-900">{brand}</div>
+          <div className="text-xs text-gray-500">{products.length}款产品</div>
+        </div>
+
+        {/* 展开/收起按钮（多产品时显示） */}
+        {otherProducts.length > 0 && (
+          <button
+            onClick={(e) => onToggleExpand(brand, e)}
+            className="text-xs text-primary-500 hover:text-primary-600 px-2 py-1"
+          >
+            {isBrandExpanded ? "收起" : `+${otherProducts.length}`}
+          </button>
+        )}
+      </div>
+
+      {/* 主推产品 */}
+      {isSelected && primaryProduct && (
+        <div className="px-3 pb-3">
+          <ProductCard product={primaryProduct} />
+        </div>
+      )}
+
+      {/* 其他产品（展开时显示） */}
+      {isBrandExpanded && otherProducts.length > 0 && (
+        <div className="px-3 pb-3 space-y-2">
+          {otherProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function CategoryCard({ recommendation, routeContext }: CategoryCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
   const [expandedBrands, setExpandedBrands] = useState<Set<string>>(new Set());
+  const [showAllBrands, setShowAllBrands] = useState(false);
 
   // 收集所有推荐产品（主要产品 + 替代产品）
   const allProducts = [
@@ -86,7 +175,38 @@ export default function CategoryCard({ recommendation }: CategoryCardProps) {
 
   // 按品牌分组
   const brandMap = groupProductsByBrand(allProducts);
-  const brands = Array.from(brandMap.keys());
+
+  // 品牌排序（根据路线条件动态调整）
+  let brands = Array.from(brandMap.keys());
+  if (routeContext) {
+    const priorityOrder = getBrandOrder(
+      recommendation.category,
+      routeContext.altitude,
+      routeContext.durationDays,
+      routeContext.distanceKm,
+      routeContext.minTemp,
+      routeContext.maxPrecipitation
+    );
+    if (priorityOrder) {
+      const brandSet = new Set(brands);
+      const sorted: string[] = [];
+      for (const b of priorityOrder) {
+        if (brandSet.has(b)) {
+          sorted.push(b);
+          brandSet.delete(b);
+        }
+      }
+      // 追加未在优先级列表中的品牌
+      for (const b of brandSet) {
+        sorted.push(b);
+      }
+      brands = sorted;
+    }
+  }
+
+  // 分割为可见品牌和剩余品牌
+  const visibleBrands = brands.slice(0, DEFAULT_VISIBLE_BRANDS);
+  const remainingBrands = brands.slice(DEFAULT_VISIBLE_BRANDS);
 
   const handleBrandClick = (brand: string) => {
     setSelectedBrand(selectedBrand === brand ? null : brand);
@@ -101,18 +221,6 @@ export default function CategoryCard({ recommendation }: CategoryCardProps) {
       newExpanded.add(brand);
     }
     setExpandedBrands(newExpanded);
-  };
-
-  // 获取品牌的最推荐产品（第一个产品）
-  const getPrimaryProduct = (brand: string): Product | undefined => {
-    const products = brandMap.get(brand);
-    return products?.[0];
-  };
-
-  // 获取品牌的其他产品
-  const getOtherProducts = (brand: string): Product[] => {
-    const products = brandMap.get(brand) || [];
-    return products.slice(1);
   };
 
   return (
@@ -184,88 +292,62 @@ export default function CategoryCard({ recommendation }: CategoryCardProps) {
                   ))}
                 </div>
               ) : (
-              /* 品牌卡片列表 */
-              brands.map((brand) => {
-                const brandProducts = brandMap.get(brand)!;
-                const isSelected = selectedBrand === brand;
-                const isBrandExpanded = expandedBrands.has(brand);
-                const logoUrl = brandLogos[brand];
-                const primaryProduct = getPrimaryProduct(brand);
-                const otherProducts = getOtherProducts(brand);
-                const hasOtherProducts = otherProducts.length > 0;
+              <>
+              {/* 品牌卡片列表（默认展示前5个） */}
+              {visibleBrands.map((brand) => (
+                <BrandCard
+                  key={brand}
+                  brand={brand}
+                  brandMap={brandMap}
+                  selectedBrand={selectedBrand}
+                  expandedBrands={expandedBrands}
+                  onBrandClick={handleBrandClick}
+                  onToggleExpand={handleToggleBrandExpand}
+                />
+              ))}
 
-                return (
-                  <div key={brand}>
-                    {/* 品牌卡片 - 简约风格 */}
-                    <div
-                      onClick={() => handleBrandClick(brand)}
-                      className={`p-3 md:p-4 rounded-alltrails cursor-pointer transition-all ${
-                        isSelected
-                          ? "bg-primary-100 border-2 border-primary-500"
-                          : "bg-gray-50 hover:bg-gray-100 active:bg-gray-200 border-2 border-transparent"
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        {/* 品牌Logo或首字母 */}
-                        <div className="w-10 h-10 flex items-center justify-center">
-                          {logoUrl ? (
-                            <img
-                              src={logoUrl}
-                              alt={brand}
-                              className="w-10 h-10 object-contain"
-                              onError={(e) => {
-                                // Logo加载失败时显示首字母
-                                const target = e.target as HTMLImageElement;
-                                target.style.display = "none";
-                                const fallback = target.nextElementSibling as HTMLElement;
-                                if (fallback) fallback.style.display = "flex";
-                              }}
-                            />
-                          ) : null}
-                          <div
-                            className={`w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center ${logoUrl ? "hidden" : ""}`}
-                          >
-                            <span className="text-lg font-bold text-gray-600">
-                              {getBrandInitial(brand)}
-                            </span>
-                          </div>
-                        </div>
-                        <div className="flex-1">
-                          <span className="font-medium text-text-primary">{brand}</span>
-                        </div>
-                      </div>
+              {/* 查看更多品牌按钮 */}
+              {remainingBrands.length > 0 && (
+                <button
+                  onClick={() => setShowAllBrands(true)}
+                  className="w-full py-2.5 text-sm text-primary-500 hover:bg-primary-50 active:bg-primary-100 transition-colors rounded-alltrails border border-dashed border-primary-300"
+                >
+                  查看更多品牌（{remainingBrands.length}个）
+                </button>
+              )}
+
+              {/* 弹窗：展示全部品牌 */}
+              {showAllBrands && (
+                <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center">
+                  <div className="absolute inset-0 bg-black/40" onClick={() => setShowAllBrands(false)} />
+                  <div className="relative bg-white w-full max-w-lg max-h-[80vh] rounded-t-2xl md:rounded-2xl overflow-hidden flex flex-col">
+                    {/* 弹窗头部 */}
+                    <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                      <h3 className="font-semibold text-text-primary">{recommendation.categoryIcon} {recommendation.categoryName} — 全部品牌</h3>
+                      <button onClick={() => setShowAllBrands(false)} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100">
+                        <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
                     </div>
-
-                    {/* 品牌最推荐产品 */}
-                    {isSelected && primaryProduct && (
-                      <div className="mt-2 pl-4">
-                        <ProductCard product={primaryProduct} />
-
-                        {/* 展开按钮 - 仅当有其他产品时显示 */}
-                        {hasOtherProducts && (
-                          <button
-                            onClick={(e) => handleToggleBrandExpand(brand, e)}
-                            className="w-full mt-2 py-2 text-sm text-primary-500 hover:bg-primary-50 transition-colors rounded"
-                          >
-                            {isBrandExpanded
-                              ? "收起其他产品"
-                              : `展开其他 ${otherProducts.length} 款产品 ▼`}
-                          </button>
-                        )}
-
-                        {/* 展开的其他产品列表 */}
-                        {isBrandExpanded && (
-                          <div className="mt-2 space-y-2">
-                            {otherProducts.map((product) => (
-                              <ProductCard key={product.id} product={product} />
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    )}
+                    {/* 弹窗内容 */}
+                    <div className="flex-1 overflow-y-auto p-4 space-y-3">
+                      {brands.map((brand) => (
+                        <BrandCard
+                          key={brand}
+                          brand={brand}
+                          brandMap={brandMap}
+                          selectedBrand={selectedBrand}
+                          expandedBrands={expandedBrands}
+                          onBrandClick={handleBrandClick}
+                          onToggleExpand={handleToggleBrandExpand}
+                        />
+                      ))}
+                    </div>
                   </div>
-                );
-              })
+                </div>
+              )}
+              </>
               )}
             </div>
           )}

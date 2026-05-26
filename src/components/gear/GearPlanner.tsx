@@ -170,11 +170,29 @@ export default function GearPlanner({ route, selectedStyle, onDateChange, defaul
             </button>
           </div>
 
-          <div className="space-y-2 mb-4">
-            {recommendation.recommendations.map((rec, index) => (
-              <CategoryCard key={index} recommendation={rec} />
-            ))}
-          </div>
+          {/* 路线上下文：用于品牌优先级排序 */}
+          {(() => {
+            const altitudeMatch = selectedStyle.altitude.match(/\d+/);
+            const durationMatch = selectedStyle.duration.match(/\d+/);
+            const distanceMatch = selectedStyle.distance.match(/[\d.]+/);
+            const forecastsToUse = recommendation.weatherForecast || [];
+
+            const routeContext = {
+              altitude: altitudeMatch ? parseInt(altitudeMatch[0]) : 0,
+              durationDays: durationMatch ? parseInt(durationMatch[0]) : 1,
+              distanceKm: distanceMatch ? parseFloat(distanceMatch[0]) : 0,
+              minTemp: forecastsToUse.length > 0 ? Math.min(...forecastsToUse.map(f => f.tempLow)) : 15,
+              maxPrecipitation: forecastsToUse.length > 0 ? Math.max(...forecastsToUse.map(f => f.precipitation)) : 0,
+            };
+
+            return (
+              <div className="space-y-2 mb-4">
+                {recommendation.recommendations.map((rec, index) => (
+                  <CategoryCard key={index} recommendation={rec} routeContext={routeContext} />
+                ))}
+              </div>
+            );
+          })()}
 
           <NotRecommended items={recommendation.notRecommended} />
         </div>
