@@ -50,8 +50,8 @@ export default function HeroCarousel() {
       {heroImages.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-[2500ms] ease-in-out ${
-            index === currentIndex ? "opacity-100" : "opacity-0"
+          className={`carousel-slide absolute inset-0 transition-opacity duration-[2500ms] ease-in-out ${
+            index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
         >
           <Image
