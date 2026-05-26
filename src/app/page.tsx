@@ -9,69 +9,75 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* ===== 移动端 Hero ===== */}
-      <section className="md:hidden relative h-[444px] overflow-hidden"
-        style={{
-          background: `
-            linear-gradient(180deg, rgba(255,255,255,.18), rgba(88,56,34,.38)),
-            radial-gradient(circle at 83% 18%, rgba(230,216,184,.8) 0 32px, transparent 33px),
-            linear-gradient(125deg, transparent 0 35%, rgba(142,119,91,.86) 35% 62%, transparent 63%),
-            linear-gradient(55deg, transparent 0 42%, rgba(159,119,78,.8) 42% 72%, transparent 73%),
-            linear-gradient(180deg, #d7d3cc 0%, #c9c1b5 54%, #b08b67 100%)
-          `,
-        }}
-      >
-        {/* 山脉剪影层 */}
-        <div className="absolute inset-0 pointer-events-none"
+      <div className="md:hidden relative">
+        {/* 背景层（固定高度，overflow-hidden 裁剪渐变） */}
+        <div className="absolute inset-0 h-[444px] overflow-hidden"
           style={{
             background: `
-              linear-gradient(128deg, transparent 0 28%, rgba(137,111,84,.88) 28% 47%, transparent 48%),
-              linear-gradient(57deg, transparent 0 49%, rgba(154,113,75,.85) 49% 73%, transparent 74%)
+              linear-gradient(180deg, rgba(255,255,255,.18), rgba(88,56,34,.38)),
+              radial-gradient(circle at 83% 18%, rgba(230,216,184,.8) 0 32px, transparent 33px),
+              linear-gradient(125deg, transparent 0 35%, rgba(142,119,91,.86) 35% 62%, transparent 63%),
+              linear-gradient(55deg, transparent 0 42%, rgba(159,119,78,.8) 42% 72%, transparent 73%),
+              linear-gradient(180deg, #d7d3cc 0%, #c9c1b5 54%, #b08b67 100%)
             `,
-            top: "150px", bottom: "84px", left: "-40px", right: "-34px",
-            opacity: 0.95,
           }}
-        />
-        {/* 底部渐变过渡 */}
-        <div className="absolute left-0 right-0 bottom-0 h-[90px]"
-          style={{ background: "linear-gradient(180deg, rgba(248,248,246,0), #f8f8f6 86%)" }}
-        />
+        >
+          {/* 山脉剪影层 */}
+          <div className="absolute inset-0 pointer-events-none"
+            style={{
+              background: `
+                linear-gradient(128deg, transparent 0 28%, rgba(137,111,84,.88) 28% 47%, transparent 48%),
+                linear-gradient(57deg, transparent 0 49%, rgba(154,113,75,.85) 49% 73%, transparent 74%)
+              `,
+              top: "150px", bottom: "84px", left: "-40px", right: "-34px",
+              opacity: 0.95,
+            }}
+          />
+          {/* 底部渐变过渡 */}
+          <div className="absolute left-0 right-0 bottom-0 h-[90px]"
+            style={{ background: "linear-gradient(180deg, rgba(248,248,246,0), #f8f8f6 86%)" }}
+          />
+        </div>
 
-        {/* 顶部导航 */}
-        <div className="relative z-10 flex items-center gap-3 px-6 pt-[18px]">
-          <button className="w-9 h-9 rounded-full bg-white/90 flex items-center justify-center" aria-label="打开菜单">
-            <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-          <div className="flex items-center gap-2 text-white font-extrabold text-[22px]">
-            <svg className="w-11 h-6" viewBox="0 0 44 24" fill="none">
-              <path d="M2 21L12 3l10 18" stroke="#dce97a" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M16 21L24 7l8 14" stroke="#fff" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <span>径迹</span>
+        {/* 内容层（无 overflow-hidden，搜索下拉可正常展开） */}
+        <section className="relative">
+          {/* 顶部导航 */}
+          <div className="relative z-10 flex items-center gap-3 px-6 pt-[18px]">
+            <button className="w-9 h-9 rounded-full bg-white/90 flex items-center justify-center" aria-label="打开菜单">
+              <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            <div className="flex items-center gap-2 text-white font-extrabold text-[22px]">
+              <svg className="w-11 h-6" viewBox="0 0 44 24" fill="none">
+                <path d="M2 21L12 3l10 18" stroke="#dce97a" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M16 21L24 7l8 14" stroke="#fff" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span>径迹</span>
+            </div>
           </div>
-        </div>
 
-        {/* Hero 文案 */}
-        <div className="relative z-10 px-6 mt-[160px]">
-          <h1 className="text-[42px] font-[850] leading-[1.08] text-white mb-3">
-            Find your<br />trail kit
-          </h1>
-          <p className="text-[15px] text-white/92">
-            智能装备推荐，让每一次出发都从容。
-          </p>
-        </div>
+          {/* Hero 文案 */}
+          <div className="relative z-10 px-6 mt-[160px]">
+            <h1 className="text-[42px] font-[850] leading-[1.08] text-white mb-3">
+              Find your<br />trail kit
+            </h1>
+            <p className="text-[15px] text-white/92">
+              智能装备推荐，让每一次出发都从容。
+            </p>
+          </div>
 
-        {/* 搜索栏 */}
-        <div className="relative z-10 mx-6 mt-[14px]">
-          <SearchBar variant="hero" />
-        </div>
+          {/* 搜索栏 */}
+          <div className="relative z-20 mx-6 mt-[14px]">
+            <SearchBar variant="hero" />
+          </div>
 
-        {/* 快捷链接 */}
-        <a href="#rankings" className="relative z-10 block w-fit mx-auto mt-7 text-[13px] font-bold text-[#999f99] underline underline-offset-4">
-          探索热门装备榜单
-        </a>
-      </section>
+          {/* 快捷链接 */}
+          <a href="#rankings" className="relative z-10 block w-fit mx-auto mt-7 text-[13px] font-bold text-[#999f99] underline underline-offset-4">
+            探索热门装备榜单
+          </a>
+        </section>
+      </div>
 
       {/* ===== 桌面端 Hero（轮播图） ===== */}
       <section className="hidden md:block relative h-[45vh]">
