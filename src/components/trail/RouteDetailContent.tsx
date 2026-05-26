@@ -26,22 +26,22 @@ export default function RouteDetailContent({ route, selectedStyle }: RouteDetail
 
   return (
     <div className="flex flex-col gap-6 mt-6 pt-6 border-t border-gray-200 md:flex-row md:mt-8 md:pt-8">
-      {/* 左侧：天气信息 */}
-      <div className="flex-1">
-        <WeatherSection
-          route={route}
-          selectedDate={selectedDate}
-          forecasts={forecasts}
-          defaultForecasts={defaultForecasts}
-        />
-      </div>
-
-      {/* 右侧：装备推荐 */}
-      <div className="flex-1">
+      {/* 装备推荐（移动端在上） */}
+      <div className="flex-1 md:order-2">
         <GearPlanner
           route={route}
           selectedStyle={selectedStyle}
           onDateChange={handleDateChange}
+          defaultForecasts={defaultForecasts}
+        />
+      </div>
+
+      {/* 天气信息（移动端在下，桌面端在左） */}
+      <div className="flex-1 md:order-1">
+        <WeatherSection
+          route={route}
+          selectedDate={selectedDate}
+          forecasts={forecasts}
           defaultForecasts={defaultForecasts}
         />
       </div>
