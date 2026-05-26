@@ -10,7 +10,7 @@ interface TrailSidebarProps {
 
 export default function TrailSidebar({ route, selectedStyle }: TrailSidebarProps) {
   return (
-    <div className="space-y-4">
+    <div className="hidden md:block space-y-4">
       {/* 风景缩略图 */}
       <div className="relative w-full aspect-[4/3] rounded-alltrails overflow-hidden shadow-alltrails">
         <Image
