@@ -184,7 +184,7 @@ export default function WeatherSection({ route, selectedDate, forecasts, default
               {/* 日期和天气概览 */}
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-3">
-                  <span className="text-lg">{day.icon}</span>
+                  <span className="text-lg emoji-icon">{day.icon}</span>
                   <div>
                     <span className="text-sm font-medium text-text-primary">{weekDay}</span>
                     <span className="text-xs text-text-secondary ml-2">{monthDay}</span>
