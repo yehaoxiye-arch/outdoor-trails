@@ -63,7 +63,7 @@ export default function SearchBar({ variant = "default" }: SearchBarProps) {
         </div>
 
         {isOpen && results.length > 0 && (
-          <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-lg max-h-[320px] overflow-y-auto z-50">
+          <div className="mt-2 bg-white rounded-xl shadow-lg max-h-[320px] overflow-y-auto">
             {results.map((route) => (
               <button
                 key={route.id}
@@ -78,7 +78,7 @@ export default function SearchBar({ variant = "default" }: SearchBarProps) {
         )}
 
         {isOpen && query.length > 0 && results.length === 0 && (
-          <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-lg p-4 text-center text-gray-500 z-50">
+          <div className="mt-2 bg-white rounded-xl shadow-lg p-4 text-center text-gray-500">
             未找到相关线路
           </div>
         )}
