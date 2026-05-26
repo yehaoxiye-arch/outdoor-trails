@@ -1,10 +1,14 @@
 import type { NextConfig } from "next";
 
+const isCloudflareBuild = process.env.CF_PAGES === "1";
+
 const nextConfig: NextConfig = {
+  ...(isCloudflareBuild && { output: "export" }),
   turbopack: {
     root: ".",
   },
   images: {
+    ...(isCloudflareBuild && { unoptimized: true }),
     remotePatterns: [
       {
         protocol: "https",
