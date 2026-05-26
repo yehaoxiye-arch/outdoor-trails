@@ -10,27 +10,21 @@ export default function HomePage() {
     <div className="min-h-screen">
       {/* ===== 移动端 Hero ===== */}
       <div className="md:hidden relative">
-        {/* 背景层（固定高度，overflow-hidden 裁剪渐变） */}
-        <div className="absolute inset-0 h-[444px] overflow-hidden"
-          style={{
-            background: `
-              linear-gradient(180deg, rgba(255,255,255,.18), rgba(88,56,34,.38)),
-              radial-gradient(circle at 83% 18%, rgba(230,216,184,.8) 0 32px, transparent 33px),
-              linear-gradient(125deg, transparent 0 35%, rgba(142,119,91,.86) 35% 62%, transparent 63%),
-              linear-gradient(55deg, transparent 0 42%, rgba(159,119,78,.8) 42% 72%, transparent 73%),
-              linear-gradient(180deg, #d7d3cc 0%, #c9c1b5 54%, #b08b67 100%)
-            `,
-          }}
-        >
-          {/* 山脉剪影层 */}
-          <div className="absolute inset-0 pointer-events-none"
+        {/* 背景层（图片 + 渐变叠加） */}
+        <div className="absolute inset-0 h-[444px] overflow-hidden">
+          {/* 图片底图 */}
+          <div className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url(/images/hero-bg.jpg)" }}
+          />
+          {/* 渐变叠加层（保留原先的氛围感） */}
+          <div className="absolute inset-0"
             style={{
               background: `
-                linear-gradient(128deg, transparent 0 28%, rgba(137,111,84,.88) 28% 47%, transparent 48%),
-                linear-gradient(57deg, transparent 0 49%, rgba(154,113,75,.85) 49% 73%, transparent 74%)
+                linear-gradient(180deg, rgba(255,255,255,.18), rgba(88,56,34,.38)),
+                radial-gradient(circle at 83% 18%, rgba(230,216,184,.5) 0 32px, transparent 33px),
+                linear-gradient(125deg, transparent 0 35%, rgba(142,119,91,.5) 35% 62%, transparent 63%),
+                linear-gradient(55deg, transparent 0 42%, rgba(159,119,78,.45) 42% 72%, transparent 73%)
               `,
-              top: "150px", bottom: "84px", left: "-40px", right: "-34px",
-              opacity: 0.95,
             }}
           />
           {/* 底部渐变过渡 */}
