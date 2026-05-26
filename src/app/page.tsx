@@ -25,12 +25,7 @@ export default function HomePage() {
         {/* 内容层（无 overflow-hidden，搜索下拉可正常展开） */}
         <section className="relative">
           {/* 顶部导航 */}
-          <div className="relative z-10 flex items-center gap-3 px-6 pt-[18px]">
-            <button className="w-9 h-9 rounded-full bg-white/90 flex items-center justify-center" aria-label="打开菜单">
-              <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
+          <div className="relative z-10 flex items-center gap-2 px-6 pt-[18px]">
             <div className="flex items-center gap-2 text-white font-extrabold text-[22px]">
               <svg className="w-11 h-6" viewBox="0 0 44 24" fill="none">
                 <path d="M2 21L12 3l10 18" stroke="#dce97a" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
