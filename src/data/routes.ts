@@ -1089,7 +1089,7 @@ export const routes: Route[] = [
     province: "西藏",
     location: "山南市 · 洛扎县",
     mountainRange: "喜马拉雅山脉",
-    image: "https://images.unsplash.com/photo-1779187604054-18df74e1d676",
+    image: "https://images.unsplash.com/photo-1779187604054-18df74e1d676?w=800&h=600&fit=crop",
     image2: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&h=600&fit=crop",
     coordinates: { lat: 28.85, lng: 90.18 },
     styles: [
