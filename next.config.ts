@@ -26,6 +26,34 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "outdoorsmagic.com",
       },
+      {
+        protocol: "https",
+        hostname: "plus.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "img.alicdn.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cbu01.alicdn.com",
+      },
+      {
+        protocol: "https",
+        hostname: "img14.360buyimg.com",
+      },
+      {
+        protocol: "https",
+        hostname: "contents.mediadecathlon.com",
+      },
+      {
+        protocol: "https",
+        hostname: "gd-hbimg.huaban.com",
+      },
+      {
+        protocol: "https",
+        hostname: "imgservice.suning.cn",
+      },
     ],
   },
 };
