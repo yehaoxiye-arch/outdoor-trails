@@ -710,7 +710,7 @@ const footwearProducts: Product[] = [
       name: "KIPSUMMIT越野跑鞋",
       brand: "迪卡侬",
       category: "footwear",
-      image: "https://contents.mediadecathlon.com/p3053829/k$6b6e0c0f97157b39b632ee420d9102d2/women-s-trail-running-shoes-kiprun-kipsummit-grey-black-and-coral.jpg",
+      image: "",
       specs: {
         weight: 308,
         waterproof: false,
@@ -744,7 +744,7 @@ const footwearProducts: Product[] = [
       name: "TSL3越野跑鞋",
       brand: "迪卡侬",
       category: "footwear",
-      image: "https://img.alicdn.com/bao/uploaded/i3/352469034/O1CN01TR7NPy2GbcwkYydR3-352469034.jpg",
+      image: "",
       specs: {
         weight: 290,
         waterproof: false,
@@ -761,7 +761,7 @@ const footwearProducts: Product[] = [
       name: "FORCLAZ SPEED登山鞋",
       brand: "迪卡侬",
       category: "footwear",
-      image: "https://contents.mediadecathlon.com/p2899574/k$1a33e1d5ae1a1ab6d0acc87099c3a4d7/picture.jpg?format=auto&f=3000x0",
+      image: "",
       specs: {
         weight: 550,
         waterproof: true,
@@ -796,7 +796,7 @@ const footwearProducts: Product[] = [
       name: "FUGA PRO 4越野跑鞋",
       brand: "凯乐石",
       category: "footwear",
-      image: "https://img.alicdn.com/bao/uploaded/O1CN016Rz6kF1KfyslGR6PK_!!6000000001192-0-yinhe.jpg",
+      image: "",
       specs: {
         weight: 295,
         waterproof: false,
@@ -830,7 +830,7 @@ const footwearProducts: Product[] = [
       name: "MT5登山徒步鞋",
       brand: "凯乐石",
       category: "footwear",
-      image: "https://img.alicdn.com/bao/uploaded/i1/597385787/O1CN01FFwpip1scUt0qOpIW_!!0-item_pic.jpg",
+      image: "",
       specs: {
         weight: 580,
         waterproof: false,
@@ -1973,7 +1973,7 @@ const tentProducts: Product[] = [
       name: "2 Second速开帐篷",
       brand: "迪卡侬",
       category: "tent",
-      image: "https://contents.mediadecathlon.com/p2579514/k$77ceea44ecf901a7a28acf2e543fe4bc/picture.jpg",
+      image: "",
       specs: {
         capacity: 2,
         weight: 3,
@@ -2007,7 +2007,7 @@ const tentProducts: Product[] = [
       name: "秋梦加强版帐篷",
       brand: "凯乐石",
       category: "tent",
-      image: "https://gd-hbimg.huaban.com/ecd839d53550bfc2a8fe5e918fca1c69cf2091195140-NatEUJ_fw658webp",
+      image: "",
       specs: {
         capacity: 2,
         weight: 2,
@@ -2024,7 +2024,7 @@ const tentProducts: Product[] = [
       name: "蝶影超轻单人帐",
       brand: "凯乐石",
       category: "tent",
-      image: "https://imgservice.suning.cn/uimg1/b2c/image/dv8agEonhhFOka4aZsMgfw.jpg",
+      image: "",
       specs: {
         capacity: 2,
         weight: 0,
@@ -2041,7 +2041,7 @@ const tentProducts: Product[] = [
       name: "蜻蜓2超轻帐篷",
       brand: "凯乐石",
       category: "tent",
-      image: "https://cdn.sportmaster.ru/upload/mdm/media_content/resize/9d1/768_1024_f08a/82495030299.jpg",
+      image: "",
       specs: {
         capacity: 2,
         weight: 1,
@@ -2708,7 +2708,7 @@ const sleepingProducts: Product[] = [
       name: "FORCLAZ 500三季睡袋",
       brand: "迪卡侬",
       category: "sleeping",
-      image: "https://geartrade.com/cdn/shop/files/b7862db0-1dd9-483f-a845-884f47f410ce.webp?crop=center&height=1200&v=1751146053&width=1200",
+      image: "",
       specs: {
         temperatureRating: 0,
         weight: 830,
@@ -2723,7 +2723,7 @@ const sleepingProducts: Product[] = [
       name: "MH100棉睡袋",
       brand: "迪卡侬",
       category: "sleeping",
-      image: "https://contents.mediadecathlon.com/p1596412/k$93e0e3e8a2f39ad4979f2a5bd8ed771b/sleeping-camping-montana-quechua-mh100-nino-nina.jpg",
+      image: "",
       specs: {
         temperatureRating: 0,
         weight: 1,
@@ -2738,7 +2738,7 @@ const sleepingProducts: Product[] = [
       name: "Mountain 600高山羽绒睡袋",
       brand: "凯乐石",
       category: "sleeping",
-      image: "https://ir.ozone.ru/s3/multimedia-1-a/c1000/7125057370.jpg",
+      image: "",
       specs: {
         temperatureRating: 0,
         weight: 1,
@@ -3710,7 +3710,7 @@ const backpackProducts: Product[] = [
       name: "NH100日常徒步背包",
       brand: "迪卡侬",
       category: "backpack",
-      image: "https://www.decathlon.com/cdn/shop/files/8775634-product_image-p2423262.jpg?v=1757543073&width=1646",
+      image: "",
       specs: {
         volume: 20,
         weight: 450,
@@ -4643,7 +4643,7 @@ const outerlayerProducts: Product[] = [
       name: "ODT2帆船防水硬壳裤",
       brand: "迪卡侬",
       category: "outer-layer",
-      image: "https://img.alicdn.com/bao/uploaded/O1CN01bzFhrg20sXZjyTdsT_!!6000000006905-0-yinhe.jpg",
+      image: "",
       specs: {
         material: "聚酯纤维",
         warmthLevel: 3,
@@ -4663,7 +4663,7 @@ const outerlayerProducts: Product[] = [
       name: "WEDZE滑雪硬壳裤",
       brand: "迪卡侬",
       category: "outer-layer",
-      image: "https://img.alicdn.com/i1/352469034/O1CN01iqy4ys2Gbcwg3PvUS_!!352469034.jpg",
+      image: "",
       specs: {
         material: "聚酯纤维+防水膜",
         warmthLevel: 3,
@@ -4743,7 +4743,7 @@ const outerlayerProducts: Product[] = [
       name: "MONT X硬壳冲锋衣",
       brand: "凯乐石",
       category: "outer-layer",
-      image: "https://gd-hbimg.huaban.com/4115b316c5bb681145a036b884dc272411e01cf0aa832-VuUyfq_fw658webp",
+      image: "",
       specs: {
         material: "GORE-TEX 3L面料",
         warmthLevel: 3,
@@ -4855,7 +4855,7 @@ const outerlayerProducts: Product[] = [
       name: "FUGA轻量跑山硬壳裤",
       brand: "凯乐石",
       category: "outer-layer",
-      image: "https://img14.360buyimg.com/pop/jfs/t1/235964/8/4752/96586/6565816aFdd659136/e8980058aca6bde2.jpg",
+      image: "",
       specs: {
         material: "PERTEX SHIELD 3L",
         warmthLevel: 3,
@@ -4875,7 +4875,7 @@ const outerlayerProducts: Product[] = [
       name: "T10 CORDURA软壳裤",
       brand: "凯乐石",
       category: "outer-layer",
-      image: "https://img.alicdn.com/i1/597385787/O1CN018OphEm1scUq4boPJm-597385787.jpg",
+      image: "",
       specs: {
         material: "CORDURA尼龙66",
         warmthLevel: 3,
@@ -4895,7 +4895,7 @@ const outerlayerProducts: Product[] = [
       name: "T10-PRO专业软壳裤",
       brand: "凯乐石",
       category: "outer-layer",
-      image: "https://img.alicdn.com/i1/597385787/O1CN018OphEm1scUq4boPJm-597385787.jpg",
+      image: "",
       specs: {
         material: "CORDURA尼龙66",
         warmthLevel: 3,
@@ -4915,7 +4915,7 @@ const outerlayerProducts: Product[] = [
       name: "T11 GTX加绒软壳裤",
       brand: "凯乐石",
       category: "outer-layer",
-      image: "https://img.alicdn.com/i2/597385787/O1CN01ChTOxc1scUwr07yyj_!!597385787.jpg",
+      image: "",
       specs: {
         material: "GORE-TEX+细绒",
         warmthLevel: 3,
@@ -4935,7 +4935,7 @@ const outerlayerProducts: Product[] = [
       name: "朱雀冲锋衣",
       brand: "拓路者",
       category: "outer-layer",
-      image: "https://cbu01.alicdn.com/img/ibank/O1CN01yamlPj2IfPVVHTldP_!!2215812549313-0-cib.jpg",
+      image: "",
       specs: {
         material: "高密尼龙+防水膜",
         warmthLevel: 3,
@@ -4953,7 +4953,7 @@ const outerlayerProducts: Product[] = [
       name: "朱雀Pro冲锋衣",
       brand: "拓路者",
       category: "outer-layer",
-      image: "https://cbu01.alicdn.com/img/ibank/O1CN01haULDG2IfPdPNn95D_!!2215812549313-0-cib.jpg",
+      image: "",
       specs: {
         material: "高密尼龙+升级防水膜",
         warmthLevel: 3,
@@ -4989,7 +4989,7 @@ const outerlayerProducts: Product[] = [
       name: "小鹰冲锋衣",
       brand: "拓路者",
       category: "outer-layer",
-      image: "https://img.alicdn.com/bao/uploaded/i1/761800145/O1CN01S1EWgL1CwSQHvc26z_!!0-item_pic.jpg",
+      image: "",
       specs: {
         material: "东丽面料+东丽PU膜",
         warmthLevel: 3,
@@ -5063,7 +5063,7 @@ const outerlayerProducts: Product[] = [
       name: "小鹰冲锋裤",
       brand: "拓路者",
       category: "outer-layer",
-      image: "https://img14.360buyimg.com/pop/s500x500_jfs/t1/218540/31/41670/144137/66640bd0F1c3c84df/9bb07a5dd0413380.jpg",
+      image: "",
       specs: {
         material: "东丽面料+东丽PU膜",
         warmthLevel: 3,
@@ -5083,7 +5083,7 @@ const outerlayerProducts: Product[] = [
       name: "朱雀Pro硬壳冲锋裤",
       brand: "拓路者",
       category: "outer-layer",
-      image: "https://cbu01.alicdn.com/img/ibank/O1CN01CNEh4V2IfPdOIQIhp_!!2215812549313-0-cib.jpg",
+      image: "",
       specs: {
         material: "高密尼龙+自研防水膜",
         warmthLevel: 3,
@@ -5103,7 +5103,7 @@ const outerlayerProducts: Product[] = [
       name: "小鹰东丽面料硬壳裤",
       brand: "拓路者",
       category: "outer-layer",
-      image: "https://img14.360buyimg.com/pop/s500x500_jfs/t1/218540/31/41670/144137/66640bd0F1c3c84df/9bb07a5dd0413380.jpg",
+      image: "",
       specs: {
         material: "东丽75D尼龙+防水膜",
         warmthLevel: 3,
@@ -5815,7 +5815,7 @@ const midlayerProducts: Product[] = [
       name: "GT ZERO 900蓬羽绒服",
       brand: "凯乐石",
       category: "mid-layer",
-      image: "https://cbu01.alicdn.com/img/ibank/O1CN018INYYi1qSlU2U6aoZ_!!2219053405495-0-cib.310x310.jpg",
+      image: "",
       specs: {
         material: "ZERO-Gravity超轻面料",
         warmthLevel: 4,
@@ -6080,7 +6080,7 @@ const sunprotectionProducts: Product[] = [
       name: "朱雀防晒衣",
       brand: "拓路者",
       category: "sun-protection",
-      image: "https://cbu01.alicdn.com/img/ibank/O1CN01ue6UyC2IfPbgqSFly_!!2215812549313-0-cib.jpg",
+      image: "",
       specs: {
         material: "冰丝防晒面料",
         warmthLevel: 1,
@@ -6098,7 +6098,7 @@ const sunprotectionProducts: Product[] = [
       name: "冰蝶防晒衣",
       brand: "拓路者",
       category: "sun-protection",
-      image: "https://cbu01.alicdn.com/img/ibank/O1CN01NRoSr61D6XBDjmjSg_!!2215845190167-0-cib.310x310.jpg",
+      image: "",
       specs: {
         material: "超轻防晒面料",
         warmthLevel: 1,
